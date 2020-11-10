@@ -1,0 +1,25 @@
+{
+  "name": "project_2",
+  "version": "1.0.0",
+  "description": "Meal planner and shopping list creator",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chrisjmckeown/Project_2.git"
+  },
+  "keywords": [
+    "Shopping",
+    "List",
+    "Meal",
+    "Grociers"
+  ],
+  "author": "Amelia, Gavin, Avvi, Chris",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/chrisjmckeown/Project_2/issues"
+  },
+  "homepage": "https://github.com/chrisjmckeown/Project_2#readme"
+}
