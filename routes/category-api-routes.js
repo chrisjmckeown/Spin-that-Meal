@@ -3,7 +3,7 @@ const db = require("../models");
 module.exports = function (app) {
     // GET route for getting all items
     app.get("/api/categories", (req, res) => {
-        db.Author.findAll({}).then((result) => {
+        db.Category.findAll({}).then((result) => {
             res.json(result);
         });
     });

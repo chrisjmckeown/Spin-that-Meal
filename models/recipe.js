@@ -12,7 +12,7 @@ module.exports = function(sequelize, DataTypes) {
             allowNull: false,
             len: [1]
         },
-        potion: {
+        portion: {
             type: DataTypes.INTEGER
         },
         user_id: {
