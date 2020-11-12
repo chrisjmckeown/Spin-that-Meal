@@ -27,14 +27,20 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Set Handlebars.
-
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // Requiring our routes
 require("./routes/html-routes.js")(app);
+require("./routes/category-api-routes.js")(app);
+require("./routes/favourite-api-routes.js")(app);
+require("./routes/measurement-api-routes.js")(app);
+require("./routes/recipe-api-routes.js")(app);
+require("./routes/recipeIngredient-api-routes.js")(app);
+require("./routes/shoppingList-api-routes.js")(app);
+require("./routes/type-api-routes.js")(app);
+require("./routes/user-api-routes.js")(app);
 require("./routes/login-html-routes.js")(app);
-//require("./routes/api-routes.js")(app);
 
 // Syncing our database and logging a message to the user upon success
 db.sequelize.sync().then(() => {
