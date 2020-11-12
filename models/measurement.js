@@ -1,6 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
     var Measurement = sequelize.define("Measurement", {
-        unit: {
+        name: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
