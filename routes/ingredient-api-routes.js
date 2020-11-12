@@ -2,15 +2,15 @@ const db = require("../models");
 
 module.exports = function (app) {
     // GET route for getting all items
-    app.get("/api/categories", (req, res) => {
-        db.Category.findAll({}).then((result) => {
+    app.get("/api/ingredients", (req, res) => {
+        db.Ingredient.findAll({}).then((result) => {
             res.json(result);
         });
     });
 
     // Get route for retrieving a single item
-    app.get("/api/categories/:id", (req, res) => {
-        db.Category.findOne({
+    app.get("/api/ingredients/:id", (req, res) => {
+        db.Ingredient.findOne({
             where: {
                 id: req.params.id
             }
@@ -20,17 +20,17 @@ module.exports = function (app) {
     });
 
     // POST route for saving new
-    app.post("/api/categories", (req, res) => {
+    app.post("/api/ingredients", (req, res) => {
         const { name } = req.body;
-        db.Category.create({ name }).then((result) => {
+        db.Ingredient.create({ name }).then((result) => {
             res.json(result);
         });
     });
 
     // PUT route for updating
-    app.put("/api/categories", (req, res) => {
+    app.put("/api/ingredients", (req, res) => {
         const { name } = req.body;
-        db.Category.update({
+        db.Ingredient.update({
             name
         }, {
             where: {
@@ -42,8 +42,8 @@ module.exports = function (app) {
     });
 
     // DELETE route for deleting
-    app.delete("/api/categories/:id", (req, res) => {
-        db.Category.destroy({
+    app.delete("/api/ingredients/:id", (req, res) => {
+        db.Ingredient.destroy({
             where: {
                 id: req.params.id
             }
