@@ -37,8 +37,29 @@ require("./routes/html-routes.js")(app);
 
 // Syncing our database and logging a message to the user upon success
 db.sequelize.sync().then(() => {
-    app.listen(PORT, () => {
+    const server =   app.listen(PORT, () => {
         // Log (server-side) when our server has started
         console.log("Server listening on: http://localhost:" + PORT);
     });
+
+    //socket.io instantiation
+    const io = require("socket.io")(server)
+    //listen on every connection
+    io.on('connection', (socket) => {
+        //default username
+        socket.username = "Anonymous"
+        //listen on change_username
+        socket.on('change_username', (data) => {
+            socket.username = data.username
+        })
+        //listen on new_message
+        socket.on('new_message', (data) => {
+            //broadcast the new message
+            io.sockets.emit('new_message', { message: data.message, username: socket.username });
+        })
+        //listen on typing
+        socket.on('typing', (data) => {
+            socket.broadcast.emit('typing', { username: socket.username })
+        })
+    })
 });
