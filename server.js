@@ -1,7 +1,7 @@
 // Requiring necessary npm packages
 const express = require("express");
-// const session = require("express-session");
-// const passport = require("./config/passport");
+const session = require("express-session");
+const passport = require("./config/passport");
 const exphbs = require("express-handlebars");
 // Setting the models
 const db = require("./models");
@@ -20,11 +20,11 @@ app.use(express.json());
 app.use(express.static("public"));
 
 // Configuring middleware needed for authentication
-// app.use(
-//     session({ secret: "keyboard cat", resave: true, saveUninitialized: true })
-// );
-// app.use(passport.initialize());
-// app.use(passport.session());
+app.use(
+    session({ secret: "lets get cooking", resave: true, saveUninitialized: true })
+);
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Set Handlebars.
 
@@ -33,6 +33,7 @@ app.set("view engine", "handlebars");
 
 // Requiring our routes
 require("./routes/html-routes.js")(app);
+require("./routes/login-html-routes.js")(app);
 //require("./routes/api-routes.js")(app);
 
 // Syncing our database and logging a message to the user upon success
