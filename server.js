@@ -21,7 +21,7 @@ app.use(express.static("public"));
 
 // Configuring middleware needed for authentication
 app.use(
-    session({ secret: "lets get cooking", resave: true, saveUninitialized: true })
+    session({ secret: process.env.SECRET, resave: true, saveUninitialized: true })
 );
 app.use(passport.initialize());
 app.use(passport.session());
@@ -44,7 +44,7 @@ require("./routes/login-html-routes.js")(app);
 
 // Syncing our database and logging a message to the user upon success
 db.sequelize.sync().then(() => {
-    const server =   app.listen(PORT, () => {
+    const server = app.listen(PORT, () => {
         // Log (server-side) when our server has started
         console.log("Server listening on: http://localhost:" + PORT);
     });
