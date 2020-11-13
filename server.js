@@ -32,15 +32,15 @@ app.set("view engine", "handlebars");
 
 // Requiring our routes
 require("./routes/html/html-routes.js")(app);
-require("./routes/html/login-html-routes.js")(app);
-require("./routes/api/category-api-routes.js")(app);
-require("./routes/api/favourite-api-routes.js")(app);
-require("./routes/api/measurement-api-routes.js")(app);
-require("./routes/api/recipe-api-routes.js")(app);
-require("./routes/api/recipeIngredient-api-routes.js")(app);
-require("./routes/api/shoppingList-api-routes.js")(app);
-require("./routes/api/type-api-routes.js")(app);
-require("./routes/api/user-api-routes.js")(app);
+require("./routes/html/login-routes.js")(app);
+require("./routes/api/category-routes.js")(app);
+require("./routes/api/favourite-routes.js")(app);
+require("./routes/api/measurement-routes.js")(app);
+require("./routes/api/recipe-routes.js")(app);
+require("./routes/api/recipeIngredient-routes.js")(app);
+require("./routes/api/shoppingList-routes.js")(app);
+require("./routes/api/type-routes.js")(app);
+require("./routes/api/user-routes.js")(app);
 
 // Syncing our database and logging a message to the user upon success
 db.sequelize.sync().then(() => {

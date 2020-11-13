@@ -22,18 +22,18 @@ module.exports = function (app) {
     });
 
     // POST route for saving new
-    app.post("/api/users", (req, res) => {
-        const { name, email, phone, address } = req.body;
-        db.User.create({ name, email, phone, address }).then((result) => {
-            res.json(result);
-        });
-    });
+    // app.post("/api/users", (req, res) => {
+    //     const { name, userName, email, phone, address } = req.body;
+    //     db.User.create({ name, userName, email, phone, address }).then((result) => {
+    //         res.json(result);
+    //     });
+    // });
 
     // PUT route for updating
     app.put("/api/users", isAuthenticated, (req, res) => {
-        const { name, email, phone, address } = req.body;
+        const { name, userName, email, phone, address } = req.body;
         db.User.update({
-            name, email, phone, address
+            name, userName, email, phone, address
         }, {
             where: {
                 id: req.body.id
