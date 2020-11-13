@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
-  var ShoppingList = sequelize.define("ShoppingList", {
+  const ShoppingList = sequelize.define("ShoppingList", {
     ingredient_id: {
       type: DataTypes.INTEGER
     },
@@ -15,7 +15,10 @@ module.exports = function (sequelize, DataTypes) {
     user_id: {
       type: DataTypes.INTEGER
     }
-  });
+  },
+    {
+      freezeTableName: true
+    });
 
   return ShoppingList;
 };
