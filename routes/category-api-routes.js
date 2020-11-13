@@ -4,7 +4,8 @@ module.exports = function (app) {
     // GET route for getting all items
     app.get("/api/categories", (req, res) => {
         db.Category.findAll({}).then((result) => {
-            res.json(result);
+            // res.json(result);
+            res.render("categories", result);
         });
     });
 
