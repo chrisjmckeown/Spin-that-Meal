@@ -1,15 +1,17 @@
 const db = require("../../models");
+// Requiring our custom middleware for checking if a user is logged in
+const isAuthenticated = require("../../config/middleware/isAuthenticated");
 
 module.exports = function (app) {
     // GET route for getting all items
-    app.get("/api/measurements", (req, res) => {
+    app.get("/api/measurements", isAuthenticated, (req, res) => {
         db.Measurement.findAll({}).then((result) => {
             res.json(result);
         });
     });
 
     // Get route for retrieving a single item
-    app.get("/api/measurements/:id", (req, res) => {
+    app.get("/api/measurements/:id", isAuthenticated, (req, res) => {
         db.Measurement.findOne({
             where: {
                 id: req.params.id
@@ -20,7 +22,7 @@ module.exports = function (app) {
     });
 
     // POST route for saving new
-    app.post("/api/measurements", (req, res) => {
+    app.post("/api/measurements", isAuthenticated, (req, res) => {
         const { unit } = req.body;
         db.Measurement.create({ unit }).then((result) => {
             res.json(result);
@@ -28,7 +30,7 @@ module.exports = function (app) {
     });
 
     // PUT route for updating
-    app.put("/api/measurements", (req, res) => {
+    app.put("/api/measurements", isAuthenticated, (req, res) => {
         const { unit } = req.body;
         db.Measurement.update({
             unit
@@ -42,7 +44,7 @@ module.exports = function (app) {
     });
 
     // DELETE route for deleting
-    app.delete("/api/measurements/:id", (req, res) => {
+    app.delete("/api/measurements/:id", isAuthenticated, (req, res) => {
         db.Measurement.destroy({
             where: {
                 id: req.params.id

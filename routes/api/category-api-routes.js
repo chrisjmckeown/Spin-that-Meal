@@ -1,15 +1,17 @@
 const db = require("../../models");
+// Requiring our custom middleware for checking if a user is logged in
+const isAuthenticated = require("../../config/middleware/isAuthenticated");
 
 module.exports = function (app) {
     // GET route for getting all items
-    app.get("/api/categories", (req, res) => {
+    app.get("/api/categories", isAuthenticated, (req, res) => {
         db.Category.findAll({}).then((result) => {
             res.json(result);
         });
     });
 
     // Get route for retrieving a single item
-    app.get("/api/categories/:id", (req, res) => {
+    app.get("/api/categories/:id", isAuthenticated, (req, res) => {
         db.Category.findOne({
             where: {
                 id: req.params.id
@@ -20,7 +22,7 @@ module.exports = function (app) {
     });
 
     // POST route for saving new
-    app.post("/api/categories", (req, res) => {
+    app.post("/api/categories", isAuthenticated, (req, res) => {
         const { name } = req.body;
         db.Category.create({ name }).then((result) => {
             res.json(result);
@@ -28,7 +30,7 @@ module.exports = function (app) {
     });
 
     // PUT route for updating
-    app.put("/api/categories", (req, res) => {
+    app.put("/api/categories", isAuthenticated, (req, res) => {
         const { name } = req.body;
         db.Category.update({
             name
@@ -42,7 +44,7 @@ module.exports = function (app) {
     });
 
     // DELETE route for deleting
-    app.delete("/api/categories/:id", (req, res) => {
+    app.delete("/api/categories/:id", isAuthenticated, (req, res) => {
         db.Category.destroy({
             where: {
                 id: req.params.id
