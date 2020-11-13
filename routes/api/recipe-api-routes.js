@@ -1,16 +1,16 @@
-const db = require("../models");
+const db = require("../../models");
 
 module.exports = function (app) {
     // GET route for getting all items
-    app.get("/api/types", (req, res) => {
-        db.Type.findAll({}).then((result) => {
+    app.get("/api/recipes", (req, res) => {
+        db.Recipe.findAll({}).then((result) => {
             res.json(result);
         });
     });
 
     // Get route for retrieving a single item
-    app.get("/api/types/:id", (req, res) => {
-        db.Type.findOne({
+    app.get("/api/recipes/:id", (req, res) => {
+        db.Recipe.findOne({
             where: {
                 id: req.params.id
             }
@@ -20,18 +20,18 @@ module.exports = function (app) {
     });
 
     // POST route for saving new
-    app.post("/api/types", (req, res) => {
-        const { name } = req.body;
-        db.Type.create({ name }).then((result) => {
+    app.post("/api/recipes", (req, res) => {
+        const { name, instruction, portion } = req.body;
+        db.Recipe.create({ name, instruction, portion }).then((result) => {
             res.json(result);
         });
     });
 
     // PUT route for updating
-    app.put("/api/types", (req, res) => {
-        const { name } = req.body;
-        db.Type.update({
-            name
+    app.put("/api/recipes", (req, res) => {
+        const { name, instruction, portion } = req.body;
+        db.Recipe.update({
+            name, instruction, portion
         }, {
             where: {
                 id: req.body.id
@@ -42,8 +42,8 @@ module.exports = function (app) {
     });
 
     // DELETE route for deleting
-    app.delete("/api/types/:id", (req, res) => {
-        db.Type.destroy({
+    app.delete("/api/recipes/:id", (req, res) => {
+        db.Recipe.destroy({
             where: {
                 id: req.params.id
             }

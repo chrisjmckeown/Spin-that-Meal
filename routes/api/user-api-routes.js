@@ -1,16 +1,16 @@
-const db = require("../models");
+const db = require("../../models");
 
 module.exports = function (app) {
     // GET route for getting all items
-    app.get("/api/categories", (req, res) => {
-        db.Category.findAll({}).then((result) => {
+    app.get("/api/users", (req, res) => {
+        db.User.findAll({}).then((result) => {
             res.json(result);
         });
     });
 
     // Get route for retrieving a single item
-    app.get("/api/categories/:id", (req, res) => {
-        db.Category.findOne({
+    app.get("/api/users/:id", (req, res) => {
+        db.User.findOne({
             where: {
                 id: req.params.id
             }
@@ -20,18 +20,18 @@ module.exports = function (app) {
     });
 
     // POST route for saving new
-    app.post("/api/categories", (req, res) => {
-        const { name } = req.body;
-        db.Category.create({ name }).then((result) => {
+    app.post("/api/users", (req, res) => {
+        const { name , email, phone, address} = req.body;
+        db.User.create({ name , email, phone, address }).then((result) => {
             res.json(result);
         });
     });
 
     // PUT route for updating
-    app.put("/api/categories", (req, res) => {
-        const { name } = req.body;
-        db.Category.update({
-            name
+    app.put("/api/users", (req, res) => {
+        const { name , email, phone, address } = req.body;
+        db.User.update({
+            name , email, phone, address
         }, {
             where: {
                 id: req.body.id
@@ -42,8 +42,8 @@ module.exports = function (app) {
     });
 
     // DELETE route for deleting
-    app.delete("/api/categories/:id", (req, res) => {
-        db.Category.destroy({
+    app.delete("/api/users/:id", (req, res) => {
+        db.User.destroy({
             where: {
                 id: req.params.id
             }

@@ -1,16 +1,16 @@
-const db = require("../models");
+const db = require("../../models");
 
 module.exports = function (app) {
     // GET route for getting all items
-    app.get("/api/recipe-ingredients", (req, res) => {
-        db.RecipeIngredient.findAll({}).then((result) => {
+    app.get("/api/ingredients", (req, res) => {
+        db.Ingredient.findAll({}).then((result) => {
             res.json(result);
         });
     });
 
     // Get route for retrieving a single item
-    app.get("/api/recipe-ingredients/:id", (req, res) => {
-        db.RecipeIngredient.findOne({
+    app.get("/api/ingredients/:id", (req, res) => {
+        db.Ingredient.findOne({
             where: {
                 id: req.params.id
             }
@@ -20,18 +20,18 @@ module.exports = function (app) {
     });
 
     // POST route for saving new
-    app.post("/api/recipe-ingredients", (req, res) => {
-        const { amount } = req.body;
-        db.RecipeIngredient.create({ amount }).then((result) => {
+    app.post("/api/ingredients", (req, res) => {
+        const { name } = req.body;
+        db.Ingredient.create({ name }).then((result) => {
             res.json(result);
         });
     });
 
     // PUT route for updating
-    app.put("/api/recipe-ingredients", (req, res) => {
-        const { amount } = req.body;
-        db.RecipeIngredient.update({
-            amount
+    app.put("/api/ingredients", (req, res) => {
+        const { name } = req.body;
+        db.Ingredient.update({
+            name
         }, {
             where: {
                 id: req.body.id
@@ -42,8 +42,8 @@ module.exports = function (app) {
     });
 
     // DELETE route for deleting
-    app.delete("/api/recipe-ingredients/:id", (req, res) => {
-        db.RecipeIngredient.destroy({
+    app.delete("/api/ingredients/:id", (req, res) => {
+        db.Ingredient.destroy({
             where: {
                 id: req.params.id
             }

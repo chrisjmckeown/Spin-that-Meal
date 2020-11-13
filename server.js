@@ -31,20 +31,20 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // Requiring our routes
-require("./routes/html-routes.js")(app);
-require("./routes/category-api-routes.js")(app);
-require("./routes/favourite-api-routes.js")(app);
-require("./routes/measurement-api-routes.js")(app);
-require("./routes/recipe-api-routes.js")(app);
-require("./routes/recipeIngredient-api-routes.js")(app);
-require("./routes/shoppingList-api-routes.js")(app);
-require("./routes/type-api-routes.js")(app);
-require("./routes/user-api-routes.js")(app);
-require("./routes/login-html-routes.js")(app);
+require("./routes/html/html-routes.js")(app);
+require("./routes/html/login-html-routes.js")(app);
+require("./routes/api/category-api-routes.js")(app);
+require("./routes/api/favourite-api-routes.js")(app);
+require("./routes/api/measurement-api-routes.js")(app);
+require("./routes/api/recipe-api-routes.js")(app);
+require("./routes/api/recipeIngredient-api-routes.js")(app);
+require("./routes/api/shoppingList-api-routes.js")(app);
+require("./routes/api/type-api-routes.js")(app);
+require("./routes/api/user-api-routes.js")(app);
 
 // Syncing our database and logging a message to the user upon success
 db.sequelize.sync().then(() => {
-    const server =   app.listen(PORT, () => {
+    const server = app.listen(PORT, () => {
         // Log (server-side) when our server has started
         console.log("Server listening on: http://localhost:" + PORT);
     });

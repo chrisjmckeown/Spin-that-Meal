@@ -1,16 +1,16 @@
-const db = require("../models");
+const db = require("../../models");
 
 module.exports = function (app) {
     // GET route for getting all items
-    app.get("/api/measurements", (req, res) => {
-        db.Measurement.findAll({}).then((result) => {
+    app.get("/api/shopping-lists", (req, res) => {
+        db.ShoppingList.findAll({}).then((result) => {
             res.json(result);
         });
     });
 
     // Get route for retrieving a single item
-    app.get("/api/measurements/:id", (req, res) => {
-        db.Measurement.findOne({
+    app.get("/api/shopping-lists/:id", (req, res) => {
+        db.ShoppingList.findOne({
             where: {
                 id: req.params.id
             }
@@ -20,18 +20,18 @@ module.exports = function (app) {
     });
 
     // POST route for saving new
-    app.post("/api/measurements", (req, res) => {
-        const { unit } = req.body;
-        db.Measurement.create({ unit }).then((result) => {
+    app.post("/api/shopping-lists", (req, res) => {
+        const { amount } = req.body;
+        db.ShoppingList.create({ amount }).then((result) => {
             res.json(result);
         });
     });
 
     // PUT route for updating
-    app.put("/api/measurements", (req, res) => {
-        const { unit } = req.body;
-        db.Measurement.update({
-            unit
+    app.put("/api/shopping-lists", (req, res) => {
+        const { amount } = req.body;
+        db.ShoppingList.update({
+            amount
         }, {
             where: {
                 id: req.body.id
@@ -42,8 +42,8 @@ module.exports = function (app) {
     });
 
     // DELETE route for deleting
-    app.delete("/api/measurements/:id", (req, res) => {
-        db.Measurement.destroy({
+    app.delete("/api/shopping-lists/:id", (req, res) => {
+        db.ShoppingList.destroy({
             where: {
                 id: req.params.id
             }
