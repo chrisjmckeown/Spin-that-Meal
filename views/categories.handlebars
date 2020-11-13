@@ -1,0 +1,19 @@
+{{> header}}
+
+<h1>Categories</h1>
+
+<h2>Add a Category</h2>
+<form class="create-form">
+
+  <div class="form-group">
+    <label for="ca">Category Name:</label>
+    <input type="text" id="ca" name="name">
+  </div>
+  <button type="submit">Add Category</button>
+</form>
+<ul>
+  {{#each category}}
+      {{> category/row-item}}
+  {{/each}}
+</ul>
+{{> footer}}
