@@ -6,7 +6,9 @@ module.exports = function (app) {
     // GET route for getting all items
     app.get("/api/categories", isAuthenticated, (req, res) => {
         db.Category.findAll({}).then((result) => {
-            res.json(result);
+            // res.json(result);
+            console.log(result);
+            res.render("categories", {Category: result});
         });
     });
 
@@ -17,7 +19,7 @@ module.exports = function (app) {
                 id: req.params.id
             }
         }, (result) => {
-            res.json(result);
+            res.render("categories-edit", result);
         });
     });
 

@@ -1,4 +1,4 @@
-USE recipeDB;
+USE dinning_playlist_DB;
 
 INSERT INTO Measurement (name) VALUES 
 ("cup"), ("tablespoon"), ("teaspoon"),
