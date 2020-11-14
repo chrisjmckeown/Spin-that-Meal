@@ -5,6 +5,7 @@ const isAuthenticated = require("../../config/middleware/isAuthenticated");
 module.exports = function (app) {
     // GET route for getting all items
     app.get("/api/categories", isAuthenticated, (req, res) => {
+        console.log(`getting all`);
         db.Category.findAll({}).then((result) => {
             // res.json(result);
             console.log(result);
@@ -14,6 +15,7 @@ module.exports = function (app) {
 
     // Get route for retrieving a single item
     app.get("/api/categories/:id", isAuthenticated, (req, res) => {
+        console.log(`getting one ${req.params.id}`);
         db.Category.findOne({
             where: {
                 id: req.params.id
