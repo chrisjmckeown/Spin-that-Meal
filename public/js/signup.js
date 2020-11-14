@@ -45,7 +45,7 @@ $(document).ready(() => {
         $.post("/api/signup", {
             firstName, lastName, userName, email, password, phone, address
         })
-            .then(() => {
+            .then((res) => {
                 window.location.replace("/index");
                 // If there's an error, handle it by throwing up a bootstrap alert
             })

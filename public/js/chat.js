@@ -3,14 +3,15 @@ $(function () {
     //make connection
     const PORT = 8080; //process.env.PORT || 
     const socket = io.connect(`http://localhost:${PORT}`)
+    const userDetails = JSON.parse(localStorage.getItem("user-details"));
 
     //buttons and inputs 
-    let message = $("#message")
-    let username = $("#username")
-    let send_message = $("#send_message")
-    let send_username = $("#send_username")
-    let chatroom = $("#chatroom")
-    let feedback = $("#feedback")
+    const message = $("#message")
+    const username = $("#username")
+    const send_message = $("#send_message")
+    const send_username = $("#send_username")
+    const chatroom = $("#chatroom")
+    const feedback = $("#feedback")
 
     //Emit message
     send_message.click(function () {
@@ -42,4 +43,12 @@ $(function () {
         myUsername = username.val().trim();
         socket.emit('change_username', { username: myUsername })
     })
+
+    setUserName();
+    //Emit a username
+    function setUserName() {
+        console.log(userDetails.userName);
+        username.val(userDetails.userName);
+        socket.emit('change_username', { username: userDetails.userName })
+    }
 })

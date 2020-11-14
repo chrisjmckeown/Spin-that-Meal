@@ -16,7 +16,7 @@ module.exports = function (app) {
             where: {
                 id: req.params.id
             }
-        }, (result) => {
+        }).then ((result) => {
             res.json(result);
         });
     });
