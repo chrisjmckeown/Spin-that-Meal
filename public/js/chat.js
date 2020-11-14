@@ -47,7 +47,6 @@ $(function () {
     setUserName();
     //Emit a username
     function setUserName() {
-        console.log(userDetails.userName);
         username.val(userDetails.userName);
         socket.emit('change_username', { username: userDetails.userName })
     }
