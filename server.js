@@ -21,7 +21,7 @@ app.use(express.static("public"));
 
 // Configuring middleware needed for authentication
 app.use(
-    session({ secret: "lets get cooking", resave: true, saveUninitialized: true })
+    session({ secret: process.env.SECRET, resave: true, saveUninitialized: true })
 );
 app.use(passport.initialize());
 app.use(passport.session());
