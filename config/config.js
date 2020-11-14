@@ -3,7 +3,7 @@ module.exports = {
     "development": {
         "username": "root",
         "password": process.env.DB_PASSWORD,
-        "database": "dinning_playlist",
+        "database": "dinning_playlist_DB",
         "host": "127.0.0.1",
         "port": 3306,
         "dialect": "mysql"
@@ -11,7 +11,7 @@ module.exports = {
     "test": {
         "username": "root",
         "password": process.env.DB_PASSWORD,
-        "database": "dinning_playlist",
+        "database": "dinning_playlist_DB",
         "host": "127.0.0.1",
         "port": 3306,
         "dialect": "mysql"
@@ -19,7 +19,7 @@ module.exports = {
     "production": {
         "username": "root",
         "password": process.env.DB_PASSWORD,
-        "database": "dinning_playlist",
+        "database": "dinning_playlist_DB",
         "host": "127.0.0.1",
         "port": 3306,
         "dialect": "mysql"

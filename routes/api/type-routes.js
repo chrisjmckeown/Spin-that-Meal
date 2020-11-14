@@ -1,16 +1,18 @@
-const db = require("../models");
+const db = require("../../models");
+// Requiring our custom middleware for checking if a user is logged in
+const isAuthenticated = require("../../config/middleware/isAuthenticated");
 
 module.exports = function (app) {
     // GET route for getting all items
-    app.get("/api/users", (req, res) => {
-        db.User.findAll({}).then((result) => {
+    app.get("/api/types", isAuthenticated, (req, res) => {
+        db.Type.findAll({}).then((result) => {
             res.json(result);
         });
     });
 
     // Get route for retrieving a single item
-    app.get("/api/users/:id", (req, res) => {
-        db.User.findOne({
+    app.get("/api/types/:id", isAuthenticated, (req, res) => {
+        db.Type.findOne({
             where: {
                 id: req.params.id
             }
@@ -20,18 +22,18 @@ module.exports = function (app) {
     });
 
     // POST route for saving new
-    app.post("/api/users", (req, res) => {
-        const { name , email, phone, address} = req.body;
-        db.User.create({ name , email, phone, address }).then((result) => {
+    app.post("/api/types", isAuthenticated, (req, res) => {
+        const { name } = req.body;
+        db.Type.create({ name }).then((result) => {
             res.json(result);
         });
     });
 
     // PUT route for updating
-    app.put("/api/users", (req, res) => {
-        const { name , email, phone, address } = req.body;
-        db.User.update({
-            name , email, phone, address
+    app.put("/api/types", isAuthenticated, (req, res) => {
+        const { name } = req.body;
+        db.Type.update({
+            name
         }, {
             where: {
                 id: req.body.id
@@ -42,8 +44,8 @@ module.exports = function (app) {
     });
 
     // DELETE route for deleting
-    app.delete("/api/users/:id", (req, res) => {
-        db.User.destroy({
+    app.delete("/api/types/:id", isAuthenticated, (req, res) => {
+        db.Type.destroy({
             where: {
                 id: req.params.id
             }

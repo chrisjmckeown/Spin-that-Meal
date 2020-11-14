@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-    var Ingredient = sequelize.define("Ingredient", {
+  const Ingredient = sequelize.define("Ingredient", {
         name: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -10,7 +10,9 @@ module.exports = function(sequelize, DataTypes) {
         type_id: {
             type: DataTypes.INTEGER
         }
+    },
+    {
+      freezeTableName: true
     });
-
     return Ingredient;
 }
