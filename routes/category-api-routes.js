@@ -16,7 +16,7 @@ module.exports = function (app) {
                 id: req.params.id
             }
         }, (result) => {
-            res.json(result);
+            res.render("categories-edit", result);
         });
     });
 
