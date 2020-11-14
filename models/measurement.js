@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-    var Measurement = sequelize.define("Measurement", {
+  const Measurement = sequelize.define("Measurement", {
         name: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -7,6 +7,9 @@ module.exports = function(sequelize, DataTypes) {
               len: [1]
             }
         }
+    },
+    {
+      freezeTableName: true
     });
 
     return Measurement;
