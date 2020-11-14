@@ -2,12 +2,12 @@
 
 <h1>Categories</h1>
 
-<h2>Edit Category</h2>
-<form data-id="{{this.id}}" class="update-form">
+<h2>Edit Category {{this.dataValues.id}}</h2>
+<form data-id="{{this.dataValues.id}}" class="update-form">
 
   <div class="form-group">
     <label for="name">Name:</label>
-    <input type="text" id="name" name="name" value="{{this.name}}">
+    <input type="text" class="update-name" id="update-name" name="name" value="{{this.dataValues.name}}">
   </div>
 
   <button type="submit">Update Category</button>
