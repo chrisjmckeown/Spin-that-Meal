@@ -32,7 +32,7 @@ $(function () {
             type: "GET"
         }).then(
             function () {
-                console.log("changed sleep to", newSleep);
+                console.log("changes to", id);
             }
         );
     });

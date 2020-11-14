@@ -7,7 +7,8 @@ module.exports = function (app) {
     app.get("/api/categories", isAuthenticated, (req, res) => {
         db.Category.findAll({}).then((result) => {
             // res.json(result);
-            res.render("categories", result);
+            console.log(result);
+            res.render("categories", {Category: result});
         });
     });
 
