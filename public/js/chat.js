@@ -2,33 +2,48 @@ $(function () {
     //make connection
     const PORT = 8080; //process.env.PORT || 
     const socket = io.connect(`http://localhost:${PORT}`)
-    const {userName} = JSON.parse(localStorage.getItem("user-details"));
+    const { userName } = JSON.parse(localStorage.getItem("user-details"));
 
     //buttons and inputs 
     const message = $("#message")
-    const username = $("#username")
     const send_message = $("#send_message")
     const send_username = $("#send_username")
     const chatroom = $("#chatroom")
     const feedback = $("#feedback")
 
+    function sendMessage() {
+        socket.emit('new_message', { message: message.val().trim() })
+        message.val("")
+        chatroom.scrollTop(chatroom[0].scrollHeight);
+    }
+
     //Emit message
     send_message.click(function () {
-        socket.emit('new_message', { message: message.val().trim() })
+        sendMessage();
     })
 
     //Listen on new_message
     socket.on("new_message", (data) => {
-        if (userName == data.username) {
-            chatroom.append('       <div class="card bg-primary rounded w-75 z-depth-0 float-right  mb-1 message-text"><div class="card-body p-2"><p class="card-text black-text">' + data.message + '</p></div></div>')
-        } else {
-            chatroom.append('       <div class="card bg-light rounded w-75 z-depth-0 mb-1 message-text"><div class="card-body p-2"><p class="card-text black-text">' + data.message + '</p></div></div>')
-        }
+        chatroom.append(
+            '<div class="card bg-primary rounded z-depth-0 mb-1 message-text">' +
+            '<div class="card-header p-2">' +
+            '<p class="card-text black-text">' + data.username + '</p>' +
+            '</div>' +
+            '<div class="card-body p-2">' +
+            '<p class="card-text black-text">' + data.message + '</p>' +
+            '</div>' +
+            '</div>')
+        chatroom.scrollTop(chatroom[0].scrollHeight);
     })
 
     //Emit typing
-    message.bind("keypress", () => {
-        socket.emit('typing')
+    message.bind("keypress", (event) => {
+        if (event.keyCode === 13) {
+            sendMessage();
+        }
+        else {
+            socket.emit('typing')
+        }
     })
 
     //Listen on typing
