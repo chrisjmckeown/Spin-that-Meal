@@ -11,12 +11,13 @@ module.exports = function (app) {
     });
 
     // Get route for retrieving a single item
-    app.get("/api/users/:id", isAuthenticated, (req, res) => {
+    app.get("/api/users/:id", (req, res) => {
         db.User.findOne({
             where: {
                 id: req.params.id
             }
-        }, (result) => {
+        }).then ((result) => {
+            console.log(result);
             res.json(result);
         });
     });
@@ -31,9 +32,9 @@ module.exports = function (app) {
 
     // PUT route for updating
     app.put("/api/users", isAuthenticated, (req, res) => {
-        const {  firstName, lastName, userName, email, phone, address  } = req.body;
+        const { firstName, lastName, userName, email, phone, address } = req.body;
         db.User.update({
-            firstName, lastName, userName, email, phone, address 
+            firstName, lastName, userName, email, phone, address
         }, {
             where: {
                 id: req.body.id

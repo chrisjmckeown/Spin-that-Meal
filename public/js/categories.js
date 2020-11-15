@@ -1,76 +1,68 @@
 // Make sure we wait to attach our handlers until the DOM is fully loaded.
 $(function () {
+    // Getting references to our form and inputs
+    const createForm = $("#create-form");
+    const categoryName = $(".categoryName");
+    const editBtn = $(".edit");
+    const updateForm = $(".update-form");
+    const updateName = $(".update-name");
+    const deleteBtn = $(".delete");
 
     // ADD new category  
-    $("#create-form").on("submit", function (event) {
+    createForm.on("submit", function (event) {
         // Make sure to preventDefault on a submit event.
         event.preventDefault();
-
-        var newCategory = {
-            name: $("#categoryName").val().trim(),
+        const newCategory = {
+            name: categoryName.val().trim(),
         };
-
         // Send the POST request.
         $.ajax("/api/categories", {
             type: "POST",
             data: newCategory
-        }).then(function () {
-            console.log("created new category");
-            // Reload the page to get the updated list
-            location.reload();
-        }
-        );
-    });
-
-    // EDIT Category
-    $("#edit").on("click", function (event) {
-        console.log("editing");
-        const id = $(this).data("id");
-
-        // Send the GET request.
-        $.ajax("/api/categories/" + id, {
-            type: "GET"
         }).then(
-            function () {
-                console.log("changes to", id);
+            () => {
+                // Reload the page to get the updated list
+                location.reload();
             }
         );
     });
 
+    // EDIT Category
+    editBtn.on("click", function (event) {
+        const id = $(this).data("id");
+        console.log(`editing ${id}`);
+        location.assign(`/api/categories/${id}`);
+    });
 
-
-    $(".update-form").on("submit", function (event) {
+    updateForm.on("submit", function (event) {
         // Make sure to preventDefault on a submit event.
         event.preventDefault();
-
+        const id = $(this).data("id");
         const updatedCategory = {
-            name: $("#name").val().trim()
+            name: updateName.val().trim()
         };
-
-        var id = $(this).data("id");
-
+        console.log(id, updatedCategory);
         // Send the POST request.
-        $.ajax("/api/categories/" + id, {
+        $.ajax(`/api/categories/${id}`, {
             type: "PUT",
             data: updatedCategory
         }).then(
-            function () {
-                console.log("updated category");
+            () => {
                 // Reload the page to get the updated list
-                location.assign("/categories");
+                location.assign("/api/categories");
             }
         );
     });
 
     // DELETE Category
-    $("#delete").on("click", function (event) {
-        var id = $(this).data("id");
+    deleteBtn.on("click", function (event) {
+        const id = $(this).data("id");
         // Send the DELETE request.
-        $.ajax("/api/categories/" + id, {
+        console.log(`deleting ${id}`);
+        $.ajax(`/api/categories/${id}`, {
             type: "DELETE"
         }).then(
-            function () {
-                console.log("deleted category", id);
+            () => {
                 // Reload the page to get the updated list
                 location.reload();
             }

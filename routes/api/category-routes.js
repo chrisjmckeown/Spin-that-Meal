@@ -5,20 +5,21 @@ const isAuthenticated = require("../../config/middleware/isAuthenticated");
 module.exports = function (app) {
     // GET route for getting all items
     app.get("/api/categories", isAuthenticated, (req, res) => {
+        //console.log(`getting all`);
         db.Category.findAll({}).then((result) => {
-            // res.json(result);
-            console.log(result);
-            res.render("categories", {Category: result});
+            res.render("categories", { Category: result });
         });
     });
 
     // Get route for retrieving a single item
     app.get("/api/categories/:id", isAuthenticated, (req, res) => {
+        //console.log(`getting one ${req.params.id}`);
         db.Category.findOne({
             where: {
                 id: req.params.id
             }
-        }, (result) => {
+        }).then((result) => {
+            console.log(result);
             res.render("categories-edit", result);
         });
     });
@@ -32,13 +33,13 @@ module.exports = function (app) {
     });
 
     // PUT route for updating
-    app.put("/api/categories", isAuthenticated, (req, res) => {
+    app.put("/api/categories/:id", isAuthenticated, (req, res) => {
         const { name } = req.body;
         db.Category.update({
             name
         }, {
             where: {
-                id: req.body.id
+                id: req.params.id
             }
         }).then((result) => {
             res.json(result);
