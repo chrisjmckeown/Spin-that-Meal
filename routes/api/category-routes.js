@@ -19,7 +19,6 @@ module.exports = function (app) {
                 id: req.params.id
             }
         }).then((result) => {
-            console.log(result);
             res.render("categories-edit", result);
         });
     });

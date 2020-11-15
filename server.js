@@ -31,6 +31,7 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // Requiring our routes
+// api routes
 require("./routes/html/html-routes.js")(app);
 require("./routes/html/login-routes.js")(app);
 require("./routes/api/category-routes.js")(app);
@@ -40,6 +41,8 @@ require("./routes/api/recipe-routes.js")(app);
 require("./routes/api/recipeIngredient-routes.js")(app);
 require("./routes/api/shoppingList-routes.js")(app);
 require("./routes/api/type-routes.js")(app);
+require("./routes/api/post-routes.js")(app);
+// html routes
 require("./routes/api/user-routes.js")(app);
 require("./routes/api/login-signup-routes.js")(app);
 
