@@ -5,12 +5,17 @@ $(function () {
     const updateForm = $(".update-form");
     const deleteBtn = $(".delete");
 
-    const firstName = $(".firstName");
-    const lastName = $(".lastName");
-    const userName = $(".userName");
-    const email = $(".email");
-    const phone = $(".phone");
-    const address = $(".address");
+
+    const updateMemberForm = $(".update-member-form");
+
+    const firstName = $(".update-firstName");
+    const lastName = $(".update-lastName");
+    const userName = $(".update-userName");
+    const email = $(".update-email");
+    const phone = $(".update-phone");
+    const address = $(".update-address");
+    const password = $(".update-password");
+    const changePassword = $(".change-password");
 
     // EDIT Category
     editBtn.on("click", function (event) {
@@ -23,6 +28,7 @@ $(function () {
         event.preventDefault();
         const id = $(this).data("id");
         const updatedUser = {
+            id,
             firstName: firstName.val().trim(),
             lastName: lastName.val().trim(),
             userName: userName.val().trim(),
@@ -31,19 +37,59 @@ $(function () {
             address: address.val().trim()
         };
 
-        if (!userData.firstName || !userData.lastName || !userData.userName
-            || !userData.email
-            || !userData.phone || !userData.address) {
+        if (!updatedUser.firstName || !updatedUser.lastName || !updatedUser.userName
+            || !updatedUser.email
+            || !updatedUser.phone || !updatedUser.address) {
             return;
         }
         // Send the POST request.
-        $.ajax(`/api/users/${id}`, {
+        $.ajax(`/api/users`, {
             type: "PUT",
             data: updatedUser
         }).then(
             () => {
                 // Reload the page to get the updated list
                 location.assign("/api/users");
+            }
+        );
+    });
+
+    updateMemberForm.on("submit", function (event) {
+        // Make sure to preventDefault on a submit event.
+        event.preventDefault();
+        const id = $(this).data("id");
+        let newPassword = "";
+        if (changePassword.length === 0) {
+            newPassword = password.val().trim();
+        }
+        const updatedUser = {
+            id,
+            firstName: firstName.val().trim(),
+            lastName: lastName.val().trim(),
+            userName: userName.val().trim(),
+            email: email.val().trim(),
+            password: newPassword,
+            phone: phone.val().trim(),
+            address: address.val().trim()
+        };
+
+        // if (!updatedUser.firstName || !updatedUser.lastName || !updatedUser.userName
+        //     || !updatedUser.email || (!updatedUser.password && changePassword.length === 0)
+        //     || !updatedUser.phone || !updatedUser.address) {
+        //     return;
+        // }
+        // Send the POST request.
+        $.ajax(`/api/member`, {
+            type: "PUT",
+            data: updatedUser
+        }).then(
+            () => {
+                // Reload the page to get the updated list
+                if (changePassword.length === 0) {
+                    location.reload();
+                } else {
+                    location.reload();
+                }
             }
         );
     });
