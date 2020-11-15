@@ -6,8 +6,10 @@ module.exports = function (app) {
     // GET route for getting all items
     app.get("/api/categories", isAuthenticated, (req, res) => {
         //console.log(`getting all`);
-        db.Category.findAll({}).then((result) => {
-            res.render("categories", { Category: result });
+        db.Category.findAll({
+            
+        }).then((result) => {
+            res.render("management/categories", { Category: result });
         });
     });
 
@@ -19,14 +21,16 @@ module.exports = function (app) {
                 id: req.params.id
             }
         }).then((result) => {
-            res.render("categories-edit", result);
+            res.render("management/categories-edit", result);
         });
     });
 
     // POST route for saving new
     app.post("/api/categories", isAuthenticated, (req, res) => {
         const { name } = req.body;
-        db.Category.create({ name }).then((result) => {
+        db.Category.create({ 
+            name 
+        }).then((result) => {
             res.json(result);
         });
     });

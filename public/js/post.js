@@ -18,10 +18,12 @@ $(function () {
         }).then(
             (result) => {
                 result.forEach((item) => {
+                    const date = moment(item.createdAt).format('DD/MM/YYYY hh:mm:ss');
                     chatroom.append(
                         '<div class="card bg-primary rounded z-depth-0 mb-1 message-text">' +
                         '<div class="card-header p-2">' +
                         '<p class="card-text black-text">' + item.User.userName + '</p>' +
+                        '<p class="card-text black-text">' + date + '</p>' +
                         '</div>' +
                         '<div class="card-body p-2">' +
                         '<p class="card-text black-text">' + item.message + '</p>' +
