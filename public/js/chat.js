@@ -1,9 +1,8 @@
 $(function () {
-    let myUsername = "Anonymous"
     //make connection
     const PORT = 8080; //process.env.PORT || 
     const socket = io.connect(`http://localhost:${PORT}`)
-    const userDetails = JSON.parse(localStorage.getItem("user-details"));
+    const {userName} = JSON.parse(localStorage.getItem("user-details"));
 
     //buttons and inputs 
     const message = $("#message")
@@ -20,7 +19,7 @@ $(function () {
 
     //Listen on new_message
     socket.on("new_message", (data) => {
-        if (myUsername == data.username) {
+        if (userName == data.username) {
             chatroom.append('       <div class="card bg-primary rounded w-75 z-depth-0 float-right  mb-1 message-text"><div class="card-body p-2"><p class="card-text black-text">' + data.message + '</p></div></div>')
         } else {
             chatroom.append('       <div class="card bg-light rounded w-75 z-depth-0 mb-1 message-text"><div class="card-body p-2"><p class="card-text black-text">' + data.message + '</p></div></div>')
@@ -40,14 +39,12 @@ $(function () {
 
     //Emit a username
     send_username.click(function () {
-        myUsername = username.val().trim();
-        socket.emit('change_username', { username: myUsername })
+        socket.emit('change_username', { username: userName })
     })
 
     setUserName();
     //Emit a username
     function setUserName() {
-        username.val(userDetails.userName);
-        socket.emit('change_username', { username: userDetails.userName })
+        socket.emit('change_username', { username: userName })
     }
 })
