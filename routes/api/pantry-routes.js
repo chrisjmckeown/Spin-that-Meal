@@ -4,40 +4,40 @@ const isAuthenticated = require("../../config/middleware/isAuthenticated");
 
 module.exports = function (app) {
     // GET route for getting all items
-    app.get("/api/ingredients", isAuthenticated, (req, res) => {
-        db.Ingredient.findAll({
+    app.get("/api/pantries", isAuthenticated, (req, res) => {
+        db.Recipe.findAll({
 
         }).then((result) => {
-            res.render("management/ingredients", { Ingredient: result });
+            res.render("management/pantries", { Recipe: result });
         });
     });
 
     // Get route for retrieving a single item
-    app.get("/api/ingredients/:id", isAuthenticated, (req, res) => {
-        db.Ingredient.findOne({
+    app.get("/api/pantries/:id", isAuthenticated, (req, res) => {
+        db.Recipe.findOne({
             where: {
                 id: req.params.id
             }
         }).then((result) => {
-            res.render("management/ingredients-edit", result);
+            res.render("management/pantries-edit", result);
         });
     });
 
     // POST route for saving new
-    app.post("/api/ingredients", isAuthenticated, (req, res) => {
-        const { name } = req.body;
-        db.Ingredient.create({
-            name
+    app.post("/api/pantries", isAuthenticated, (req, res) => {
+        const { name, instruction, portion, UserId } = req.body;
+        db.Recipe.create({
+            name, instruction, portion, UserId
         }).then((result) => {
             res.json(result);
         });
     });
 
     // PUT route for updating
-    app.put("/api/ingredients", isAuthenticated, (req, res) => {
-        const { id, name } = req.body;
-        db.Ingredient.update({
-            name
+    app.put("/api/pantries", isAuthenticated, (req, res) => {
+        const { id, name, instruction, portion, UserId } = req.body;
+        db.Recipe.update({
+            name, instruction, portion, UserId
         }, {
             where: {
                 id: id
@@ -48,8 +48,8 @@ module.exports = function (app) {
     });
 
     // DELETE route for deleting
-    app.delete("/api/ingredients/:id", isAuthenticated, (req, res) => {
-        db.Ingredient.destroy({
+    app.delete("/api/pantries/:id", isAuthenticated, (req, res) => {
+        db.Recipe.destroy({
             where: {
                 id: req.params.id
             }

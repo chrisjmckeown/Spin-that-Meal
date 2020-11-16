@@ -2,10 +2,11 @@
 $(function () {
     // Getting references to our form and inputs
     const createForm = $("#create-form");
-    const playListName = $(".play-list-name");
+    const recipeName = $(".recipe-name");
+    const recipeInstruction = $(".recipe-instruction");
+    const recipePortion = $(".recipe-portion");
     const editBtn = $(".edit");
     const updateForm = $(".update-form");
-    const updateName = $(".update-name");
     const deleteBtn = $(".delete");
     const { id } = JSON.parse(localStorage.getItem("user-details"));
 
@@ -13,14 +14,16 @@ $(function () {
     createForm.on("submit", function (event) {
         // Make sure to preventDefault on a submit event.
         event.preventDefault();
-        const newPlayList = {
-            name: playListName.val().trim(),
+        const newRecipe = {
+            name: recipeName.val().trim(),
+            instruction: recipeInstruction.val().trim(),
+            portion: recipePortion.val().trim(),
             UserId: id
         };
         // Send the POST request.
-        $.ajax("/api/play-lists", {
+        $.ajax("/api/recipes", {
             type: "POST",
-            data: newPlayList
+            data: newRecipe
         }).then(
             () => {
                 // Reload the page to get the updated list
@@ -32,26 +35,28 @@ $(function () {
     // EDIT Category
     editBtn.on("click", function (event) {
         const id = $(this).data("id");
-        location.assign(`/api/play-lists/${id}`);
+        location.assign(`/api/recipes/${id}`);
     });
 
     updateForm.on("submit", function (event) {
         // Make sure to preventDefault on a submit event.
         event.preventDefault();
         const id = $(this).data("id");
-        const updatedPlayLists = {
+        const updatedRecipe = {
             id: id,
-            name: updateName.val().trim(),
+            name: recipeName.val().trim(),
+            instruction: recipeInstruction.val().trim(),
+            portion: recipePortion.val().trim(),
             UserId: id
         };
         // Send the POST request.
-        $.ajax(`/api/play-lists`, {
+        $.ajax(`/api/recipes`, {
             type: "PUT",
-            data: updatedPlayLists
+            data: updatedRecipe
         }).then(
             () => {
                 // Reload the page to get the updated list
-                location.assign("/api/play-lists");
+                location.assign("/api/recipes");
             }
         );
     });
@@ -60,7 +65,7 @@ $(function () {
     deleteBtn.on("click", function (event) {
         const id = $(this).data("id");
         // Send the DELETE request.
-        $.ajax(`/api/play-lists/${id}`, {
+        $.ajax(`/api/recipes/${id}`, {
             type: "DELETE"
         }).then(
             () => {
