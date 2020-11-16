@@ -29,10 +29,9 @@ img {
     display: block;
 }
 
-/* .header {
-    background: #42f560;
+.header {
     height: max-content;
-} */
+}
 
 .name {
     text-align: center;
@@ -54,7 +53,7 @@ footer {
 }
 
 /* Dropdown Account Menu Styles */
-.dropbtn {
+.dropbtn, .navbar-brand {
     background-color: #4CAF50;
     color: white;
     width: max-content;
