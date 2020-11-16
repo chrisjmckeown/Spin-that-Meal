@@ -30,7 +30,6 @@ $(function () {
     // EDIT Category
     editBtn.on("click", function (event) {
         const id = $(this).data("id");
-        console.log(`editing ${id}`);
         location.assign(`/api/categories/${id}`);
     });
 
@@ -41,7 +40,6 @@ $(function () {
         const updatedCategory = {
             name: updateName.val().trim()
         };
-        console.log(id, updatedCategory);
         // Send the POST request.
         $.ajax(`/api/categories/${id}`, {
             type: "PUT",
@@ -58,7 +56,6 @@ $(function () {
     deleteBtn.on("click", function (event) {
         const id = $(this).data("id");
         // Send the DELETE request.
-        console.log(`deleting ${id}`);
         $.ajax(`/api/categories/${id}`, {
             type: "DELETE"
         }).then(
