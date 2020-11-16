@@ -1,4 +1,42 @@
+<!-- Index.handlebars is the main landing page for the user after logging in -->
+
 {{> header}}
+
+<body>
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Looking for something new..?" aria-label="Recipe-search"
+            aria-describedby="button-addon2">
+        <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="submit" id="button-addon2"><i
+                    class="fa fa-search"></i></button>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <a><img src="./unnamed.png"></a>
+            </div>
+            <div class="col-md-4">
+                <a><img src="./unnamed.png"></a>
+            </div>
+            <div class="col-md-4">
+                <a><img src="./unnamed.png"></a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <a><img src="./unnamed.png"></a>
+            </div>
+            <div class="col-md-4">
+                <a><img src="./unnamed.png"></a>
+            </div>
+            <div class="col-md-4">
+                <a><img src="./unnamed.png"></a>
+            </div>
+        </div>
+    </div>
+</body>
 
 {{> manage}}
 
@@ -10,3 +48,5 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <!-- App scripts -->
 <script src="/js/index.js"></script>
+
+</html>
