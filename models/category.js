@@ -12,5 +12,14 @@ module.exports = function(sequelize, DataTypes) {
       freezeTableName: true
     });
 
+    Category.associate = function (models) {
+      //associate categoty with recipe through RecipeCategory table
+      Category.belongsToMany(models.Recipe, {
+          through: "RecipeCategory",
+          as: "recipes",
+          foreignKey: "category_id" 
+      });
+  };
+
     return Category;
 }
