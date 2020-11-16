@@ -5,7 +5,7 @@
 }
 /* Login page */
 .login-img {
-    background-image: url("../images/hands-food.jpg");
+    background-image: url("/images/hands-food.jpg");
     background-size: cover;
     background-position: center;
 }
