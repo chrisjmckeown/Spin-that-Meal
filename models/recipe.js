@@ -34,6 +34,9 @@ module.exports = function (sequelize, DataTypes) {
         Recipe.hasMany(models.PlayList, {
             onDelete: "SET NULL"
         });
+        Recipe.hasMany(models.RecipeIngredient, {
+          onDelete: "SET NULL"
+        });
     };
     return Recipe;
 }

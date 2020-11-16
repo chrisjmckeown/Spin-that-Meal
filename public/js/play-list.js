@@ -5,7 +5,6 @@ $(function () {
     const playListName = $(".play-list-name");
     const editBtn = $(".edit");
     const updateForm = $(".update-form");
-    const updateName = $(".update-name");
     const deleteBtn = $(".delete");
     const { id } = JSON.parse(localStorage.getItem("user-details"));
 
@@ -41,7 +40,7 @@ $(function () {
         const id = $(this).data("id");
         const updatedPlayLists = {
             id: id,
-            name: updateName.val().trim(),
+            name: playListName.val().trim(),
             UserId: id
         };
         // Send the POST request.

@@ -17,7 +17,7 @@
 </form>
 <ul>
   {{#each Recipe}}
-  {{> row-item}}
+  {{> row-item text=this.dataValues.name}}
   {{/each}}
 </ul>
 {{> footer}}

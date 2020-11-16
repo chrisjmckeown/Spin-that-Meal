@@ -4,7 +4,7 @@
 
 <ul>
   {{#each User}}
-  {{> row-user}}
+  {{> row-item text=this.dataValues.userName}}
   {{/each}}
 </ul>
 {{> footer}}

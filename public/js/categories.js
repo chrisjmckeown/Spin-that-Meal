@@ -5,7 +5,6 @@ $(function () {
     const categoryName = $(".category-name");
     const editBtn = $(".edit");
     const updateForm = $(".update-form");
-    const updateName = $(".update-name");
     const deleteBtn = $(".delete");
 
     // ADD new category  
@@ -39,7 +38,7 @@ $(function () {
         const id = $(this).data("id");
         const updatedCategory = {
             id: id,
-            name: updateName.val().trim()
+            name: categoryName.val().trim()
         };
         // Send the POST request.
         $.ajax(`/api/categories`, {

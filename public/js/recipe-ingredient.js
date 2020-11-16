@@ -2,7 +2,7 @@
 $(function () {
     // Getting references to our form and inputs
     const createForm = $("#create-form");
-    const measurementName = $(".measurement-name");
+    const recipeIngredientAmount = $(".recipe-ingredient-amount");
     const editBtn = $(".edit");
     const updateForm = $(".update-form");
     const deleteBtn = $(".delete");
@@ -11,13 +11,13 @@ $(function () {
     createForm.on("submit", function (event) {
         // Make sure to preventDefault on a submit event.
         event.preventDefault();
-        const newMeasurement = {
-            name: measurementName.val().trim()
+        const newRecipe = {
+            amount: recipeIngredientAmount.val().trim()
         };
         // Send the POST request.
-        $.ajax("/api/measurements", {
+        $.ajax("/api/recipe-ingredients", {
             type: "POST",
-            data: newMeasurement
+            data: newRecipe
         }).then(
             () => {
                 // Reload the page to get the updated list
@@ -29,25 +29,25 @@ $(function () {
     // EDIT Category
     editBtn.on("click", function (event) {
         const id = $(this).data("id");
-        location.assign(`/api/measurements/${id}`);
+        location.assign(`/api/recipe-ingredients/${id}`);
     });
 
     updateForm.on("submit", function (event) {
         // Make sure to preventDefault on a submit event.
         event.preventDefault();
         const id = $(this).data("id");
-        const updatedMeasurements = {
+        const updatedRecipe = {
             id: id,
-            name: measurementName.val().trim()
+            amount: recipeIngredientAmount.val().trim()
         };
         // Send the POST request.
-        $.ajax(`/api/measurements`, {
+        $.ajax(`/api/recipe-ingredients`, {
             type: "PUT",
-            data: updatedMeasurements
+            data: updatedRecipe
         }).then(
             () => {
                 // Reload the page to get the updated list
-                location.assign("/api/measurements");
+                location.assign("/api/recipe-ingredients");
             }
         );
     });
@@ -56,7 +56,7 @@ $(function () {
     deleteBtn.on("click", function (event) {
         const id = $(this).data("id");
         // Send the DELETE request.
-        $.ajax(`/api/measurements/${id}`, {
+        $.ajax(`/api/recipe-ingredients/${id}`, {
             type: "DELETE"
         }).then(
             () => {

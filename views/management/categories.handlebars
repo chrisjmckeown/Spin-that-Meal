@@ -13,7 +13,7 @@
 </form>
 <ul>
   {{#each Category}}
-  {{> row-item}}
+  {{> row-item text=this.dataValues.name}}
   {{/each}}
 </ul>
 {{> footer}}

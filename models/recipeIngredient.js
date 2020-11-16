@@ -1,11 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
   const RecipeIngredient = sequelize.define("RecipeIngredient", {
-    recipe_id: {
-      type: DataTypes.INTEGER
-    },
-    ingredient_id: {
-      type: DataTypes.INTEGER
-    },
     amount: {
       type: DataTypes.INTEGER
     }
@@ -20,6 +14,11 @@ module.exports = function (sequelize, DataTypes) {
       }
     });
     RecipeIngredient.belongsTo(models.Ingredient, {
+      foreignKey: {
+        allowNull: true
+      }
+    });
+    RecipeIngredient.belongsTo(models.Recipe, {
       foreignKey: {
         allowNull: true
       }
