@@ -4,44 +4,43 @@ const isAuthenticated = require("../../config/middleware/isAuthenticated");
 
 module.exports = function (app) {
     // GET route for getting all items
-    app.get("/api/users", isAuthenticated, (req, res) => {
-        db.User.findAll({
-
+    app.get("/api/play-lists", isAuthenticated, (req, res) => {
+        db.PlayList.findAll({
+            
         }).then((result) => {
-            res.render("management/users", { User: result });
+            res.render("management/play-lists", { Category: result });
         });
     });
 
     // Get route for retrieving a single item
-    app.get("/api/users/:id", (req, res) => {
-        db.User.findOne({
+    app.get("/api/play-lists/:id", isAuthenticated, (req, res) => {
+        db.PlayList.findOne({
             where: {
                 id: req.params.id
             }
         }).then((result) => {
-            res.render("management/users-edit", result);
+            res.render("management/play-lists-edit", result);
         });
     });
 
     // POST route for saving new
-    app.post("/api/users", (req, res) => {
-        const { firstName, lastName, userName, email, phone, address } = req.body;
-        db.User.create({
-            firstName, lastName, userName, email, phone, address
+    app.post("/api/play-lists", isAuthenticated, (req, res) => {
+        const { name } = req.body;
+        db.PlayList.create({ 
+            name 
         }).then((result) => {
             res.json(result);
         });
     });
 
     // PUT route for updating
-    app.put("/api/users", isAuthenticated, (req, res) => {
-        const { id, firstName, lastName, userName, email, phone, address } = req.body;
-
-        db.User.update({
-            firstName, lastName, userName, email, phone, address
+    app.put("/api/play-lists/:id", isAuthenticated, (req, res) => {
+        const { name } = req.body;
+        db.PlayList.update({
+            name
         }, {
             where: {
-                id
+                id: req.params.id
             }
         }).then((result) => {
             res.json(result);
@@ -49,8 +48,8 @@ module.exports = function (app) {
     });
 
     // DELETE route for deleting
-    app.delete("/api/users/:id", isAuthenticated, (req, res) => {
-        db.User.destroy({
+    app.delete("/api/play-lists/:id", isAuthenticated, (req, res) => {
+        db.PlayList.destroy({
             where: {
                 id: req.params.id
             }

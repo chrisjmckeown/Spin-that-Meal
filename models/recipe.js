@@ -1,4 +1,4 @@
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
     const Recipe = sequelize.define("Recipe", {
         name: {
             type: DataTypes.STRING,
@@ -15,15 +15,24 @@ module.exports = function(sequelize, DataTypes) {
         portion: {
             type: DataTypes.INTEGER
         },
-        user_id: {
-            type: DataTypes.INTEGER
-        },
         category_id: {
             type: DataTypes.INTEGER
         }
     },
-    {
-      freezeTableName: true
-    });
+        {
+            freezeTableName: true
+        });
+
+    Recipe.associate = function (models) {
+        // Recipe should belong to an User
+        Recipe.belongsTo(models.User, {
+            foreignKey: {
+                allowNull: false
+            }
+        });
+        User.hasMany(models.Playlist, {
+          onDelete: "cascade"
+        });
+    };
     return Recipe;
 }

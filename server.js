@@ -32,7 +32,6 @@ app.set("view engine", "handlebars");
 
 // Requiring our routes
 // api routes
-require("./routes/html/html-routes.js")(app);
 require("./routes/html/login-routes.js")(app);
 require("./routes/api/category-routes.js")(app);
 require("./routes/api/favourite-routes.js")(app);
@@ -42,8 +41,11 @@ require("./routes/api/recipeIngredient-routes.js")(app);
 require("./routes/api/shoppingList-routes.js")(app);
 require("./routes/api/type-routes.js")(app);
 require("./routes/api/post-routes.js")(app);
-// html routes
+require("./routes/api/member-routes.js")(app);
 require("./routes/api/user-routes.js")(app);
+require("./routes/api/playList-routes.js")(app);
+// html routes
+require("./routes/html/html-routes.js")(app);
 require("./routes/api/login-signup-routes.js")(app);
 
 // Syncing our database and logging a message to the user upon success
