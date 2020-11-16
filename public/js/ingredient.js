@@ -2,7 +2,7 @@
 $(function () {
     // Getting references to our form and inputs
     const createForm = $("#create-form");
-    const typeName = $(".type-name");
+    const ingredientName = $(".ingredient-name");
     const editBtn = $(".edit");
     const updateForm = $(".update-form");
     const updateName = $(".update-name");
@@ -12,13 +12,13 @@ $(function () {
     createForm.on("submit", function (event) {
         // Make sure to preventDefault on a submit event.
         event.preventDefault();
-        const newType = {
-            name: typeName.val().trim()
+        const newIngredients = {
+            name: ingredientName.val().trim()
         };
         // Send the POST request.
-        $.ajax("/api/types", {
+        $.ajax("/api/ingredients", {
             type: "POST",
-            data: newType
+            data: newIngredients
         }).then(
             () => {
                 // Reload the page to get the updated list
@@ -30,7 +30,7 @@ $(function () {
     // EDIT Category
     editBtn.on("click", function (event) {
         const id = $(this).data("id");
-        location.assign(`/api/types/${id}`);
+        location.assign(`/api/ingredients/${id}`);
     });
 
     updateForm.on("submit", function (event) {
@@ -42,13 +42,13 @@ $(function () {
             name: updateName.val().trim()
         };
         // Send the POST request.
-        $.ajax(`/api/types`, {
+        $.ajax(`/api/ingredients`, {
             type: "PUT",
             data: updatedtypes
         }).then(
             () => {
                 // Reload the page to get the updated list
-                location.assign("/api/types");
+                location.assign("/api/ingredients");
             }
         );
     });
@@ -57,7 +57,7 @@ $(function () {
     deleteBtn.on("click", function (event) {
         const id = $(this).data("id");
         // Send the DELETE request.
-        $.ajax(`/api/types/${id}`, {
+        $.ajax(`/api/ingredients/${id}`, {
             type: "DELETE"
         }).then(
             () => {

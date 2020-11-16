@@ -19,6 +19,11 @@ module.exports = function (sequelize, DataTypes) {
         allowNull: true
       }
     });
+    RecipeIngredient.belongsTo(models.Ingredient, {
+      foreignKey: {
+        allowNull: true
+      }
+    });
   };
   return RecipeIngredient;
 };

@@ -4,39 +4,39 @@ const isAuthenticated = require("../../config/middleware/isAuthenticated");
 
 module.exports = function (app) {
     // GET route for getting all items
-    app.get("/api/ingredients", isAuthenticated, (req, res) => {
-        db.Ingredient.findAll({
+    app.get("/api/types", isAuthenticated, (req, res) => {
+        db.Type.findAll({
 
         }).then((result) => {
-            res.render("management/ingredients", { Type: result });
+            res.render("management/types", { Type: result });
         });
     });
 
     // Get route for retrieving a single item
-    app.get("/api/ingredients/:id", isAuthenticated, (req, res) => {
-        db.Ingredient.findOne({
+    app.get("/api/types/:id", isAuthenticated, (req, res) => {
+        db.Type.findOne({
             where: {
                 id: req.params.id
             }
-        }).then ((result) => {
-            res.render("management/ingredients-edit", result);
+        }).then((result) => {
+            res.render("management/types-edit", result);
         });
     });
 
     // POST route for saving new
-    app.post("/api/ingredients", isAuthenticated, (req, res) => {
+    app.post("/api/types", isAuthenticated, (req, res) => {
         const { name } = req.body;
-        db.Ingredient.create({ 
-            name 
+        db.Type.create({
+            name
         }).then((result) => {
             res.json(result);
         });
     });
 
     // PUT route for updating
-    app.put("/api/ingredients", isAuthenticated, (req, res) => {
+    app.put("/api/types", isAuthenticated, (req, res) => {
         const { id, name } = req.body;
-        db.Ingredient.update({
+        db.Type.update({
             name
         }, {
             where: {
@@ -48,8 +48,8 @@ module.exports = function (app) {
     });
 
     // DELETE route for deleting
-    app.delete("/api/ingredients/:id", isAuthenticated, (req, res) => {
-        db.Ingredient.destroy({
+    app.delete("/api/types/:id", isAuthenticated, (req, res) => {
+        db.Type.destroy({
             where: {
                 id: req.params.id
             }
