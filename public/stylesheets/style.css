@@ -5,15 +5,11 @@
 }
 /* Login page */
 .login-img {
-    background-image: url("../images/hands-food.jpg");
+    background-image: url("/images/hands-food.jpg");
     background-size: cover;
     background-position: center;
 }
 
 .navbar {
     padding: 1.5rem 2rem;
-}
-
-.row {
-    margin: 10%;
 }

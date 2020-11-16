@@ -32,22 +32,28 @@ app.set("view engine", "handlebars");
 
 // Requiring our routes
 // api routes
-require("./routes/html/html-routes.js")(app);
 require("./routes/html/login-routes.js")(app);
+require("./routes/api/post-routes.js")(app);
+require("./routes/api/member-routes.js")(app);
+
+require("./routes/api/user-routes.js")(app);
 require("./routes/api/category-routes.js")(app);
-require("./routes/api/favourite-routes.js")(app);
-require("./routes/api/measurement-routes.js")(app);
+require("./routes/api/playList-routes.js")(app);
 require("./routes/api/recipe-routes.js")(app);
 require("./routes/api/recipeIngredient-routes.js")(app);
-require("./routes/api/shoppingList-routes.js")(app);
+require("./routes/api/measurement-routes.js")(app);
+require("./routes/api/ingredient-routes.js")(app);
 require("./routes/api/type-routes.js")(app);
-require("./routes/api/post-routes.js")(app);
+
+require("./routes/api/pantry-routes.js")(app);
+require("./routes/api/shoppingList-routes.js")(app);
+require("./routes/api/favourite-routes.js")(app);
 // html routes
-require("./routes/api/user-routes.js")(app);
+require("./routes/html/html-routes.js")(app);
 require("./routes/api/login-signup-routes.js")(app);
 
 // Syncing our database and logging a message to the user upon success
-db.sequelize.sync().then(() => {//{ force: true }
+db.sequelize.sync({ force: true }).then(() => {//
     const server = app.listen(PORT, () => {
         // Log (server-side) when our server has started
         console.log("Server listening on: http://localhost:" + PORT);

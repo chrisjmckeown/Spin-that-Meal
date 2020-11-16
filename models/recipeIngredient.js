@@ -1,35 +1,28 @@
 module.exports = function (sequelize, DataTypes) {
   const RecipeIngredient = sequelize.define("RecipeIngredient", {
-    recipe_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: "Recipe",
-        key: "id"
-      }
-    },
-    ingredient_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: "Ingredient",
-        key: "id"
-      }
-    },
     amount: {
       type: DataTypes.INTEGER
-    },
-    measurement_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: "Measurement",
-        key: "id"
-      }
     }
   },
-  {
-    freezeTableName: true
-  });
+    {
+      freezeTableName: true
+    });
+  RecipeIngredient.associate = function (models) {
+    RecipeIngredient.belongsTo(models.Measurement, {
+      foreignKey: {
+        allowNull: true
+      }
+    });
+    RecipeIngredient.belongsTo(models.Ingredient, {
+      foreignKey: {
+        allowNull: true
+      }
+    });
+    RecipeIngredient.belongsTo(models.Recipe, {
+      foreignKey: {
+        allowNull: true
+      }
+    });
+  };
   return RecipeIngredient;
 };

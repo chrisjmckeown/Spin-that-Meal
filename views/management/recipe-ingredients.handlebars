@@ -1,0 +1,23 @@
+{{> header}}
+
+<h1>Recipe Ingredient Lists</h1>
+
+<h2>Add a Recipe Ingredient</h2>
+<form class="create-form" id="create-form">
+
+  <div class="form-group">
+    <label for="recipe-ingredient-amount">Recipe Ingredient Name:</label>
+    <input type="text" class="recipe-ingredient-amount" id="recipe-ingredient-amount" name="name">
+  </div>
+  <button type="submit">Add Recipe Ingredient</button>
+</form>
+<ul>
+  {{#each RecipeIngredient}}
+  {{> row-item text=this.dataValues.amount}}
+  {{/each}}
+</ul>
+{{> footer}}
+<!-- JQuery -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- App scripts -->
+<script src="/js/recipe-ingredient.js"></script>

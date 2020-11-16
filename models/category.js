@@ -1,25 +1,20 @@
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   const Category = sequelize.define("Category", {
-        name: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-              len: [1]
-            }
-        }
-    },
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1]
+      }
+    }
+  },
     {
       freezeTableName: true
     });
-
-    Category.associate = function (models) {
-      //associate categoty with recipe through RecipeCategory table
+  Category.associate = function (models) {
       Category.belongsToMany(models.Recipe, {
-          through: "RecipeCategory",
-          as: "recipes",
-          foreignKey: "category_id" 
-      });
+          through: "Recipe_Category",
+    });
   };
-
-    return Category;
+  return Category;
 }

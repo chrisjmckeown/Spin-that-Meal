@@ -11,12 +11,10 @@ module.exports = function (sequelize, DataTypes) {
     {
       freezeTableName: true
     });
-
-  Type.associate = function (models) {
-    //associate Type with Ingredient
-    Type.hasMany(models.Ingredient, {
-      foreignKey: "type_id"
-    });
-  }
-  return Type;
+    Type.associate = function (models) {
+      Type.hasMany(models.Ingredient, {
+        onDelete: "SET NULL"
+      });
+    };
+    return Type;
 }

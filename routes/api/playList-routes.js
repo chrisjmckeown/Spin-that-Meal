@@ -4,41 +4,39 @@ const isAuthenticated = require("../../config/middleware/isAuthenticated");
 
 module.exports = function (app) {
     // GET route for getting all items
-    app.get("/api/categories", isAuthenticated, (req, res) => {
-        //console.log(`getting all`);
-        db.Category.findAll({
-            
+    app.get("/api/play-lists", isAuthenticated, (req, res) => {
+        db.PlayList.findAll({
+
         }).then((result) => {
-            res.render("management/categories", { Category: result });
+            res.render("management/play-lists", { PlayList: result });
         });
     });
 
     // Get route for retrieving a single item
-    app.get("/api/categories/:id", isAuthenticated, (req, res) => {
-        //console.log(`getting one ${req.params.id}`);
-        db.Category.findOne({
+    app.get("/api/play-lists/:id", isAuthenticated, (req, res) => {
+        db.PlayList.findOne({
             where: {
                 id: req.params.id
             }
         }).then((result) => {
-            res.render("management/categories-edit", result);
+            res.render("management/play-lists-edit", result);
         });
     });
 
     // POST route for saving new
-    app.post("/api/categories", isAuthenticated, (req, res) => {
-        const { name } = req.body;
-        db.Category.create({ 
-            name 
+    app.post("/api/play-lists", isAuthenticated, (req, res) => {
+        const { name, UserId } = req.body;
+        db.PlayList.create({
+            name, UserId
         }).then((result) => {
             res.json(result);
         });
     });
 
     // PUT route for updating
-    app.put("/api/categories", isAuthenticated, (req, res) => {
-        const { id, name } = req.body;
-        db.Category.update({
+    app.put("/api/play-lists", isAuthenticated, (req, res) => {
+        const {id, name } = req.body;
+        db.PlayList.update({
             name
         }, {
             where: {
@@ -50,8 +48,8 @@ module.exports = function (app) {
     });
 
     // DELETE route for deleting
-    app.delete("/api/categories/:id", isAuthenticated, (req, res) => {
-        db.Category.destroy({
+    app.delete("/api/play-lists/:id", isAuthenticated, (req, res) => {
+        db.PlayList.destroy({
             where: {
                 id: req.params.id
             }

@@ -77,37 +77,28 @@ module.exports = function (sequelize, DataTypes) {
         User.hasMany(models.Post, {
             onDelete: "cascade"
         });
-    };
 
-    User.associate = function (models) {
         // associating User with Recipe liked through Favouite table
         User.belongsToMany(models.Recipe, {
-            through: "Favourite",
-            foreignKey: "user_id"
+            through: "Favourite"
         });
-    };
 
-    User.associate = function (models) {
         // Associating User with Pantry
         // When an User is deleted, also delete any associated Pantry items
         User.hasMany(models.Pantry, {
-            foreignKey: "user_id",
             onDelete: "cascade"
         });
-    };
-
-    User.associate = function (models) {
-        // Associating User with Recipe created
-        user.hasMany(models.Recipe, {
-            foreignKey: "creator_id",
-        });
-    };
-
-    User.associate = function (models) {
         // Associating User with ShoppingList
         // When an User is deleted, also delete any associated ShoppingList items
         User.hasMany(models.ShoppingList, {
-            foreignKey: "user_id",
+            onDelete: "SET NULL"
+    });
+
+        User.hasMany(models.Recipe, {
+            onDelete: "SET NULL"
+        });
+      
+        User.hasMany(models.PlayList, {
             onDelete: "cascade"
         });
     };

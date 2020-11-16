@@ -1,0 +1,20 @@
+{{> header}}
+
+<h1>Measurement</h1>
+
+<h2>Edit Measurement {{this.dataValues.id}}</h2>
+<form data-id="{{this.dataValues.id}}" class="update-form">
+
+  <div class="form-group">
+    <label for="measurement-name">Name:</label>
+    <input type="text" class="measurement-name" id="measurement-name" name="name" value="{{this.dataValues.name}}">
+  </div>
+
+  <button type="submit">Update Measurement</button>
+</form>
+
+{{> footer}}
+<!-- JQuery -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- App scripts -->
+<script src="/js/measurement.js"></script>

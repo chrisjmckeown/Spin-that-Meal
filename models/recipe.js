@@ -14,14 +14,6 @@ module.exports = function (sequelize, DataTypes) {
         },
         portion: {
             type: DataTypes.INTEGER
-        },
-        creator_id: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            references: {
-                model: "User",
-                key: "id"
-            }
         }
     },
         {
@@ -29,39 +21,22 @@ module.exports = function (sequelize, DataTypes) {
         });
 
     Recipe.associate = function (models) {
-        //associate Recipe with User through Favorite table
         Recipe.belongsToMany(models.User, {
-            through: "Favourite",
-            foreignKey: "recipe_id"
+            through: "Favourite"
         });
-    };
-
-    Recipe.associate = function (models) {
-        //associate Recipe with creator
         Recipe.belongsTo(models.User, {
             foreignKey: {
-                allowNull: false
+                allowNull: true
             }
         });
-    };
-
-    Recipe.associate = function (models) {
-        //associate Recipe with Category throuth RecipeCategory table
-        //each categories belongs to the recipe are displayed in the object
-        Recipe.belongsToMany(models.Category, {
-            through: "RecipeCategory",
-            as: "categories",
-            foreignKey: "recipe_id" 
+        Recipe.belongsTo(models.Category, {
+            through: "Recipe_Category"
         });
-    };
-
-    Recipe.associate = function (models) {
-        //associate Recipe with ingredients throuth RecipeIngredient table
-        //each ingredients belongs to the recipe are displayed in the object
-        Recipe.belongsToMany(models.Ingredient, {
-            through: "RecipeIngredient",
-            as: "ingredients",
-            foreignKey: "recipe_id" 
+        Recipe.hasMany(models.PlayList, {
+            onDelete: "SET NULL"
+        });
+        Recipe.hasMany(models.RecipeIngredient, {
+            through: "Recipe_Ingredient"
         });
     };
     return Recipe;
