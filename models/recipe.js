@@ -14,9 +14,6 @@ module.exports = function (sequelize, DataTypes) {
         },
         portion: {
             type: DataTypes.INTEGER
-        },
-        category_id: {
-            type: DataTypes.INTEGER
         }
     },
         {
@@ -24,14 +21,18 @@ module.exports = function (sequelize, DataTypes) {
         });
 
     Recipe.associate = function (models) {
-        // Recipe should belong to an User
         Recipe.belongsTo(models.User, {
             foreignKey: {
-                allowNull: false
+                allowNull: true
             }
         });
-        User.hasMany(models.Playlist, {
-          onDelete: "cascade"
+        Recipe.belongsTo(models.Category, {
+            foreignKey: {
+                allowNull: true
+            }
+        });
+        Recipe.hasMany(models.PlayList, {
+            onDelete: "SET NULL"
         });
     };
     return Recipe;

@@ -71,18 +71,18 @@ module.exports = function (sequelize, DataTypes) {
         );
     });
 
-    User.associate = function(models) {
-      // Associating User with Post
-      // When an User is deleted, also delete any associated Post
-      User.hasMany(models.Post, {
-        onDelete: "cascade"
-      });
-      User.hasMany(models.Recipe, {
-        onDelete: "cascade"
-      });
-      User.hasMany(models.Playlist, {
-        onDelete: "cascade"
-      });
+    User.associate = function (models) {
+        // Associating User with Post
+        // When an User is deleted, also delete any associated Post
+        User.hasMany(models.Post, {
+            onDelete: "cascade"
+        });
+        User.hasMany(models.Recipe, {
+            onDelete: "SET NULL"
+        });
+        User.hasMany(models.PlayList, {
+            onDelete: "cascade"
+        });
     };
     return User;
 };

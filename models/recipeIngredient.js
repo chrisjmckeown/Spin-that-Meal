@@ -13,8 +13,8 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.INTEGER
     }
   },
-  {
-    freezeTableName: true
-  });
+    {
+      freezeTableName: true
+    });
   return RecipeIngredient;
 };

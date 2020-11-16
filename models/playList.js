@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
-  var Playlist = sequelize.define("Playlist", {
+  var PlayList = sequelize.define("PlayList", {
     name: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -12,17 +12,17 @@ module.exports = function (sequelize, DataTypes) {
       freezeTableName: true
     });
 
-  Playlist.associate = function (models) {
-    Playlist.belongsTo(models.User, {
+    PlayList.associate = function (models) {
+      PlayList.belongsTo(models.User, {
       foreignKey: {
         allowNull: false
       }
     });
-    Playlist.belongsTo(models.Recipe, {
+    PlayList.belongsTo(models.Recipe, {
       foreignKey: {
-        allowNull: false
+        allowNull: true
       }
     });
   };
-  return Playlist;
+  return PlayList;
 };

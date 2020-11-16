@@ -6,9 +6,9 @@ module.exports = function (app) {
     // GET route for getting all items
     app.get("/api/play-lists", isAuthenticated, (req, res) => {
         db.PlayList.findAll({
-            
+
         }).then((result) => {
-            res.render("management/play-lists", { Category: result });
+            res.render("management/play-lists", { PlayList: result });
         });
     });
 
@@ -25,22 +25,22 @@ module.exports = function (app) {
 
     // POST route for saving new
     app.post("/api/play-lists", isAuthenticated, (req, res) => {
-        const { name } = req.body;
-        db.PlayList.create({ 
-            name 
+        const { name, UserId } = req.body;
+        db.PlayList.create({
+            name, UserId
         }).then((result) => {
             res.json(result);
         });
     });
 
     // PUT route for updating
-    app.put("/api/play-lists/:id", isAuthenticated, (req, res) => {
-        const { name } = req.body;
+    app.put("/api/play-lists", isAuthenticated, (req, res) => {
+        const {id, name } = req.body;
         db.PlayList.update({
             name
         }, {
             where: {
-                id: req.params.id
+                id: id
             }
         }).then((result) => {
             res.json(result);
