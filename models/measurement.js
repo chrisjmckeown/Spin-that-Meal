@@ -11,6 +11,11 @@ module.exports = function(sequelize, DataTypes) {
     {
       freezeTableName: true
     });
+    Measurement.associate = function (models) {
+      Measurement.hasMany(models.RecipeIngredient, {
+        onDelete: "SET NULL"
+      });
+    };
 
     return Measurement;
 }

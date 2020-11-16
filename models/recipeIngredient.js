@@ -8,13 +8,17 @@ module.exports = function (sequelize, DataTypes) {
     },
     amount: {
       type: DataTypes.INTEGER
-    },
-    measurement_id: {
-      type: DataTypes.INTEGER
     }
   },
     {
       freezeTableName: true
     });
+  RecipeIngredient.associate = function (models) {
+    RecipeIngredient.belongsTo(models.Measurement, {
+      foreignKey: {
+        allowNull: true
+      }
+    });
+  };
   return RecipeIngredient;
 };

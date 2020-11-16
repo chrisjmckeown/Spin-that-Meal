@@ -8,7 +8,7 @@ module.exports = function (app) {
         db.Measurement.findAll({
 
         }).then((result) => {
-            res.json(result);
+            res.render("management/measurements", { Measurement: result });
         });
     });
 
@@ -19,15 +19,15 @@ module.exports = function (app) {
                 id: req.params.id
             }
         }).then((result) => {
-            res.json(result);
+            res.render("management/measurements-edit", result);
         });
     });
 
     // POST route for saving new
     app.post("/api/measurements", isAuthenticated, (req, res) => {
-        const { unit } = req.body;
+        const { name } = req.body;
         db.Measurement.create({
-            unit
+            name
         }).then((result) => {
             res.json(result);
         });
@@ -35,9 +35,9 @@ module.exports = function (app) {
 
     // PUT route for updating
     app.put("/api/measurements", isAuthenticated, (req, res) => {
-        const { id, unit } = req.body;
+        const { id, name } = req.body;
         db.Measurement.update({
-            unit
+            name
         }, {
             where: {
                 id: id

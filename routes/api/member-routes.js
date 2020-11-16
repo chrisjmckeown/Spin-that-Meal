@@ -18,8 +18,8 @@ module.exports = function (app) {
 
     // PUT route for updating
     app.put("/api/member", isAuthenticated, (req, res) => {
-        const { id, firstName, lastName, userName, email, password: ptcrypt, phone, address } = req.body;
-        if (ptcrypt === "") {
+        const { id, firstName, lastName, userName, email, password, phone, address } = req.body;
+        if (!password.trim()) {
             db.User.update({
                 firstName, lastName, userName, email, phone, address
             }, {
@@ -31,13 +31,13 @@ module.exports = function (app) {
             });
         }
         else {
-            let  password = bcrypt.hashSync(
-                ptcrypt,
+            let newPassword = bcrypt.hashSync(
+                password,
                 bcrypt.genSaltSync(10),
                 null
             );
             db.User.update({
-                firstName, lastName, userName, email, password, phone, address
+                firstName, lastName, userName, email, password: newPassword, phone, address
             }, {
                 where: {
                     id
