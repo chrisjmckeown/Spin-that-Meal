@@ -37,6 +37,9 @@ module.exports = function (sequelize, DataTypes) {
         Recipe.hasMany(models.RecipeIngredient, {
           onDelete: "SET NULL"
         });
+        Recipe.hasMany(models.Favourite, {
+            onDelete: "cascade"
+        });
     };
     return Recipe;
 }

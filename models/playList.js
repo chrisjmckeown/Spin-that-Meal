@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
-  var PlayList = sequelize.define("PlayList", {
+  const PlayList = sequelize.define("PlayList", {
     name: {
       type: DataTypes.STRING,
       allowNull: false,
