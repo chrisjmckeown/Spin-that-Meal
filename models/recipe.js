@@ -21,22 +21,24 @@ module.exports = function (sequelize, DataTypes) {
         });
 
     Recipe.associate = function (models) {
+        Recipe.belongsToMany(models.User, {
+            through: "Favourite"
+        });
         Recipe.belongsTo(models.User, {
             foreignKey: {
                 allowNull: true
             }
         });
         Recipe.belongsTo(models.Category, {
-            foreignKey: {
-                allowNull: true
-            }
+            through: "Recipe_Category"
         });
         Recipe.hasMany(models.PlayList, {
             onDelete: "SET NULL"
         });
         Recipe.hasMany(models.RecipeIngredient, {
-          onDelete: "SET NULL"
+            through: "Recipe_Ingredient"
         });
     };
     return Recipe;
 }
+

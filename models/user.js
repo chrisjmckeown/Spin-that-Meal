@@ -77,9 +77,27 @@ module.exports = function (sequelize, DataTypes) {
         User.hasMany(models.Post, {
             onDelete: "cascade"
         });
+
+        // associating User with Recipe liked through Favouite table
+        User.belongsToMany(models.Recipe, {
+            through: "Favourite"
+        });
+
+        // Associating User with Pantry
+        // When an User is deleted, also delete any associated Pantry items
+        User.hasMany(models.Pantry, {
+            onDelete: "cascade"
+        });
+        // Associating User with ShoppingList
+        // When an User is deleted, also delete any associated ShoppingList items
+        User.hasMany(models.ShoppingList, {
+            onDelete: "SET NULL"
+    });
+
         User.hasMany(models.Recipe, {
             onDelete: "SET NULL"
         });
+      
         User.hasMany(models.PlayList, {
             onDelete: "cascade"
         });
