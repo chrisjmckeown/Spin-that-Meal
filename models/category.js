@@ -1,16 +1,20 @@
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   const Category = sequelize.define("Category", {
-        name: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-              len: [1]
-            }
-        }
-    },
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1]
+      }
+    }
+  },
     {
       freezeTableName: true
     });
-
-    return Category;
+  Category.associate = function (models) {
+    Category.hasMany(models.Recipe, {
+      onDelete: "SET NULL"
+    });
+  };
+  return Category;
 }

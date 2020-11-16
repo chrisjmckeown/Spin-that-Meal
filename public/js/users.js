@@ -8,9 +8,9 @@ $(function () {
 
     const updateMemberForm = $(".update-member-form");
 
-    const firstName = $(".update-firstName");
-    const lastName = $(".update-lastName");
-    const userName = $(".update-userName");
+    const firstName = $(".update-first-name");
+    const lastName = $(".update-last-name");
+    const userName = $(".update-user-name");
     const email = $(".update-email");
     const phone = $(".update-phone");
     const address = $(".update-address");

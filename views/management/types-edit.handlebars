@@ -1,0 +1,20 @@
+{{> header}}
+
+<h1>Type</h1>
+
+<h2>Edit Type {{this.dataValues.id}}</h2>
+<form data-id="{{this.dataValues.id}}" class="update-form">
+
+  <div class="form-group">
+    <label for="type-name">Name:</label>
+    <input type="text" class="type-name" id="type-name" name="name" value="{{this.dataValues.name}}">
+  </div>
+
+  <button type="submit">Update Type</button>
+</form>
+
+{{> footer}}
+<!-- JQuery -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- App scripts -->
+<script src="/js/type.js"></script>

@@ -5,8 +5,10 @@ const isAuthenticated = require("../../config/middleware/isAuthenticated");
 module.exports = function (app) {
     // GET route for getting all items
     app.get("/api/measurements", isAuthenticated, (req, res) => {
-        db.Measurement.findAll({}).then((result) => {
-            res.json(result);
+        db.Measurement.findAll({
+
+        }).then((result) => {
+            res.render("management/measurements", { Measurement: result });
         });
     });
 
@@ -16,27 +18,29 @@ module.exports = function (app) {
             where: {
                 id: req.params.id
             }
-        }).then ((result) => {
-            res.json(result);
+        }).then((result) => {
+            res.render("management/measurements-edit", result);
         });
     });
 
     // POST route for saving new
     app.post("/api/measurements", isAuthenticated, (req, res) => {
-        const { unit } = req.body;
-        db.Measurement.create({ unit }).then((result) => {
+        const { name } = req.body;
+        db.Measurement.create({
+            name
+        }).then((result) => {
             res.json(result);
         });
     });
 
     // PUT route for updating
     app.put("/api/measurements", isAuthenticated, (req, res) => {
-        const { unit } = req.body;
+        const { id, name } = req.body;
         db.Measurement.update({
-            unit
+            name
         }, {
             where: {
-                id: req.body.id
+                id: id
             }
         }).then((result) => {
             res.json(result);

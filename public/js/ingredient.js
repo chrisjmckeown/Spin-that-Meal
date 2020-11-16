@@ -2,7 +2,7 @@
 $(function () {
     // Getting references to our form and inputs
     const createForm = $("#create-form");
-    const categoryName = $(".category-name");
+    const ingredientName = $(".ingredient-name");
     const editBtn = $(".edit");
     const updateForm = $(".update-form");
     const deleteBtn = $(".delete");
@@ -11,13 +11,13 @@ $(function () {
     createForm.on("submit", function (event) {
         // Make sure to preventDefault on a submit event.
         event.preventDefault();
-        const newCategory = {
-            name: categoryName.val().trim(),
+        const newIngredients = {
+            name: ingredientName.val().trim()
         };
         // Send the POST request.
-        $.ajax("/api/categories", {
+        $.ajax("/api/ingredients", {
             type: "POST",
-            data: newCategory
+            data: newIngredients
         }).then(
             () => {
                 // Reload the page to get the updated list
@@ -29,25 +29,25 @@ $(function () {
     // EDIT Category
     editBtn.on("click", function (event) {
         const id = $(this).data("id");
-        location.assign(`/api/categories/${id}`);
+        location.assign(`/api/ingredients/${id}`);
     });
 
     updateForm.on("submit", function (event) {
         // Make sure to preventDefault on a submit event.
         event.preventDefault();
         const id = $(this).data("id");
-        const updatedCategory = {
+        const updatedtypes = {
             id: id,
-            name: categoryName.val().trim()
+            name: ingredientName.val().trim()
         };
         // Send the POST request.
-        $.ajax(`/api/categories`, {
+        $.ajax(`/api/ingredients`, {
             type: "PUT",
-            data: updatedCategory
+            data: updatedtypes
         }).then(
             () => {
                 // Reload the page to get the updated list
-                location.assign("/api/categories");
+                location.assign("/api/ingredients");
             }
         );
     });
@@ -56,7 +56,7 @@ $(function () {
     deleteBtn.on("click", function (event) {
         const id = $(this).data("id");
         // Send the DELETE request.
-        $.ajax(`/api/categories/${id}`, {
+        $.ajax(`/api/ingredients/${id}`, {
             type: "DELETE"
         }).then(
             () => {
