@@ -36,13 +36,13 @@ module.exports = function (app) {
     });
 
     // PUT route for updating
-    app.put("/api/categories/:id", isAuthenticated, (req, res) => {
-        const { name } = req.body;
+    app.put("/api/categories", isAuthenticated, (req, res) => {
+        const { id, name } = req.body;
         db.Category.update({
             name
         }, {
             where: {
-                id: req.params.id
+                id: id
             }
         }).then((result) => {
             res.json(result);

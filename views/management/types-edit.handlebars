@@ -1,8 +1,8 @@
 {{> header}}
 
-<h1>Play List</h1>
+<h1>Type</h1>
 
-<h2>Edit Play List {{this.dataValues.id}}</h2>
+<h2>Edit Type {{this.dataValues.id}}</h2>
 <form data-id="{{this.dataValues.id}}" class="update-form">
 
   <div class="form-group">
@@ -10,11 +10,11 @@
     <input type="text" class="update-name" id="update-name" name="name" value="{{this.dataValues.name}}">
   </div>
 
-  <button type="submit">Update Play List</button>
+  <button type="submit">Update Type</button>
 </form>
 
 {{> footer}}
 <!-- JQuery -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <!-- App scripts -->
-<script src="/js/play-list.js"></script>
+<script src="/js/type.js"></script>

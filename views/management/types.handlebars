@@ -1,18 +1,18 @@
 {{> header}}
 
-<h1>Play Lists</h1>
+<h1>Type Lists</h1>
 
-<h2>Add a Play List</h2>
+<h2>Add a Type</h2>
 <form class="create-form" id="create-form">
 
   <div class="form-group">
-    <label for="play-list-name">Play List Name:</label>
-    <input type="text" class="play-list-name" id="play-list-name" name="name">
+    <label for="type-name">Type Name:</label>
+    <input type="text" class="type-name" id="type-name" name="name">
   </div>
-  <button type="submit">Add Play List</button>
+  <button type="submit">Add Type</button>
 </form>
 <ul>
-  {{#each PlayList}}
+  {{#each Type}}
   {{> row-item}}
   {{/each}}
 </ul>
@@ -20,4 +20,4 @@
 <!-- JQuery -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <!-- App scripts -->
-<script src="/js/play-list.js"></script>
+<script src="/js/type.js"></script>

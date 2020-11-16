@@ -5,8 +5,10 @@ const isAuthenticated = require("../../config/middleware/isAuthenticated");
 module.exports = function (app) {
     // GET route for getting all items
     app.get("/api/types", isAuthenticated, (req, res) => {
-        db.Type.findAll({}).then((result) => {
-            res.json(result);
+        db.Type.findAll({
+
+        }).then((result) => {
+            res.render("management/types", { Type: result });
         });
     });
 
@@ -16,27 +18,29 @@ module.exports = function (app) {
             where: {
                 id: req.params.id
             }
-        }).then ((result) => {
-            res.json(result);
+        }).then((result) => {
+            res.render("management/types-edit", result);
         });
     });
 
     // POST route for saving new
     app.post("/api/types", isAuthenticated, (req, res) => {
         const { name } = req.body;
-        db.Type.create({ name }).then((result) => {
+        db.Type.create({
+            name
+        }).then((result) => {
             res.json(result);
         });
     });
 
     // PUT route for updating
     app.put("/api/types", isAuthenticated, (req, res) => {
-        const { name } = req.body;
+        const { id, name } = req.body;
         db.Type.update({
             name
         }, {
             where: {
-                id: req.body.id
+                id: id
             }
         }).then((result) => {
             res.json(result);
