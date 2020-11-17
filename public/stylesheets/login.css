@@ -29,3 +29,8 @@ body, html {
 .fadein {
     transition: opacity .5s linear, margin-top 5s step-start, z-index 5s step-start;
 }
+
+.sign-in{
+    border-top-left-radius: 75px;
+    border-bottom-left-radius: 75px;
+}
