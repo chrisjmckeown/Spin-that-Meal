@@ -46,12 +46,6 @@ img {
     display: inline-block;
 }
 
-footer {
-    text-align: center;
-    background: #42f560;
-    height: max-content;
-}
-
 /* Dropdown Account Menu Styles */
 .dropbtn, .navbar-brand {
     background-color: #4CAF50;
