@@ -1,5 +1,3 @@
-{{> header}}
-
 <h1>Recipe Ingredient</h1>
 
 <h2>Edit Recipe Ingredient {{this.dataValues.id}}</h2>
@@ -7,12 +5,9 @@
 
   <div class="form-group">
     <label for="recipe-ingredient-amount">Name:</label>
-    <input type="text" class="recipe-ingredient-amount" id="recipe-ingredient-amount" name="name" value="{{this.dataValues.amount}}">
+    <input type="text" class="recipe-ingredient-amount" id="recipe-ingredient-amount" name="name"
+      value="{{this.dataValues.amount}}">
   </div>
 
   <button type="submit">Update Recipe Ingredient</button>
 </form>
-
-{{> footer}}
-<!-- App scripts -->
-<script src="/js/recipe-ingredient.js"></script>
