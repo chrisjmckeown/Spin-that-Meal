@@ -1,0 +1,46 @@
+body, html {
+    height: 100%;
+  }
+/* Login page */
+.login-img {
+    background-image: url("/images/hands-food.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+}
+
+.sign-in-form{
+    height: 600px;
+}
+
+.sign-in-form{
+    margin-top: 60px;
+}
+
+.uk-button:hover{
+    background-color: azure;
+}
+.fadein, .fadeout {
+    opacity: 0;
+    -moz-transition: opacity 0.4s ease-in-out;
+    -o-transition: opacity 0.4s ease-in-out;
+    -webkit-transition: opacity 0.4s ease-in-out;
+    transition: opacity 0.4s ease-in-out;
+}
+.fadein {
+    opacity: 1;
+}
+
+.slideup, .slidedown {
+    max-height: 0;            
+    overflow-y: hidden;
+    -webkit-transition: max-height 0.5s ease-in-out;
+    -moz-transition: max-height 0.5s ease-in-out;
+    -o-transition: max-height 0.5s ease-in-out;
+    transition: max-height 0.5s ease-in-out;
+    display: block; 
+}
+.slidedown {            
+    max-height: 60px ;   
+    display: none;                
+}  
