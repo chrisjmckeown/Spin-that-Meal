@@ -16,10 +16,6 @@ $(document).ready(() => {
 
     signUpForm.on("submit", event => {
         event.preventDefault();
-        // signInSwitch.show();
-        // signUp.show();
-        // signIn.hide();
-        // signUpSwitch.hide();
         signInSwitch.removeClass("fadeout").addClass("fadein");
         signUp.removeClass("fadeout").addClass("fadein");
         signIn.removeClass("fadein").addClass("fadeout");
@@ -28,11 +24,6 @@ $(document).ready(() => {
 
     signInForm.on("submit", event => {
         event.preventDefault();
-        // signInSwitch.hide();
-        // signUp.hide();
-        // signIn.show();
-        // signUpSwitch.show();
-
         signInSwitch.removeClass("fadein").addClass("fadeout");
         signUp.removeClass("fadein").addClass("fadeout");
         signIn.removeClass("fadeout").addClass("fadein");

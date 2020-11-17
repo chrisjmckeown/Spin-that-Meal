@@ -20,21 +20,12 @@ body, html {
 .uk-button:hover{
     background-color: azure;
 }
-.fadein, .fadeout {
+ .fadeout {
     opacity: 0;
-    -moz-transition: opacity 0.4s ease-in-out;
-    -o-transition: opacity 0.4s ease-in-out;
-    -webkit-transition: opacity 0.4s ease-in-out;
-    transition: opacity 0.4s ease-in-out; 
-     display: none;
-    /* display: none;
-    transition: opacity 1s ease-out;
-    opacity: 0; */
+    z-index: -5;
+    margin-top: -630px;
+    transition-timing-function: linear, step-end, step-end; 
 }
 .fadein {
-    opacity: 1; 
-     display: block;
-
-    /* opacity: 1;
-    display: block; */
+    transition: opacity .5s linear, margin-top 5s step-start, z-index 5s step-start;
 }
