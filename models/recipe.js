@@ -29,7 +29,7 @@ module.exports = function (sequelize, DataTypes) {
                 allowNull: true
             }
         });
-        Recipe.belongsTo(models.Category, {
+        Recipe.belongsToMany(models.Category, {
             through: "Recipe_Category"
         });
         Recipe.hasMany(models.PlayList, {
