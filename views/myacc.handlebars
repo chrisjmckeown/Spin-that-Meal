@@ -8,82 +8,14 @@
     </ul>
 
     <ul class="uk-switcher uk-margin">
-        <li class="starred">Coming Soon</li>
+        <li class="starred">
+            {{> starred}}</li>
         <li class="create-recipe">
-            <form class="uk-container">
-                <fieldset class="uk-fieldset">
-
-                    <legend class="uk-legend">New Recipe</legend>
-
-                    <div class="uk-margin">
-                        <h3>What is the name of your recipe?</h3>
-                        <input class="uk-input" type="text" placeholder="Recipe Title">
-                    </div>
-                    <div class="uk-margin">
-                        <h3>How many serves?</h3>
-                        <input class="uk-input" type="text" placeholder="eg. 4">
-                    </div>
-
-                    <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
-
-                        <h3>Food Categories:</h3>
-
-                        <a class="uk-button uk-button-default" href="#modal-sections" uk-toggle>Click to choose your
-                            food's genre</a>
-
-                        <div id="modal-sections" uk-modal>
-                            <div class="uk-modal-dialog">
-                                <button class="uk-modal-close-default" type="button" uk-close></button>
-                                <div class="uk-modal-header">
-                                    <h2 class="uk-modal-title">Please pick up to 5!</h2>
-                                </div>
-                                <div class="uk-modal-body">
-                                    <label><input class="uk-checkbox" type="checkbox"> Vegan</label>
-                                    <label><input class="uk-checkbox" type="checkbox"> Vegetarian</label>
-                                    <label><input class="uk-checkbox" type="checkbox"> Diary Free</label>
-                                    <label><input class="uk-checkbox" type="checkbox"> Gluten Free</label>
-                                    <label><input class="uk-checkbox" type="checkbox"> Japanese</label>
-                                    <label><input class="uk-checkbox" type="checkbox"> Mexican</label>
-                                    <label><input class="uk-checkbox" type="checkbox"> Salad</label>
-                                    <label><input class="uk-checkbox" type="checkbox"> Italian</label>
-                                </div>
-                                <div class="uk-modal-footer uk-text-right">
-                                    <button class="uk-button uk-button-default uk-modal-close"
-                                        type="button">Cancel</button>
-                                    <button class="uk-button uk-button-primary" type="button">Save</button>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-
-
-                    <div class="uk-margin">
-                        <h3>Ingredients:</h3>
-                        <button>Add Ingredient</button>
-                        <input class="uk-input" type="text" placeholder="e.g. 3 eggs">
-                    </div>
-
-                    <div class="uk-margin">
-                        <h3>Recipe Instructions:</h3>
-                        <textarea class="uk-textarea" rows="5" placeholder="Textarea"></textarea>
-                    </div>
-
-                    <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
-                        <label><input class="uk-radio" type="radio" name="radio2" checked> A</label>
-                        <label><input class="uk-radio" type="radio" name="radio2"> B</label>
-                    </div>
-
-                    <div class="uk-margin">
-                        <input class="uk-range" type="range" value="2" min="0" max="10" step="0.1">
-                    </div>
-
-                </fieldset>
-            </form>
+            {{> create-recipe}}
         </li>
-        <li class="edit-details">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-            fugiat nulla pariatur,
-            sed do eiusmod.</li>
+        <li class="edit-details">
+            {{> member-edit}}
+        </li>
     </ul>
 </main>
 {{> footer}}
