@@ -9,38 +9,33 @@ $(document).ready(() => {
     const signUpSwitch = $(".sign-up-switch");
     const moveme = $(".moveme");
 
-    signInSwitch.hide();
-    signUp.hide();
+    signIn.removeClass("fadeout").addClass("fadein");
+    signUpSwitch.removeClass("fadeout").addClass("fadein");
+    signInSwitch.removeClass("fadein").addClass("fadeout");
+    signUp.removeClass("fadein").addClass("fadeout");
 
     signUpForm.on("submit", event => {
         event.preventDefault();
-        signInSwitch.show();
-        signUp.show();
-        // if (signUpSwitch.hasClass("fadeout"))
-        //     signUpSwitch.removeClass("fadeout").addClass("fadein");
-        // else
-        //     signUpSwitch.removeClass("fadein").addClass("fadeout");
-        // if (signIn.hasClass("fadeout"))
-        //     signIn.removeClass("fadeout").addClass("fadein");
-        // else
-        //     signIn.removeClass("fadein").addClass("fadeout");
-        signIn.hide();
-        signUpSwitch.hide();
+        // signInSwitch.show();
+        // signUp.show();
+        // signIn.hide();
+        // signUpSwitch.hide();
+        signInSwitch.removeClass("fadeout").addClass("fadein");
+        signUp.removeClass("fadeout").addClass("fadein");
+        signIn.removeClass("fadein").addClass("fadeout");
+        signUpSwitch.removeClass("fadein").addClass("fadeout");
     });
 
     signInForm.on("submit", event => {
         event.preventDefault();
-        signInSwitch.hide();
-        signUp.hide();
-        // if (signUpSwitch.hasClass("fadeout"))
-        //     signUpSwitch.removeClass("fadeout").addClass("fadein");
-        // else
-        //     signUpSwitch.removeClass("fadein").addClass("fadeout");
-        // if (signIn.hasClass("fadeout"))
-        //     signIn.removeClass("fadeout").addClass("fadein");
-        // else
-        //     signIn.removeClass("fadein").addClass("fadeout");
-        signIn.show();
-        signUpSwitch.show();
+        // signInSwitch.hide();
+        // signUp.hide();
+        // signIn.show();
+        // signUpSwitch.show();
+
+        signInSwitch.removeClass("fadein").addClass("fadeout");
+        signUp.removeClass("fadein").addClass("fadeout");
+        signIn.removeClass("fadeout").addClass("fadein");
+        signUpSwitch.removeClass("fadeout").addClass("fadein");
     });
 });

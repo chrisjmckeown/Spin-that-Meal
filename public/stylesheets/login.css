@@ -25,22 +25,16 @@ body, html {
     -moz-transition: opacity 0.4s ease-in-out;
     -o-transition: opacity 0.4s ease-in-out;
     -webkit-transition: opacity 0.4s ease-in-out;
-    transition: opacity 0.4s ease-in-out;
+    transition: opacity 0.4s ease-in-out; 
+     display: none;
+    /* display: none;
+    transition: opacity 1s ease-out;
+    opacity: 0; */
 }
 .fadein {
-    opacity: 1;
-}
+    opacity: 1; 
+     display: block;
 
-.slideup, .slidedown {
-    max-height: 0;            
-    overflow-y: hidden;
-    -webkit-transition: max-height 0.5s ease-in-out;
-    -moz-transition: max-height 0.5s ease-in-out;
-    -o-transition: max-height 0.5s ease-in-out;
-    transition: max-height 0.5s ease-in-out;
-    display: block; 
+    /* opacity: 1;
+    display: block; */
 }
-.slidedown {            
-    max-height: 60px ;   
-    display: none;                
-}  
