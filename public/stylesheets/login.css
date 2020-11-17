@@ -1,5 +1,6 @@
-body, html {
-    height: 100%;
+html, body {
+    min-height: 100vh;
+    padding: 0;
   }
 /* Login page */
 .login-img {
@@ -17,6 +18,10 @@ body, html {
     margin-top: 60px;
 }
 
+.col2{
+    margin-bottom: 60px;
+}
+
 .uk-button:hover{
     background-color: azure;
 }
@@ -30,7 +35,37 @@ body, html {
     transition: opacity .5s linear, margin-top 5s step-start, z-index 5s step-start;
 }
 
-.sign-in{
+.sign-in, .sign-in-switch{
     border-top-left-radius: 75px;
     border-bottom-left-radius: 75px;
+}
+
+.sign-up-switch, .sign-up{
+    border-top-right-radius: 75px;
+    border-bottom-right-radius: 75px;
+}
+
+.sign-up-switch, .sign-in-switch, .sign-up-switch>h1, .sign-in-switch>h1{
+    background-color: cadetblue;
+    color: whitesmoke;
+    font-size: 1.5rem;
+}
+.sign-up-switch>h1, .sign-in-switch>h1{
+    background-color: cadetblue;
+    color: whitesmoke;
+    font-size: 3.5rem;
+}
+
+@media (max-width: 960px) { 
+    .sign-in, .sign-in-switch{
+        border-top-left-radius: 75px;
+        border-top-right-radius: 75px;
+        border-bottom-left-radius: 0px;
+    }
+    
+    .sign-up-switch, .sign-up{
+        border-bottom-left-radius: 75px;
+        border-bottom-right-radius: 75px;
+        border-top-right-radius: 0px;
+    }
 }

@@ -7,7 +7,6 @@ $(document).ready(() => {
     const signInSwitch = $(".sign-in-switch");
     const signUp = $(".sign-up");
     const signUpSwitch = $(".sign-up-switch");
-    const moveme = $(".moveme");
 
     signIn.removeClass("fadeout").addClass("fadein");
     signUpSwitch.removeClass("fadeout").addClass("fadein");
