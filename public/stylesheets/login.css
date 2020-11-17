@@ -1,0 +1,31 @@
+body, html {
+    height: 100%;
+  }
+/* Login page */
+.login-img {
+    background-image: url("/images/hands-food.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+}
+
+.sign-in-form{
+    height: 600px;
+}
+
+.sign-in-form{
+    margin-top: 60px;
+}
+
+.uk-button:hover{
+    background-color: azure;
+}
+ .fadeout {
+    opacity: 0;
+    z-index: -5;
+    margin-top: -630px;
+    transition-timing-function: linear, step-end, step-end; 
+}
+.fadein {
+    transition: opacity .5s linear, margin-top 5s step-start, z-index 5s step-start;
+}
