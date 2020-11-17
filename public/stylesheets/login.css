@@ -14,12 +14,9 @@ html, body {
     height: 600px;
 }
 
-.sign-in-form{
-    margin-top: 60px;
-}
-
-.col2{
-    margin-bottom: 60px;
+.wrapper{
+    padding: 50px;
+    margin-left: 40px;
 }
 
 .uk-button:hover{
@@ -54,6 +51,18 @@ html, body {
     background-color: cadetblue;
     color: whitesmoke;
     font-size: 3.5rem;
+}
+
+.message>h3{
+    font-size: 2.5rem;
+}
+
+.message>p{
+    font-size: 1.3rem;
+    padding-bottom: 20px;
+}
+.message{
+    background-color: rgb(255, 243, 154);
 }
 
 @media (max-width: 960px) { 
