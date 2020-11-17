@@ -5,4 +5,10 @@ module.exports = function(app) {
     app.get("/index", isAuthenticated , (req, res) => {
         res.render("index", "");
     });
+
+    // Get route for retrieving a single item
+    app.get("/myacc", (req, res) => {
+        console.log("here")
+        res.render("myacc");
+    });
   };

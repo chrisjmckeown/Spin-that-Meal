@@ -97,13 +97,9 @@ module.exports = function (sequelize, DataTypes) {
         User.hasMany(models.Recipe, {
             onDelete: "SET NULL"
         });
-<<<<<<< HEAD
         User.hasMany(models.Favourite, {
             onDelete: "cascade"
         });
-=======
-      
->>>>>>> main
         User.hasMany(models.PlayList, {
             onDelete: "cascade"
         });
