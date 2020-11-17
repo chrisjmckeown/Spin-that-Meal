@@ -1,6 +1,6 @@
 <!-- Socket IO -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.1/socket.io.js"></script>
-<div class="container mt-5">
+{{!-- <div class="container mt-5">
     <div class="row d-flex flex-row-reverse">
         <div class="col-md-6 mb-4 d-flex flex-row-reverse">
             <div class="card chat-room small-chat wide" id="myForm">
@@ -22,6 +22,35 @@
             </div>
         </div>
     </div>
+</div> --}}
+
+<button class="open-button" onclick="openForm()">Chat</button>
+
+<div class="chat-popup" id="myForm">
+    <form action="/action_page.php" class="form-container">
+        <h1>Chat</h1>
+        <div class="chat-message">
+            <div id="chatroom">
+            </div>
+            <section id="feedback"></section>
+        </div>
+
+        <label for="msg"><b>Message</b></label>
+        <textarea id="message" placeholder="Type message.." name="msg" required></textarea>
+
+        <button type="submit" id="send_message" class="btn">Send</button>
+        <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+    </form>
 </div>
+
+<script>
+    function openForm() {
+        document.getElementById("myForm").style.display = "block";
+    }
+
+    function closeForm() {
+        document.getElementById("myForm").style.display = "none";
+    }
+</script>
 <!-- App scripts -->
 <script src="/js/post.js"></script>
