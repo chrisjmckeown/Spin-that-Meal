@@ -1,0 +1,28 @@
+<form class="create-form" id="create-form">
+  <fieldset class="uk-fieldset">
+
+    <div class="uk-margin ingredients-add">
+      <label for="recipe-ingredient-amount">Ingredient name:</label>
+      <input type="text" class="recipe-ingredient-amount ingred-input" id="recipe-ingredient-amount" name="name">
+    </div>
+    <div class="uk-margin ingredients-add">
+      <select class="uk-select">
+        <option>teaspoon</option>
+        <option>tablespoon</option>
+        <option>cup</option>
+        <option>g</option>
+        <option>kg</option>
+        <option>mL</option>
+        <option>L</option>
+      </select>
+    </div>
+    <button class="uk-button uk-button-default"><a href="#" uk-icon="icon: plus"></a></button>
+</form>
+<ul>
+  {{#each RecipeIngredient}}
+  {{> row-item text=this.dataValues.amount}}
+  {{/each}}
+</ul>
+</fieldset>
+
+<form>
