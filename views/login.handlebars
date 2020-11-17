@@ -1,74 +1,78 @@
 <div class="login-img">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <div class="jumbotron">
-                    <div class="container">
-
-                        <h2>Login Form</h2>
-                        <form class="login">
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Email address</label>
-                                <input type="email" class="form-control" id="login-email-input" placeholder="Email">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">Password</label>
-                                <input type="password" class="form-control" id="login-password-input"
-                                    placeholder="Password">
-                            </div>
-                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button>
-                        </form>
+    <div class="uk-container">
+        <div class="uk-column-1-2">
+            <div class="uk-card uk-card-default uk-card-body sign-in">
+                <h2>Sign in to Spin-that-Meal</h2>
+                <form class="login">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Email address</label>
+                        <input type="email" class="form-control" id="login-email-input" placeholder="Email">
                     </div>
-                    <br>
-                </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Password</label>
+                        <input type="password" class="form-control" id="login-password-input" placeholder="Password">
+                    </div>
+                    <button class="uk-button uk-button-default uk-width-1-1" type="submit">Login</button>
+                </form>
             </div>
-            <div class="col-md-6">
-                <div class="jumbotron">
-                    <div class="container">
-                        <h2>Sign Up Form</h2>
-                        <form class="signup">
-                            <div class="form-group">
-                                <label for="first-name">First Name</label>
-                                <input type="text" class="form-control" id="first-name-input" placeholder="First Name">
-                            </div>
-                            <div class="form-group">
-                                <label for="last-name">Last Name</label>
-                                <input type="text" class="form-control" id="last-name-input" placeholder="Last Name">
-                            </div>
-                            <div class="form-group">
-                                <label for="username">User Name</label>
-                                <input type="text" class="form-control" id="username-input" placeholder="UserName">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Email address</label>
-                                <input type="email" class="form-control" id="signup-email-input" placeholder="Email">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">Password</label>
-                                <input type="password" class="form-control" id="signup-password-input"
-                                    placeholder="Password">
-                            </div>
-                            <div class="form-group">
-                                <label for="phone">Phone</label>
-                                <input type="text" class="form-control" id="phone-input" placeholder="(00) 00000000">
-                            </div>
-                            <div class="form-group">
-                                <label for="address">Address</label>
-                                <input type="text" class="form-control" id="address-input" placeholder="Address">
-                            </div>
-                            <div style="display: none" id="alert" class="alert alert-danger" role="alert">
-                                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                                <span class="sr-only">Error:</span> <span class="msg"></span>
-                            </div>
-                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Sign Up</button>
-                        </form>
-                        <br>
+            <div class="uk-card uk-card-default uk-card-body sign-in-switch">
+                <h2>Welcome back!</h2>
+                <p>To keep connected please login with your person info</p>
+                <form class="sign-ip-form">
+                    <button class="uk-button uk-button-default uk-button-large uk-width-1-1" type="submit">SIGN
+                        IN</button>
+                </form>
+            </div>
+            <div class="uk-card uk-card-default uk-card-body sign-up">
+                <h2>Create an Account</h2>
+                <form class="signup">
+                    <div class="form-group">
+                        <label for="first-name">First Name</label>
+                        <input type="text" class="form-control" id="first-name-input" placeholder="First Name">
                     </div>
-                </div>
+                    <div class="form-group">
+                        <label for="last-name">Last Name</label>
+                        <input type="text" class="form-control" id="last-name-input" placeholder="Last Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="username">User Name</label>
+                        <input type="text" class="form-control" id="username-input" placeholder="UserName">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Email address</label>
+                        <input type="email" class="form-control" id="signup-email-input" placeholder="Email">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Password</label>
+                        <input type="password" class="form-control" id="signup-password-input" placeholder="Password">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input type="text" class="form-control" id="phone-input" placeholder="(00) 00000000">
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Address</label>
+                        <input type="text" class="form-control" id="address-input" placeholder="Address">
+                    </div>
+                    <div style="display: none" id="alert" class="alert alert-danger" role="alert">
+                        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                        <span class="sr-only">Error:</span> <span class="msg"></span>
+                    </div>
+                    <button class="uk-button uk-button-default uk-width-1-1" type="submit">Sign Up</button>
+                </form>
+            </div>
+            <div class="uk-card uk-card-default uk-card-body sign-up-switch">
+                <h2>Hello there!</h2>
+                <p>Enter your personal details and start your journey with us!!!</p>
+                <form class="sign-up-form">
+                    <button class="uk-button uk-button-default uk-button-large uk-width-1-1" type="submit">SIGN
+                        UP</button>
+                </form>
             </div>
         </div>
     </div>
 </div>
 <!-- App scripts -->
+<script src="/js/toggle-login-page.js"></script>
 <script src="/js/login.js"></script>
 <script src="/js/signup.js"></script>
