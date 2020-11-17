@@ -38,6 +38,9 @@ module.exports = function (sequelize, DataTypes) {
         Recipe.belongsToMany(models.RecipeIngredient, {
             through: "Recipe_Ingredient"
         });
+        Recipe.hasMany(models.Favourite, {
+            onDelete: "cascade"
+        });
     };
     return Recipe;
 }
