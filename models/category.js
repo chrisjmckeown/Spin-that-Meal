@@ -12,8 +12,8 @@ module.exports = function (sequelize, DataTypes) {
       freezeTableName: true
     });
   Category.associate = function (models) {
-    Category.hasMany(models.Recipe, {
-      onDelete: "SET NULL"
+      Category.belongsToMany(models.Recipe, {
+          through: "Recipe_Category",
     });
   };
   return Category;
