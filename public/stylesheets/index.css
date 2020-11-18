@@ -1,9 +1,5 @@
 body {
-    background-image: url("hands-food.jpg");
-    height: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    height: 100%;  
 }
 .background-herbs {
     height: 250px;
