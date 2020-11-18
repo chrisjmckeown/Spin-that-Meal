@@ -5,7 +5,6 @@ html, body {
 .wrapper{
     display: flex;
     flex-direction: column;
-    height: 100%;
 }
 /* styling the header */
 header{
