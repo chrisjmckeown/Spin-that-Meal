@@ -1,54 +1,56 @@
-{{> header}}
 <div class="wrapper">
-    <div class="uk-container">
+    {{> header}}
+    <main class="main">
+        <div class="uk-container">
 
-        <div class="uk-grid">
-            <div class="uk-width-4-5 uk-grid-collapse">
-                <ul uk-tab>
-                    <li><a href="#">Browse</a></li>
-                    <li><a href="#">Starred</a></li>
-                    <li><a href="#">Playlists</a></li>
-                    <li><a href="#">Create a Recipe</a></li>
-                    {{!-- <li><a href="#">Tasty Collections</a></li> --}}
-                    <li><a href="#">Management</a></li>
-                    <li><a href="#">Edit Details</a></li>
-                    <li><a href="#">Contact</a></li>
-                    <li><a href="#">About</a></li>
-                </ul>
-                <ul class="uk-switcher uk-margin">
-                    <li class="browse">
-                        {{> browse}}
-                    </li>
-                    <li class="starred">
-                        {{> starred}}
-                    </li>
-                    <li class="playlists">
-                        {{> playlists}}
-                    </li>
-                    <li class="create-recipe">
-                        {{> create-recipe}}
-                    </li>
-                    {{!-- <li class="tasty-collections">
+            <div class="uk-grid">
+                <div class="uk-width-4-5 uk-grid-collapse">
+                    <ul uk-tab>
+                        <li><a href="#">Browse</a></li>
+                        <li><a href="#">Starred</a></li>
+                        <li><a href="#">Playlists</a></li>
+                        <li><a href="#">Create a Recipe</a></li>
+                        {{!-- <li><a href="#">Tasty Collections</a></li> --}}
+                        <li><a href="#">Management</a></li>
+                        <li><a href="#">Edit Details</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">About</a></li>
+                    </ul>
+                    <ul class="uk-switcher uk-margin">
+                        <li class="browse">
+                            {{> browse}}
+                        </li>
+                        <li class="starred">
+                            {{> starred}}
+                        </li>
+                        <li class="playlists">
+                            {{> playlists}}
+                        </li>
+                        <li class="create-recipe">
+                            {{> create-recipe}}
+                        </li>
+                        {{!-- <li class="tasty-collections">
                         {{> tasty-collections}}
                     </li> --}}
-                    <li class="management">
-                        {{> management}}
-                    </li>
-                    <li class="edit-details">
-                        {{> member-edit}}
-                    </li>
-                    <li class="contact">
-                        {{> contact}}
-                    </li>
-                    <li class="about">
-                        {{> about}}
-                    </li>
-                </ul>
-            </div>
-            <div class="uk-width-1-5 uk-grid-collapse">
-                {{> chat}}
+                        <li class="management">
+                            {{> management}}
+                        </li>
+                        <li class="edit-details">
+                            {{> member-edit}}
+                        </li>
+                        <li class="contact">
+                            {{> contact}}
+                        </li>
+                        <li class="about">
+                            {{> about}}
+                        </li>
+                    </ul>
+                </div>
+                <div class="uk-width-1-5 uk-grid-collapse">
+                    {{> chat}}
+                </div>
             </div>
         </div>
-    </div>
+    </main>
+    {{> footer}}
 </div>
-{{> footer}}
