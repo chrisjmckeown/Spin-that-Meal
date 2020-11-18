@@ -13,7 +13,7 @@ header{
     width: 100%;
 }
 /* styling the main */
-main{  
+.main{  
     flex: 1 1 auto;
     background-color: white;
     width: 100%;
@@ -29,7 +29,9 @@ footer{
     max-height: 360px;
     height: 360px;
 }
-
+.chat-window{
+padding: 2px;
+}
 .navbar {
     padding: 1.5rem 2rem;
 }
