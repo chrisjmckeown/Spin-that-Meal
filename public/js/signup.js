@@ -28,19 +28,17 @@ $(document).ready(() => {
             $("#alert").fadeIn(500);
             return;
         }
-        // // list of characters, will control upper and lower with lowerCase and upperCase variables
-        // const characterList = "abcdefghijklmnopqrstuvwyxz";
-
-        // // list for special characters !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~
-        // const specialCharactersCaseList = "\u0020!\u0022#$%&'()*+,-./:;<=>?@[\u005C\u005D^_`{|}~";
-        // if (!specialCharactersCaseList.some(v => userData.password.includes(v))) {
-        //     $("#alert .msg").text("Password must contain 1 special character");
-        //     $("#alert").fadeIn(500);
-        //     return;
-        // }
-        // // list of numbers characters
-        // const numberList = "0123456789";
-
+        
+        if (!checkSpecialChar(userData.password) ) {
+            $("#alert .msg").text("Password must contain 1 special character");
+            $("#alert").fadeIn(500);
+            return;
+        }
+        if (!checkNumber(userData.password)) {
+            $("#alert .msg").text("Password must contain 1 number");
+            $("#alert").fadeIn(500);
+            return;
+        }
         if (!userData.firstName || !userData.lastName || !userData.userName
             || !userData.email || !userData.password
             || !userData.phone || !userData.address) {
@@ -77,5 +75,30 @@ $(document).ready(() => {
     function handleLoginErr(err) {
         $("#alert .msg").text(err.responseJSON);
         $("#alert").fadeIn(500);
+    }
+
+    function checkSpecialChar(password) {
+        // // list for special characters !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~
+        const specialCharactersCaseList = "\u0020!\u0022#$%&'()*+,-./:;<=>?@[\u005C\u005D^_`{|}~";
+        let found = false;
+        [...specialCharactersCaseList].forEach((c) => {
+            if (password.includes(c)) {
+                console.log("here")
+                found = true;
+            }
+        });
+        return found;
+    }
+
+    function checkNumber(password) {
+        // list of numbers characters
+        const numberList = "0123456789";
+        let found = false;
+        [...numberList].forEach((c) => {
+            if (password.includes(c)) {
+                found = true;
+            }
+        });
+        return found;
     }
 });

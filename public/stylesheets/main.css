@@ -1,3 +1,29 @@
+html, body { 
+    height: 100%; 
+}
+
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+/* styling the header */
+header{
+    flex: 0 1 auto;
+    width: 100%;
+}
+/* styling the main */
+main{  
+    flex: 1 1 auto;
+    background-color: white;
+    width: 100%;
+  }
+/* styling the footer */
+footer{
+    flex: 0 1 auto;
+    width: 100%;
+}
+
 #chatroom { 
     overflow-y: scroll;
     max-height: 360px;
@@ -44,46 +70,4 @@
 .uk-container-small {
     margin-left: auto;
     margin-right: auto;
-}
-
-
-.colour-season {
-    height: 100px;
-    width: 100%;
-    margin-bottom: 0px;
-    margin-left: 0px !important;
-    margin-right: 0px !important;
-    background-image: url("../images/march-ants-wider.png");
-    background-color: rgb(255, 243, 154);
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-p {
-    display: inline-block;
-    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
-    position: relative;
-    bottom: -30px;
-    
-}
-.fa-github {
-    display: inline-block;
-    position: relative;
-    bottom: -30px;
-}
-.uk-align-right {
-    margin-right: 2%;
-}
-html { 
-    height: 100%; 
-}
-body {
-    min-height:100%; 
-    position:relative; 
-    padding-bottom: 100px 
-}
-.footer { 
-    position: absolute; 
-    left: 0 ; right: 0; bottom: 0; 
-    height:100px 
 }

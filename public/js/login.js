@@ -30,7 +30,6 @@ $(document).ready(() => {
       password
     })
       .then((result) => {
-        console.log(result);
         localStorage.setItem("user-details", JSON.stringify(result));
         window.location.replace("/index");
         // If there's an error, log the error
