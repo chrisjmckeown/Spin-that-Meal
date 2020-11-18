@@ -48,7 +48,7 @@ img {
 
 /* Dropdown Account Menu Styles */
 .dropbtn, .navbar-brand {
-    background-color: #4CAF50;
+    background-color: rgb(255, 152, 165);
     color: white;
     width: max-content;
     margin: 1%;
@@ -89,4 +89,4 @@ img {
   .dropdown:hover .dropdown-content {display: block;}
   
   /* Change the background color of the dropdown button when the dropdown content is shown */
-  .dropdown:hover .dropbtn {background-color: #3e8e41;}
+  .dropdown:hover .dropbtn {background-color: rgb(255, 243, 154);}

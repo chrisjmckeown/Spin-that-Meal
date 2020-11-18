@@ -81,3 +81,9 @@ p {
 .uk-align-right {
     margin-right: 2%;
 }
+
+/* Browse */
+.search-results {
+    box-sizing: content-box;
+    justify-content: space-around;
+}
