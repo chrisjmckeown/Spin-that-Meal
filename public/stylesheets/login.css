@@ -1,7 +1,7 @@
 html, body {
     min-height: 100vh;
     padding: 0;
-  }
+}
 /* Login page */
 .login-img {
     background-image: url("/images/hands-food.jpg");
@@ -10,11 +10,11 @@ html, body {
 }
 
 .sign-in-form{
-    height: 600px;
+    height: 525px;
 }
 
 .wrapper{
-    padding: 50px;
+    padding: 30px;
     margin-left: 40px;
 }
 

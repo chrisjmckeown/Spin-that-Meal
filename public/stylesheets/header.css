@@ -1,7 +1,8 @@
 .background-herbs {
     background-image: url("../images/spices.jpg");
-    background-size: 1000px;
+    background-size: 1000px 250px;
     background-position: center;
+    height: 120px;
 }
 
 .row-heading{
@@ -10,7 +11,6 @@
 }
 
 .name {
-    text-align: center;
     color: white;
     font-size: 4rem;
     font-weight: 700;
@@ -50,7 +50,7 @@ a:hover {
     display: none;
     position: absolute;
     background-color:  cadetblue;
-    min-width: 160px;
+    min-width: 165px;
     z-index: 1;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
@@ -82,3 +82,17 @@ a:hover {
       border-bottom-left-radius: 0px;
       border-bottom-right-radius: 0px;
     }
+
+@media (max-width: 750px) { 
+  .spin-that-meal {
+    margin-top: 10px;
+  } 
+   .name {
+        font-size: 3.5rem;
+        font-weight: 500;
+    }  
+    .dropdown, .dropbtn {
+      margin-top: 10px;
+      padding: 12px;
+    }
+}

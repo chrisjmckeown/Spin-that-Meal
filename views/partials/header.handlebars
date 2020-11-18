@@ -1,27 +1,28 @@
 <header>
-    <nav class="uk-navbar-container">
+    <nav class="uk-nav-container">
         <div class="background-herbs">
-            {{!-- <div class="uk-grid-match uk-child-width-expand@s uk-text-center row-heading" uk-grid> --}}
-            <div class="uk-child-width-1-3@s uk-grid-match row-heading" uk-grid>
-                <div >
-                    <div class="dropdown">
-                        <button class="dropbtn" id="your-profile">
-                            <div class="user-icon">
-                                <i class="fa fa-user-circle"></i>
+            <nav class="uk-container">
+                <div class="uk-grid">
+                    <div class="uk-width-1-2">
+                        <div class="spin-that-meal uk-float-left">
+                            <a href="/index" class="uk-text-nowrap name">Spin That Meal</a>
+                        </div>
+                    </div>
+                    <div class="uk-width-1-2">
+                        <div class="dropdown uk-float-right">
+                            <button class="dropbtn" id="your-profile">
+                                <div class="user-icon">
+                                    <i class="fa fa-user-circle"></i>
+                                </div>
+                            </button>
+                            <div class="dropdown-content">
+                                <a href="/personal-detail">Personal Details</a>
+                                <a href="/logout">Sign Out</a>
                             </div>
-                        </button>
-                        <div class="dropdown-content">
-                            <a href="/personal-detail">Personal Details</a>
-                            <a href="/logout">Sign Out</a>
                         </div>
                     </div>
                 </div>
-                <div >
-                    <div>
-                        <a href="/index" class="name">Spin That Meal</a>
-                    </div>
-                </div>
-            </div>
+            </nav>
         </div>
     </nav>
 </header>
