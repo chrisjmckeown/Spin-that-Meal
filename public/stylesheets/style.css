@@ -81,3 +81,14 @@ p {
 .uk-align-right {
     margin-right: 2%;
 }
+
+/* Media Queries footer */
+@media screen and (max-width: 1115px) {
+    p {
+        bottom: -20px;
+    }
+    .fa-github {
+    bottom: -20px;
+    }
+
+}
