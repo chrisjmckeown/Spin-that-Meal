@@ -5,11 +5,11 @@
 
         <div class="uk-margin">
             <h3>What is the name of your recipe?</h3>
-            <input class="uk-input" id= "recipeName" type="text" placeholder="Recipe Title">
+            <input class="uk-input" id="recipeName" type="text" placeholder="Recipe Title">
         </div>
         <div class="uk-margin">
             <h3>How many serves?</h3>
-            <input class="uk-input" type="text" id = "recipeServing" placeholder="eg. 4">
+            <input class="uk-input" type="text" id="recipeServing" placeholder="eg. 4">
         </div>
 
         <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
@@ -26,18 +26,16 @@
                         <h2 class="uk-modal-title">Please pick up to 5!</h2>
                     </div>
                     <div class="uk-modal-body">
-                        <label><input class="uk-checkbox" type="checkbox"> Vegan</label>
-                        <label><input class="uk-checkbox" type="checkbox"> Vegetarian</label>
-                        <label><input class="uk-checkbox" type="checkbox"> Diary Free</label>
-                        <label><input class="uk-checkbox" type="checkbox"> Gluten Free</label>
-                        <label><input class="uk-checkbox" type="checkbox"> Japanese</label>
-                        <label><input class="uk-checkbox" type="checkbox"> Mexican</label>
-                        <label><input class="uk-checkbox" type="checkbox"> Salad</label>
-                        <label><input class="uk-checkbox" type="checkbox"> Italian</label>
+                        {{#each Category}}
+                        <lable>
+                            <input class="uk-ckeckbox" type="checkbox" id="{{this.id}}">
+                            {{this.name}}
+                        </lable>
+                        {{/each}}
                     </div>
                     <div class="uk-modal-footer uk-text-right">
-                        <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
-                        <button class="uk-button uk-button-primary" type="button">Save</button>
+                        <button class="uk-button uk-button-default uk-modal-close" id="cancelCategory" type="button">Cancel</button>
+                        <button class="uk-button uk-button-primary" id="saveCategory" type="button">Save</button>
                     </div>
                 </div>
             </div>
@@ -57,11 +55,12 @@
 
         <div class="uk-margin">
             <h3>Recipe Instructions:</h3>
-            <textarea class="uk-textarea" rows="5" placeholder="Textarea"></textarea>
+            <textarea class="uk-textarea" rows="5" id="recipeInstruction" placeholder="Textarea"></textarea>
         </div>
         <div>
-            <button class="uk-button uk-button-primary">Save</button>
-            <button class="uk-button uk-button-danger">Clear All</button>
+            <button class="uk-button uk-button-primary" id="saveInstruction">Save</button>
+            <button class="uk-button uk-button-danger" id="clearInstruction">Clear All</button>
+
         </div>
     </fieldset>
 </form>

@@ -73,3 +73,9 @@ padding: 2px;
     margin-left: auto;
     margin-right: auto;
 }
+
+/* browse */
+.search-results {
+    box-sizing: content-box;
+    justify-content: space-around;
+}
