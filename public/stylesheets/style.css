@@ -1,3 +1,17 @@
+html { 
+    height: 100%; 
+}
+body {
+    min-height:100%; 
+    position:relative; 
+    padding-bottom: 100px 
+}
+.footer { 
+    position: absolute; 
+    left: 0 ; right: 0; bottom: 0; 
+    height:100px;
+}
+      
 #chatroom { 
     overflow-y: scroll;
     max-height: 360px;
@@ -46,14 +60,7 @@
     margin-right: auto;
 }
 
-/* sticky footer */
-footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
-}
+
 .colour-season {
     height: 100px;
     width: 100%;
@@ -81,7 +88,6 @@ p {
 .uk-align-right {
     margin-right: 2%;
 }
-
 /* Media Queries footer */
 @media screen and (max-width: 1115px) {
     p {
@@ -90,5 +96,4 @@ p {
     .fa-github {
     bottom: -20px;
     }
-
 }

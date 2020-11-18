@@ -1,27 +1,30 @@
-{{> header}}
+<div id="box">
+    {{> header}}
 
-<main>
-    <ul uk-tab>
-        <li><a href="#">Browse</a></li>
-        <li><a href="#">Starred</a></li>
-        <li><a href="#">Create a Recipe</a></li>
-        <li><a href="#">Edit Details</a></li>
-        <li><a href="#">Tasty Collections</a></li>
-    </ul>
+    <main id="content">
+        <ul uk-tab>
+            <li><a href="#">Browse</a></li>
+            <li><a href="#">Starred</a></li>
+            <li><a href="#">Create a Recipe</a></li>
+            <li><a href="#">Edit Details</a></li>
+            <li><a href="#">Tasty Collections</a></li>
+        </ul>
 
-    <ul class="uk-switcher uk-margin">
-        <li class="browse">
-            {{> browse}}
-        </li>
-        <li class="starred">
-            {{> starred}}
-        </li>
-        <li class="create-recipe">
-            {{> create-recipe}}
-        </li>
-        <li class="edit-details">
-            {{> member-edit}}
-        </li>
-    </ul>
-</main>
+        <ul class="uk-switcher uk-margin">
+            <li class="browse">
+                {{> browse}}
+            </li>
+            <li class="starred">
+                {{> starred}}
+            </li>
+            <li class="create-recipe">
+                {{> create-recipe}}
+            </li>
+            <li class="edit-details">
+                {{> member-edit}}
+            </li>
+        </ul>
+    </main>
+</div>
+<div class="push"></div>
 {{> footer}}
