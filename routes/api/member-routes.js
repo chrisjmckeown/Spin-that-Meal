@@ -12,7 +12,7 @@ module.exports = function (app) {
                 id: req.params.id
             }
         }).then((result) => {
-            res.render("management/member-edit", result);
+            res.json(result);
         });
     });
 

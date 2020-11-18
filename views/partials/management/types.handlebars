@@ -1,21 +1,16 @@
-{{> header}}
-
-<h1>Type Lists</h1>
-
 <h2>Add a Type</h2>
 <form class="create-form" id="create-form">
 
   <div class="form-group">
     <label for="type-name">Type Name:</label>
-    <input type="text" class="type-name" id="type-name" name="name">
+    <input type="text" class="uk-input"  id="type-name" name="name">
   </div>
-  <button type="submit">Add Type</button>
+  <button class="uk-button uk-button-default" type="submit">Add Type</button>
 </form>
 <ul>
   {{#each Type}}
   {{> row-item text=this.dataValues.name}}
   {{/each}}
 </ul>
-{{> footer}}
 <!-- App scripts -->
 <script src="/js/type.js"></script>
