@@ -1,52 +1,44 @@
-<!-- Index.handlebars is the main landing page for the user after logging in -->
-
 {{> header}}
 
-<body>
-    <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="Looking for something new..?" aria-label="Recipe-search"
-            aria-describedby="button-addon2">
-        <div class="input-group-append">
-            <button class="btn btn-outline-secondary" type="submit" id="button-addon2"><i
-                    class="fa fa-search"></i></button>
-        </div>
-    </div>
+<div class="uk-container">
+    <main id="content">
+        <ul uk-tab>
+            <li><a href="#">Browse</a></li>
+            <li><a href="#">Starred</a></li>
+            <li><a href="#">Create a Recipe</a></li>
+            <li><a href="#">Edit Details</a></li>
+            <li><a href="#">Tasty Collections</a></li>
+        </ul>
 
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4">
-                <a><img src="./unnamed.png"></a>
-            </div>
-            <div class="col-md-4">
-                <a><img src="./unnamed.png"></a>
-            </div>
-            <div class="col-md-4">
-                <a><img src="./unnamed.png"></a>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-4">
-                <a><img src="./unnamed.png"></a>
-            </div>
-            <div class="col-md-4">
-                <a><img src="./unnamed.png"></a>
-            </div>
-            <div class="col-md-4">
-                <a><img src="./unnamed.png"></a>
-            </div>
-        </div>
-    </div>
+        <ul class="uk-switcher uk-margin">
+            <li class="browse">
+                {{> browse}}
+            </li>
+            <li class="starred">
+                {{> starred}}
+            </li>
+            <li class="create-recipe">
+                {{> create-recipe}}
+            </li>
+            <li class="edit-details">
+                <div class="uk-container">
+                    <div class="uk-grid-match uk-child-width-expand@s uk-text-center" uk-grid>
+                        <div>
+                            <div class="uk-card uk-card-default uk-card-body">Blurb</div>
+                        </div>
+                        <div>
+                            {{> member-edit}}
+                            </div>
+                        <div>
+                            {{> chat}}
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </main>
 
-    {{> manage}}
-
-    {{> chat}}
-
-</body>
-
+</div>
 
 
 {{> footer}}
-<!-- App scripts -->
-<script src="/js/index.js"></script>
-
-</html>

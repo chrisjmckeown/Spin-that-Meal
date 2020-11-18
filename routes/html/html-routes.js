@@ -7,8 +7,8 @@ module.exports = function(app) {
     });
 
     // Get route for retrieving a single item
-    app.get("/myacc", (req, res) => {
-        console.log("here")
-        res.render("myacc");
-    });
+    // app.get("/myacc", (req, res) => {
+    //     console.log("here")
+    //     res.render("myacc");
+    // });
   };

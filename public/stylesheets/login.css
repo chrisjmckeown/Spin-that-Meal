@@ -7,7 +7,6 @@ html, body {
     background-image: url("/images/hands-food.jpg");
     background-size: cover;
     background-position: center;
-    height: 100%;
 }
 
 .sign-in-form{
@@ -42,19 +41,23 @@ html, body {
     border-bottom-right-radius: 75px;
 }
 
-.sign-up-switch, .sign-in-switch, .sign-up-switch>h1, .sign-in-switch>h1{
+.sign-up-switch, .sign-in-switch{
     background-color: cadetblue;
     color: whitesmoke;
     font-size: 1.5rem;
 }
+h1{
+    font-family: 'Source Code Pro', monospace;
+}
 .sign-up-switch>h1, .sign-in-switch>h1{
-    background-color: cadetblue;
     color: whitesmoke;
     font-size: 3.5rem;
+    font-family: 'Source Code Pro', monospace;
 }
 
 .message>h3{
-    font-size: 2.5rem;
+    font-size: 2rem;
+    font-family: 'Source Code Pro', monospace;
 }
 
 .message>p{

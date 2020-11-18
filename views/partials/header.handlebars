@@ -1,23 +1,30 @@
 <header>
-    <div class="background-herbs">
-        <h1 class="name">Spin That Meal</h1>
-        <div class="header">
-            <a class="navbar-brand" href="/">Home</a>
-            <div class="dropdown">
-                <button class="dropbtn" id="your-profile">
-                    <div class="user-icon">
-                        <i class="fa fa-user-circle"></i>
+    <nav class="uk-navbar-container">
+        <div class="background-herbs">
+            {{!-- <div class="uk-grid-match uk-child-width-expand@s uk-text-center row-heading" uk-grid> --}}
+            <div class="uk-child-width-1-3@s uk-grid-match row-heading" uk-grid>
+                <div >
+                    <div class="dropdown">
+                        <button class="dropbtn" id="your-profile">
+                            <div class="user-icon">
+                                <i class="fa fa-user-circle"></i>
+                            </div>
+                        </button>
+                        <div class="dropdown-content">
+                            <a href="/personal-detail">Personal Details</a>
+                            <a href="/logout">Sign Out</a>
+                        </div>
                     </div>
-                    Your Profile
-                </button>
-                <div class="dropdown-content">
-                    <a href="#">Dashboard</a>
-                    <a href="#">Settings</a>
-                    <a href="#">Contact Us</a>
-                    <a href="/logout">Sign Out</a>
-                    <a class="my-account">My Account</a>
+                </div>
+                <div >
+                    <div>
+                        <a href="/index" class="name">Spin That Meal</a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </nav>
 </header>
+<!-- App scripts -->
+<script src="/js/header.js"></script>
+<link rel="stylesheet" type="text/css" href="/stylesheets/header.css">

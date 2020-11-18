@@ -53,7 +53,7 @@ require("./routes/html/html-routes.js")(app);
 require("./routes/api/login-signup-routes.js")(app);
 
 // Syncing our database and logging a message to the user upon success
-db.sequelize.sync({ force: true }).then(() => {//
+db.sequelize.sync().then(() => {//{ force: true }
     const server = app.listen(PORT, () => {
         // Log (server-side) when our server has started
         console.log("Server listening on: http://localhost:" + PORT);
