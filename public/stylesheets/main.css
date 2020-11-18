@@ -29,7 +29,9 @@ footer{
     max-height: 360px;
     height: 360px;
 }
-
+.chat-window{
+padding: 2px;
+}
 .navbar {
     padding: 1.5rem 2rem;
 }
