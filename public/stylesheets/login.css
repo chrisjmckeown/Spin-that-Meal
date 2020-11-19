@@ -73,6 +73,7 @@ h1 {
 .message {
   background-color: rgb(255, 243, 154);
 }
+
 .msg,
 .msglogin {
   color: red;

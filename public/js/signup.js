@@ -13,7 +13,7 @@ $(document).ready(() => {
   // we validate the email and password are not blank
   signUpForm.on('submit', (event) => {
     event.preventDefault();
-    $('#alert .msg').text('1');
+    $('#alert .msg').text('');
     $('#alert').fadeOut(0);
     const userData = {
       firstName: firstNameInput.val().trim(),
