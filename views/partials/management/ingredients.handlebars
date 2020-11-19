@@ -1,16 +1,18 @@
-<h2>Add a Ingredient</h2>
-<form class="create-form" id="create-form">
+<div class="uk-container">
+  <h2>Add a Ingredient</h2>
+  <form class="create-form" id="create-form">
 
-  <div class="form-group">
-    <label for="ingredient-name">Ingredient Name:</label>
-    <input type="text" class="ingredient-name" id="ingredient-name" name="name">
-  </div>
-  <button type="submit">Add Ingredient</button>
-</form>
-<ul>
-  {{#each Ingredient}}
-  {{> row-item text=this.dataValues.name}}
-  {{/each}}
-</ul>
+    <div class="form-group">
+      <label for="ingredient-name">Ingredient Name:</label>
+      <input type="text" class="ingredient-name" id="ingredient-name" name="name">
+    </div>
+    <button type="submit">Add Ingredient</button>
+  </form>
+  <ul class="uk-list uk-list-divider uk-list-striped">
+    {{#each Ingredient}}
+    {{> row-item text=this.dataValues.name}}
+    {{/each}}
+  </ul>
+</div>
 <!-- App scripts -->
 <script src="/js/ingredient.js"></script>

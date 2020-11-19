@@ -1,11 +1,14 @@
 <li>
-	{{text}}
-
-	<button class="edit" id="edit" data-id="{{this.dataValues.id}}">
-		EDIT
-	</button>
-
-	<button class="delete" id="delete" data-id="{{this.dataValues.id}}">
-		DELETE
-	</button>
+	<div class="uk-grid" uk-grid>
+		<div class="uk-width-expand">
+			{{text}}
+		</div>
+		<div>
+			<button class="uk-button uk-button-default edit" id="edit" data-id="{{this.dataValues.id}}">EDIT</button>
+		</div>
+		<div>
+			<button class="uk-button uk-button-default delete" id="delete"
+				data-id="{{this.dataValues.id}}">DELETE</button>
+		</div>
+	</div>
 </li>

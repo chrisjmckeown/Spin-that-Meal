@@ -9,7 +9,7 @@ module.exports = function (app) {
         db.Category.findAll({
             
         }).then((result) => {
-            res.render("management/categories", { Category: result });
+            res.render("partials/management/categories", { Category: result });
         });
     });
 
@@ -21,7 +21,7 @@ module.exports = function (app) {
                 id: req.params.id
             }
         }).then((result) => {
-            res.render("management/categories-edit", result);
+            res.render("partials/management/categories-edit", result);
         });
     });
 

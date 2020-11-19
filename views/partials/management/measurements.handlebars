@@ -1,15 +1,19 @@
 <h2>Add a Measurement</h2>
-<form class="create-form" id="create-form">
-
-  <div class="form-group">
-    <label for="measurement-name">Measurement Name:</label>
-    <input type="text" class="uk-input measurement-name" id="measurement-name" name="name">
+<form class="uk-grid-small" uk-grid>
+  <div class="uk-margin-small uk-grid-small uk-grid" uk-grid="">
+    <div class="uk-width-expand uk-first-column">
+      <input class="uk-input measurement-name" id="measurement-name" type="text" placeholder="new measurement..."
+        autofocus="" required="">
+    </div>
+    <div class="uk-width-auto">
+      <button class="uk-button uk-button-default uk-width-1-1 create">Add</button>
+    </div>
   </div>
-  <button type="submit">Add Measurement</button>
 </form>
+
 <ul>
   {{#each Measurement}}
-  {{> row-item text=this.dataValues.name}}
+  {{> measurement-item text=this.dataValues.name}}
   {{/each}}
 </ul>
 <!-- App scripts -->
