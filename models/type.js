@@ -1,20 +1,20 @@
-module.exports = function (sequelize, DataTypes) {
-  const Type = sequelize.define("Type", {
+module.exports = function(sequelize, DataTypes) {
+  const Type = sequelize.define('Type', {
     name: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        len: [1]
-      }
-    }
+        len: [1],
+      },
+    },
   },
-    {
-      freezeTableName: true
-    });
-  Type.associate = function (models) {
+  {
+    freezeTableName: true,
+  });
+  Type.associate = function(models) {
     Type.hasMany(models.Ingredient, {
-      onDelete: "SET NULL"
+      onDelete: 'SET NULL',
     });
   };
   return Type;
-}
+};

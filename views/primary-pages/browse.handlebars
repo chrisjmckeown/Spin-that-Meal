@@ -1,22 +1,39 @@
-<nav class="uk-navbar-container" uk-navbar>
-    <div class="uk-navbar-center">
-        <div class="uk-navbar-item">
-            <form class="uk-search uk-search-navbar">
-                <span uk-search-icon></span>
-                <input class="uk-search-input" id="searchInput" type="search"
-                    placeholder="Looking for something new...?">
-            </form>
-            <button id="searchBtn">search button</button>
-        </div>
-    </div>
-</nav>
-<section>
-    <div class="uk-container">
-        <div id="recentlySearched" class="recent-search"></div>
-        <button id="clearHistory" class="uk-button uk-button-danger">Clear History</button>
-        <div class="uk-container-small">
-            <div id="searchResults" class="uk-grid-row-large uk-child-width-1-2@s uk-text-center" uk-grid>
+<div class="wrapper">
+    {{> header}}
+    <main class="main">
+        <div class="uk-container">
+            {{> navigation/primary-nav}}
+            <div class="uk-grid">
+                <div class="uk-width-4-5">
+                    <nav class="uk-navbar-container" uk-navbar>
+                        <div class="uk-navbar-center">
+                            <div class="uk-navbar-item">
+                                <form class="uk-search uk-search-navbar">
+                                    <span uk-search-icon></span>
+                                    <input class="uk-search-input" id="searchInput" type="search"
+                                        placeholder="Looking for something new...?">
+                                </form>
+                                <button id="searchBtn">search button</button>
+                            </div>
+                        </div>
+                    </nav>
+                    <section>
+                        <div class="uk-container">
+                            <div id="recentlySearched" class="recent-search"></div>
+                            <button id="clearHistory" class="uk-button uk-button-danger">Clear History</button>
+                            <div class="uk-container-small">
+                                <div id="searchResults" class="uk-grid-row-large uk-child-width-1-2@s uk-text-center"
+                                    uk-grid>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div class="uk-width-1-5">
+                    {{> chat}}
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </main>
+    {{> footer}}
+</div>

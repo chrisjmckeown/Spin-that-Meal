@@ -1,5 +1,19 @@
-<h1>
-    Comming Soon
-</h1>
+<div class="wrapper">
+    {{> header}}
+    <main class="main">
+        <div class="uk-container">
+            {{> navigation/primary-nav}}
+            <div class="uk-grid">
+                <div class="uk-width-4-5">
+                    About Comming Soon
+                </div>
+                <div class="uk-width-1-5">
+                    {{> chat}}
+                </div>
+            </div>
+        </div>
+    </main>
+    {{> footer}}
+</div>
 <!-- App scripts -->
 {{!-- <script src="/js/about.js"></script> --}}
