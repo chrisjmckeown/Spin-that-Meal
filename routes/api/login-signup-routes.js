@@ -76,18 +76,6 @@ module.exports = function(app) {
           },
         }).then(() => {
           main(email, password);
-          // const resetEmail = {
-          //   to: user.email,
-          //   from: 'passwordreset@example.com',
-          //   subject: 'Node.js Password Reset',
-          //   text: `
-          //     You are receiving this because you (or someone else) have requested the reset of the password for your account.
-          //     Please click on the following link, or paste this into your browser to complete the process:
-          //     http://${req.headers.host}/reset/${token}
-          //     If you did not request this, please ignore this email and your password will remain unchanged.
-          //   `,
-          // };
-          // await transport.sendMail(resetEmail);
           res.status(200).end();
         });
       } else {
@@ -96,9 +84,12 @@ module.exports = function(app) {
     });
   });
 
-  // async..await is not allowed in global scope, must use a wrapper
+  /**
+ * Checks the pasword contains a number.
+ * @param {string} email user email.
+ * @param {string} password reset password.
+ */
   async function main(email, password) {
-    console.log('Sending message');
     // Generate test SMTP service account from ethereal.email
     // Only needed if you don't have a real mail account for testing
     const testAccount = await nodemailer.createTestAccount();
@@ -116,18 +107,13 @@ module.exports = function(app) {
 
     // send mail with defined transport object
     const info = await transporter.sendMail({
-      from: '"Chris Mckeown" <chris.j.mckeown@hotmail.com>', // sender address
+      from: '"Admim" <spin.that.meal@hotmail.com>', // sender address
       to: email, // list of receivers
       subject: 'Spin-that-Meal Password reset', // Subject line
       text: `Hello, your new password is ${password}`, // plain text body
       html: `<b>Hello, your new password is ${password}</b>`, // html body
     });
-
-    console.log('Message sent: %s', info.messageId);
-    // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
-
     // Preview only available when sending through an Ethereal account
     console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
-  // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
   }
 };
