@@ -1,0 +1,17 @@
+.playlist-div {
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.playlist-card {
+    background-color: cadetblue;
+    margin-left: 5%;
+    margin-right: 5%;
+    width: auto;
+    border: rgba(102, 97, 97, 0.7) solid 1px;
+    border-radius: 5.5%;
+}
+
+p {
+    color: whitesmoke;
+}
