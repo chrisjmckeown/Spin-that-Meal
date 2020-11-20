@@ -15,3 +15,14 @@
 p {
     color: whitesmoke;
 }
+
+.playlist-card {
+    background: linear-gradient(
+   cadetblue, cadetblue 50%, #181818 50%, #181818
+);
+    background-size: 100% 200%;
+    transition: all 0.2s ease;
+}
+.playlist-card:hover {
+    background-position: 100% 100%;
+  }
