@@ -1,7 +1,6 @@
 // Make sure we wait to attach our handlers until the DOM is fully loaded.
 $(function() {
   // Getting references to our form and inputs
-  const {id} = JSON.parse(localStorage.getItem('user-details'));
   const updateMemberForm = $('.update-member-form');
 
   const firstName = $('.update-first-name');
@@ -11,12 +10,22 @@ $(function() {
   const phone = $('.update-phone');
   const address = $('.update-address');
   const password = $('.update-password');
-  const changePassword = $('.change-password');
+  const changePassword = $('#change-password');
 
   const memberEditClick = $('.member-edit');
 
+
   memberEditClick.click(function() {
-    location.assign(`/api/member/${id}`);
+    location.assign(`/api/member/edit`);
+  });
+
+  password.addClass('uk-disabled');
+  changePassword.on('change', function() {
+    if ($(this).is(':checked')) {
+      password.removeClass('uk-disabled');
+    } else {
+      password.addClass('uk-disabled');
+    }
   });
 
   updateMemberForm.on('submit', function(event) {
@@ -26,7 +35,6 @@ $(function() {
     $('#alert').fadeOut(0);
 
     const id = $(this).data('id');
-    const newPassword = '';
 
     const updatedUser = {
       id,
@@ -34,7 +42,7 @@ $(function() {
       lastName: lastName.val().trim(),
       userName: userName.val().trim(),
       email: email.val().trim(),
-      password: newPassword,
+      password: password.val().trim(),
       phone: phone.val().trim(),
       address: address.val().trim(),
       changepassword: false,
@@ -42,11 +50,10 @@ $(function() {
 
     if (changePassword.length !== 0) {
       updatedUser.changepassword = true;
-      if (! checkPassword(password)) {
+      if (! checkPassword(updatedUser.password)) {
         return;
       }
     }
-
     if (!firstName || !lastName || !userName ||
         !email ||
         !phone || !address) {
@@ -62,10 +69,16 @@ $(function() {
         () => {
           // Reload the page to get the updated list
           location.reload();
+          password.val('');
         },
     );
   });
 
+  /**
+* Checks the pasword passes the criteria.
+* @param {string} password Input.
+* @return {boolean} Returns true if conditions are meet.
+*/
   function checkPassword(password) {
     if (password.length < 8) {
       $('#alert .msg').text('Password must be greater than 8 characters');
@@ -83,6 +96,7 @@ $(function() {
       $('#alert').fadeIn(500);
       return false;
     }
+    return true;
   }
 
   /**

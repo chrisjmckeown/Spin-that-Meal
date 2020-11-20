@@ -30,3 +30,30 @@ footer {
 .navbar {
   padding: 1.5rem 2rem;
 }
+
+.uk-button.btn-fixed-size,
+.uk-button.btn-clear {
+  color: whitesmoke;
+  background-color: #f2894b;
+  padding: 30px 5px 30px 5px;
+  line-height: 0px;
+  font-weight: 500;
+  min-width: 160px;
+  max-width: 160px;
+  margin-bottom: 5px;
+}
+
+.uk-button.btn-flex-size {
+  color: whitesmoke;
+  background-color: #f2894b;
+}
+
+.uk-button.btn-clear {
+  background-color: #cea04a;
+}
+
+.uk-button.btn-fixed-size:hover,
+.uk-button.btn-food:hover,
+.uk-button.btn-flex-size:hover {
+  background-color: #3f3c33;
+}

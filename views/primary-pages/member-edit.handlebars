@@ -5,62 +5,56 @@
       {{> navigation/primary-nav}}
       <div class="uk-grid">
         <div class="uk-width-4-5">
-          <form class="uk-form-horizontal uk-margin-large" data-id="{{this.dataValues.id}}">
-            <legend class="uk-legend">Edit Your Details</legend>
-            <div class="uk-margin">
-              <label class="uk-form-label" for="form-horizontal-text">First Name:</label>
-              <div class="uk-form-controls">
-                <input class="uk-input uk-form-width-large update-first-name" type="text"
-                  value="{{this.dataValues.firstName}}">
-              </div>
-            </div>
-            <div class="uk-margin">
-              <label class="uk-form-label" for="form-horizontal-text">Last Name:</label>
-              <div class="uk-form-controls">
-                <input class="uk-input uk-form-width-large update-last-name" type="text"
-                  value="{{this.dataValues.lastName}}">
-              </div>
-            </div>
-            <div class="uk-margin">
-              <label class="uk-form-label" for="form-horizontal-text">User Name:</label>
-              <div class="uk-form-controls">
-                <input class="uk-input uk-form-width-large update-user-name" type="text"
-                  value="{{this.dataValues.userName}}">
-              </div>
-            </div>
-            <div class="uk-margin">
-              <label class="uk-form-label" for="form-horizontal-text">Email:</label>
-              <div class="uk-form-controls">
-                <input class="uk-input uk-form-width-large update-email" type="email" value="{{this.dataValues.email}}">
-              </div>
-            </div>
-            <div class="uk-margin">
-              <label class="uk-form-label" for="form-horizontal-text">Phone:</label>
-              <div class="uk-form-controls">
-                <input class="uk-input uk-form-width-large update-phone" type="Phone" value="{{this.dataValues.phone}}">
-              </div>
-            </div>
-            <div class="uk-margin">
-              <label class="uk-form-label" for="form-horizontal-text">Address:</label>
-              <div class="uk-form-controls">
-                <textarea class="uk-textarea uk-form-width-large update-address" rows="3" type="text"
-                  >{{this.dataValues.address}}</textarea>
-              </div>
-            </div>
+          <div>
+            <div class="uk-box-shadow-xlarge uk-padding">
+              <form class="uk-form-horizontal uk-margin-large update-member-form" data-id="{{this.dataValues.id}}">
+                <legend class="uk-legend">Edit Your Details</legend>
+                <div class="uk-grid">
+                  <div class="uk-width-1-2@m">
+                    <div class="uk-margin">
+                      <label class="uk-form-label">First Name:</label>
+                      <input class="uk-input  update-first-name" type="text" value="{{this.dataValues.firstName}}">
+                    </div>
+                    <div class="uk-margin">
+                      <label class="uk-form-label" for="form-horizontal-text">Last Name:</label>
+                      <input class="uk-input update-last-name" type="text" value="{{this.dataValues.lastName}}">
+                    </div>
+                    <div class="uk-margin">
+                      <label class="uk-form-label">User Name:</label>
+                      <input class="uk-input  update-user-name" type="text" value="{{this.dataValues.userName}}">
+                    </div>
+                  </div>
+                  <div class="uk-width-1-2@m">
+                    <div class="uk-margin">
+                      <label class="uk-form-label">Email:</label>
+                      <input class="uk-input uk-form-width-large update-email" type="email"
+                        value="{{this.dataValues.email}}">
+                    </div>
+                    <div class="uk-margin">
+                      <label class="uk-form-label">Phone:</label>
+                      <input class="uk-input update-phone" type="Phone" value="{{this.dataValues.phone}}">
+                    </div>
+                    <div class="uk-margin">
+                      <label class="uk-form-label">Address:</label>
+                      <textarea class="uk-textarea uk-form-width-large update-address" rows="3"
+                        type="text">{{this.dataValues.address}}</textarea>
+                    </div>
+                  </div>
+                </div>
 
-            <label>Want to change your password?</label>
-            <input type="checkbox" id="change-password" name="change-password">
-            <div class="uk-margin">
-              <label class="uk-form-label" for="form-horizontal-text">Change Password:</label>
-              <div class="uk-form-controls">
-                <input class="uk-input uk-form-width-large update-password" type="text" value="">
-              </div>
+                <div class="uk-margin">
+                  <label>Want to change your password?</label>
+                  <input class="uk-checkbox" type="checkbox" id="change-password" name="change-password">
+                  <input class="uk-input update-password" type="password" value="">
+                </div>
+                <div style="display: none" id="alert" role="alert">
+                  <span class="msg"></span>
+                </div>
+                <button class="uk-button btn-fixed-size">Update</button>
+              </form>
             </div>
-            <div style="display: none" id="alert" role="alert">
-              <span class="msg"></span>
-            </div>
-            <button class="uk-button">Update</button>
-          </form>
+          </div>
+          <br>
         </div>
         <div class="uk-width-1-5">
           {{> chat}}
