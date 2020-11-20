@@ -13,7 +13,7 @@ $(function () {
             var btns = $("<div>").attr("class", "buttons");
             for (var i = 0; storedRecipes.length > i; i++) {
                 var recipeBtn = $("<button>").attr("href", "#").attr("id", "recipeBtn").text(storedRecipes[i]);
-                recipeBtn.attr("class", "uk-button uk-button-primary uk-button-large");
+                recipeBtn.attr("class", "uk-button uk-button-danger uk-button-large food-btn");
                 btns.prepend(recipeBtn);
                 $("#recentlySearched").append(btns);
             }
@@ -36,19 +36,48 @@ $(function () {
             //loop through array response to find the forecasts
             for (var i = 0; i <= 3; i++) {
 
-                var newCard = $("<div>").attr("class", "uk-child-width-1-2@s uk-grid-match");
+                var newCard = $("<div>").attr("class", "uk-child-width-1-1@s uk-grid-match");
 
-                var bodyDiv = $("<div>").attr("class", "uk-card uk-card-hover uk-card-body");
+                var bodyDiv = $("<div>").attr("class", "uk-card uk-card-default uk-card-hover uk-card-body");
                 var footerDiv = $("<div>").attr("class", "uk-card-footer")
 
                 var cardTitle = $("<div>").attr("class", "uk-card-title").text(data.hits[i].recipe.label);
                 bodyDiv.append(cardTitle);
 
-                bodyDiv.append($("<p>").attr("class", "card-text").html(data.hits[i].recipe.healthLabels));
+                var addPlaylist = $("<div>").attr("class", "uk-float-right uk-inline");
+                cardTitle.append(addPlaylist);
+                var plistBtn = $("<button>").attr("class", "uk-button uk-button-default");
+                addPlaylist.append(plistBtn);
+                var pIcon = $("<span>").attr("uk-icon", "plus");
+                plistBtn.append(pIcon);
+
+                var contentDiv = $("<div>").attr("uk-dropdown", "pos: right-center");
+                addPlaylist.append(contentDiv);
+
+                var listUl = $("<div>").attr("class", "uk-nav uk-dropdown-nav")
+                contentDiv.append(listUl);
+
+                var newList = $("<a>").attr("href", "#").text("Create New List");
+                listUl.append(newList);
+
+                var healthTable = $("<table>").attr("class", "uk-table");
+                bodyDiv.append(healthTable)
+                var healthBody = $("<tbody>");
+                healthTable.append(healthBody);
+                var healthTR1 = $("<tr>");
+                var healthTR2 = $("<tr>");
+                healthBody.append(healthTR1, healthTR2);
+
+                // have a go putting these in a table or column
+                healthTR1.append($("<td>").attr("class", "card-text").html(data.hits[i].recipe.healthLabels[0]));
+                healthTR1.append($("<td>").attr("class", "card-text").text(data.hits[i].recipe.healthLabels[1]));
+                healthTR2.append($("<td>").attr("class", "card-text").text(data.hits[i].recipe.healthLabels[2]));
+                healthTR2.append($("<td>").attr("class", "card-text").text(data.hits[i].recipe.healthLabels[3]));
+
                 bodyDiv.append($("<p>").attr("class", "card-text").text("Calories: " + data.hits[i].recipe.totalTime));
                 bodyDiv.append($("<p>").attr("class", "card-text").text("Total Time: " + data.hits[i].recipe.calories));
 
-                footerDiv.append($("<a>").attr("href", (data.hits[i].recipe.url)).attr("class", "uk-button uk-button-text").text("View Full Recipe Here"));
+                footerDiv.append($("<a>").attr("href", (data.hits[i].recipe.url)).attr("target", "_blank").attr("class", "uk-button uk-button-text").text("View Full Recipe Here"));
                 newCard.append(bodyDiv);
                 bodyDiv.append(footerDiv)
                 $("#searchResults").append(newCard);
