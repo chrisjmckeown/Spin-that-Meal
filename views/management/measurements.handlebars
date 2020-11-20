@@ -1,20 +1,38 @@
-<h2>Add a Measurement</h2>
-<form class="uk-grid-small" uk-grid>
-  <div class="uk-margin-small uk-grid-small uk-grid" uk-grid="">
-    <div class="uk-width-expand uk-first-column">
-      <input class="uk-input measurement-name" id="measurement-name" type="text" placeholder="new measurement..."
-        autofocus="" required="">
+<div class="wrapper">
+  {{> header}}
+  <main class="main">
+    <div class="uk-container">
+      {{> navigation/primary-nav}}
+      <div class="uk-grid">
+        <div class="uk-width-4-5">
+          <div class="uk-box-shadow-xlarge uk-padding">
+            <legend class="uk-legend">Manage Measurements</legend>
+            <p>Add, edit and delete the measurement unit used within recipes.</p>
+            <form class="uk-grid-small create-form" id="create-form">
+              <div class="uk-margin-small uk-grid-small uk-grid" uk-grid="">
+                <div class="uk-width-expand uk-first-column">
+                  <input type="text" class="uk-input measurement-name" id="measurement-name" name="name"
+                    placeholder="new measurement name...">
+                </div>
+                <div class="uk-width-auto">
+                  <button class="uk-button btn-flex-size uk-width-1-1" type="submit">Add Measurement</button>
+                </div>
+              </div>
+            </form>
+            <ul class="uk-list uk-list-divider uk-list-striped">
+              {{#each Measurement}}
+              {{> row-item text=this.dataValues.name}}
+              {{/each}}
+            </ul>
+          </div>
+        </div>
+        <div class="uk-width-1-5">
+          {{> chat}}
+        </div>
+      </div>
     </div>
-    <div class="uk-width-auto">
-      <button class="uk-button uk-button-default uk-width-1-1 create">Add</button>
-    </div>
-  </div>
-</form>
-
-<ul>
-  {{#each Measurement}}
-  {{> measurement-item text=this.dataValues.name}}
-  {{/each}}
-</ul>
+  </main>
+  {{> footer}}
+</div>
 <!-- App scripts and css-->
 <script src="/js/measurement.js"></script>

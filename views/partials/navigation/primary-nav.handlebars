@@ -3,17 +3,25 @@
     <li><a href="/starred">Starred</a></li>
     <li><a href="/playlist">Playlists</a></li>
     <li><a href="/create-recipe">Create a Recipe</a></li>
-    <li><a class="member-edit">Edit Details</a></li>
-    <li>
+    <li><a class="member-edit">Personal Details</a></li>
+    <li><a href="/contact">Contact</a></li>
+    <li><a href="/about">About</a></li>
+    <li class="management" >
         <a href="#">Management<span class="uk-margin-small-left" uk-icon="icon: triangle-down"></span></a>
         <div uk-dropdown="mode: click">
             <ul class="uk-nav uk-dropdown-nav">
                 <li><a href="/api/categories">Categories</a></li>
+                <li><a href="/api/ingredients">Ingredients</a></li>
+                <li><a href="/api/measurements">Measurements</a></li>
+                <li><a href="/api/types">Types</a></li>
+                <li><a href="/api/users">Members</a></li>
+
+                
+                <li><a href="/api/recipes">Recipes</a></li>
+                <li><a href="/api/play-lists">Play Lists</a></li>
             </ul>
         </div>
     </li>
-    <li><a href="/contact">Contact</a></li>
-    <li><a href="/about">About</a></li>
 </ul>
 <!-- App scripts and css-->
 <script src="/js/member-edit.js"></script>

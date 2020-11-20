@@ -5,13 +5,17 @@
       {{> navigation/primary-nav}}
       <div class="uk-grid">
         <div class="uk-width-4-5">
-          <h2>Edit {{this.dataValues.name}} name</h2>
-          <form data-id="{{this.dataValues.id}}" class="update-form">
-            <div class="form-group">
-              <label for="category-name">Name:</label>
-              <input type="text" class="category-name" id="category-name" name="name" value="{{this.dataValues.name}}">
-            </div>
-            <button type="submit">Update Category</button>
+          <div class="uk-box-shadow-xlarge uk-padding">
+            <legend class="uk-legend">Edit {{this.dataValues.name}} Category</legend>
+            <form data-id="{{this.dataValues.id}}" class="uk-grid-small update-form">
+              <div class="uk-margin-small uk-grid-small uk-grid" uk-grid="">
+                <label for="category-name">Name:</label>
+                <input type="text" class="uk-input category-name" id="category-name" name="name"
+                  value="{{this.dataValues.name}}">
+              </div>
+              <button class="uk-button btn-flex-size uk-width-1-1" type="submit">Update Category</button>
+            </form>
+          </div>
         </div>
         <div class="uk-width-1-5">
           {{> chat}}
@@ -21,6 +25,5 @@
   </main>
   {{> footer}}
 </div>
-</form>
 <!-- App scripts and css-->
 <script src="/js/categories.js"></script>

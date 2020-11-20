@@ -1,27 +1,27 @@
-module.exports = function (sequelize, DataTypes) {
-  const PlayList = sequelize.define("PlayList", {
+module.exports = function(sequelize, DataTypes) {
+  const PlayList = sequelize.define('PlayList', {
     name: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        len: [1]
-      }
-    }
+        len: [1],
+      },
+    },
   },
-    {
-      freezeTableName: true
-    });
+  {
+    freezeTableName: true,
+  });
 
-    PlayList.associate = function (models) {
-      PlayList.belongsTo(models.User, {
+  PlayList.associate = function(models) {
+    PlayList.belongsTo(models.User, {
       foreignKey: {
-        allowNull: false
-      }
+        allowNull: false,
+      },
     });
     PlayList.belongsTo(models.Recipe, {
       foreignKey: {
-        allowNull: true
-      }
+        allowNull: true,
+      },
     });
   };
   return PlayList;
