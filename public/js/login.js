@@ -3,6 +3,7 @@ $(document).ready(() => {
   const loginForm = $('form.login');
   const emailInput = $('input#login-email-input');
   const passwordInput = $('input#login-password-input');
+  const forgotEmail = $('.forgot-password');
 
   // When the form is submitted,
   // we validate there's an email and password entered
@@ -23,6 +24,21 @@ $(document).ready(() => {
       emailInput.val('');
       passwordInput.val('');
     }
+  });
+
+  forgotEmail.on('click', function(event) {
+    console.log('here');
+    event.preventDefault();
+    const email = emailInput.val().trim();
+
+    $.post(`/api/forgotpassword`, {
+      email,
+    }).then(
+        () => {
+          // Reload the page to get the updated list
+          location.assign('/index');
+        },
+    );
   });
 
   // loginUser does a post to our "api/login" route

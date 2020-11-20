@@ -10,18 +10,6 @@
 .uk-button-default {
   border: 1px Solid #f8f8f8;
 }
-.uk-button-danger {
-  background-color: #f2894b;
-  padding: 30px 5px 30px 5px;
-  line-height: 0px;
-  font-weight: 500;
-  min-width: 160px;
-  max-width: 160px;
-  margin-bottom: 5px;
-}
-.food-btn {
-  background-color: #32d269;
-}
 /* for search icon */
 svg {
   width: 30px;

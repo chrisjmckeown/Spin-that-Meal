@@ -7,10 +7,10 @@ const bcrypt = require('bcryptjs');
 
 module.exports = function(app) {
   // Get route for the logged in member
-  app.get('/api/member/:id', (req, res) => {
+  app.get('/api/member/edit', (req, res) => {
     db.User.findOne({
       where: {
-        id: req.params.id,
+        id: req.user.id,
       },
     }).then((result) => {
       res.render('primary-pages/member-edit', result);
@@ -23,7 +23,6 @@ module.exports = function(app) {
       id, firstName, lastName, userName, email, password, phone, address,
       changepassword,
     } = req.body;
-
     if (!changepassword) {
       db.User.update({
         firstName, lastName, userName, email, phone, address,
