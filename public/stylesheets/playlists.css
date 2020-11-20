@@ -1,28 +1,26 @@
 .playlist-div {
-    margin-top: 5%;
-    margin-bottom: 5%;
+  margin-top: 5%;
+  margin-bottom: 5%;
 }
 
 .playlist-card {
-    background-color: cadetblue;
-    margin-left: 5%;
-    margin-right: 5%;
-    width: auto;
-    border: rgba(102, 97, 97, 0.7) solid 1px;
-    border-radius: 5.5%;
+  background-color: cadetblue;
+  margin-left: 5%;
+  margin-right: 5%;
+  width: auto;
+  border: rgba(102, 97, 97, 0.7) solid 1px;
+  border-radius: 5.5%;
 }
 
 p {
-    color: whitesmoke;
+  color: whitesmoke;
 }
 
 .playlist-card {
-    background: linear-gradient(
-   cadetblue, cadetblue 50%, #181818 50%, #181818
-);
-    background-size: 100% 200%;
-    transition: all 0.2s ease;
+  background: linear-gradient(cadetblue, cadetblue 50%, #181818 50%, #181818);
+  background-size: 100% 200%;
+  transition: all 0.2s ease;
 }
 .playlist-card:hover {
-    background-position: 100% 100%;
-  }
+  background-position: 100% 100%;
+}

@@ -1,34 +1,36 @@
 .colour-season {
-    height: 100px;
-    margin-bottom: 0px;
-    background-image: url("../images/march-ants-wider.png");
-    background-color: #fde8a3; ;
-    background-size: 2700px;
-    background-position: left;
-    background-repeat: no-repeat;
-    bottom: 0;
+  height: 100px;
+  margin-bottom: 0px;
+  background-image: url("../images/march-ants-wider.png");
+  background-color: #fde8a3;
+  background-size: 2700px;
+  background-position: left;
+  background-repeat: no-repeat;
+  bottom: 0;
 }
 footer .fa {
-    display: inline-block;
-    position: relative;
-    color: black;
-    margin-top: 20px;
-    font-size: 1.2rem;
-    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  display: inline-block;
+  position: relative;
+  color: black;
+  margin-top: 20px;
+  font-size: 1.2rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
 a:hover {
-    color: white;
+  color: white;
 }
 
 .uk-align-right {
-    box-sizing: border-box;
-    margin-right: 1%;
-    margin-bottom: 0px ;
-} 
+  box-sizing: border-box;
+  margin-right: 1%;
+  margin-bottom: 0px;
+}
 
-@media (max-width: 750px) { 
-    footer .fa {
-        font-size: 0.9rem;
-    } 
+@media (max-width: 750px) {
+  footer .fa {
+    font-size: 0.9rem;
+  }
 }

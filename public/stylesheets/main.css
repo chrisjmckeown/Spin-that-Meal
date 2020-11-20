@@ -4,12 +4,12 @@ body {
 }
 /* to give space between buttons and footer */
 .push {
-    margin-bottom: 50px;
+  margin-bottom: 50px;
 }
-.wrapper{
-    display: flex;
-    flex-direction: column;
-    height: 100%;
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 /* styling the header */
 header {
@@ -27,123 +27,6 @@ footer {
   flex: 0 1 auto;
   width: 100%;
 }
-
-#chatroom {
-  overflow-y: scroll;
-  max-height: 360px;
-  height: 360px;
-}
-.chat-window {
-  padding: 2px;
-}
 .navbar {
   padding: 1.5rem 2rem;
-}
-
-.landing-form {
-  height: 550px;
-}
-/* Create Recipe */
-
-.ingredients-add {
-  display: inline-block;
-}
-.ingred-input {
-  border: 1px solid #e5e5e5;
-  border-top-color: rgb(229, 229, 229);
-  border-top-style: solid;
-  border-top-width: 1px;
-  border-right-color: rgb(229, 229, 229);
-  border-right-style: solid;
-  border-right-width: 1px;
-  border-bottom-color: rgb(229, 229, 229);
-  border-bottom-style: solid;
-  border-bottom-width: 1px;
-  border-left-color: rgb(229, 229, 229);
-  border-left-style: solid;
-  border-left-width: 1px;
-  border-image-source: initial;
-  border-image-slice: initial;
-  border-image-width: initial;
-  border-image-outset: initial;
-  border-image-repeat: initial;
-}
-.uk-accordion-title {
-  font-size: 1.5rem !important;
-  line-height: 1.5 !important;
-  color: #333 !important;
-}
-.uk-container-small {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* browse */
-.search-results {
-  box-sizing: content-box;
-  justify-content: space-around;
-}
-
-.msg,
-.msglogin {
-  color: red;
-}
-
-.uk-navbar-container {
-    margin-bottom: 20px;
-}
-.uk-button-default {
-    border: 1px Solid #f8f8f8;
-}
-.uk-button-danger {
-    background-color: #f2894b;
-    padding: 30px 5px 30px 5px;
-    line-height: 0px;
-    font-weight: 500;
-    min-width: 160px;
-    max-width: 160px;
-    margin-bottom: 5px
-}
-.food-btn {
-    background-color: #32d269;
-}
-/* for search icon */
-svg {
-    width: 30px;
-    height: 30px;
-}
-.uk-search-navbar {
-    width: 316px;
-}
-
-.uk-icon {
-    color: #666;
-}
-/* search results card */
-.uk-table {
-    margin-bottom: 0px;
-}
-.uk-card-body {
-    min-height: 470px !important;
-    max-height: 470px !important;
-}
-@media (min-width: 1200px) {
-    .uk-card-body {
-        padding: 40px 40px;
-        min-height: 470px !important;
-        max-height: 470px !important;
-    }
-}
-@media (min-width: 960px) {
-    .uk-card-body {
-        padding: 40px 40px;
-        min-height: 470px !important;
-        max-height: 470px !important;
-    }
-}
-@media (min-width: 640px){
-    .uk-child-width-1-2\@s>* {
-        width: 100%;
-        margin-left: 20px;
-    }
 }
