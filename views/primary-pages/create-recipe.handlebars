@@ -1,4 +1,11 @@
-<form class="uk-container-small">
+<div class="wrapper">
+    {{> header}}
+    <main class="main">
+        <div class="uk-container">
+            {{> navigation/primary-nav}}
+            <div class="uk-grid">
+                <div class="uk-width-4-5">
+                    <form class="uk-container-small">
     <fieldset class="uk-fieldset">
 
         <legend class="uk-legend">New Recipe</legend>
@@ -34,8 +41,7 @@
                         {{/each}}
                     </div>
                     <div class="uk-modal-footer uk-text-right">
-                        <button class="uk-button uk-button-default uk-modal-close" id="cancelCategory"
-                            type="button">Cancel</button>
+                        <button class="uk-button uk-button-default uk-modal-close" id="cancelCategory" type="button">Cancel</button>
                         <button class="uk-button uk-button-primary" id="saveCategory" type="button">Save</button>
                     </div>
                 </div>
@@ -59,11 +65,22 @@
             <textarea class="uk-textarea" rows="5" id="recipeInstruction" placeholder="Textarea"></textarea>
         </div>
         <div>
-            <button class="uk-button uk-button-danger food-btn" id="saveInstruction">Save</button>
+            <button class="uk-button uk-button-primary" id="saveInstruction">Save</button>
             <button class="uk-button uk-button-danger" id="clearInstruction">Clear All</button>
+
         </div>
     </fieldset>
 </form>
+
+                </div>
+                <div class="uk-width-1-5">
+                    {{> chat}}
+                </div>
+            </div>
+        </div>
+    </main>
+    {{> footer}}
+</div>
 
 <!-- App scripts and css-->
 <link rel="stylesheet" type="text/css" href="/stylesheets/browse.css">

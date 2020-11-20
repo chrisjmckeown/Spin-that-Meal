@@ -18,6 +18,9 @@
                                     <label for="exampleInputPassword1">Password</label>
                                     <input type="password" class="uk-input" id="login-password-input"
                                         placeholder="Password">
+                                </div>                                
+                                <div style="display: none" id="alertlogin" role="alert">
+                                    <span class="msglogin"></span>
                                 </div>
                                 <br>
                                 <button class="uk-button uk-button-default uk-button-large uk-width-1-1"
@@ -83,9 +86,8 @@
                                     <label for="address">Address</label>
                                     <input type="text" class="uk-input" id="address-input" placeholder="Address">
                                 </div>
-                                <div style="display: none" id="alert" class="alert alert-danger" role="alert">
-                                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                                    <span class="sr-only">Error:</span> <span class="msg"></span>
+                                <div style="display: none" id="alert" role="alert">
+                                    <span class="msg"></span>
                                 </div>
                                 <br>
                                 <button class="uk-button uk-button-default uk-button-large uk-width-1-1"
@@ -133,7 +135,7 @@
         </div>
     </div>
 </div>
-<!-- App scripts -->
+<!-- App scripts and css-->
 <script src="/js/toggle-login-page.js"></script>
 <script src="/js/login.js"></script>
 <script src="/js/signup.js"></script>

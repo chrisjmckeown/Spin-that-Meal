@@ -1,4 +1,4 @@
-# Project_2
+# Spin that Meal
     
 ![GitHub stars](https://img.shields.io/github/stars/chrisjmckeown/Project_2?style=social)![GitHub forks](https://img.shields.io/github/forks/chrisjmckeown/Project_2?style=social)![GitHub watchers](https://img.shields.io/github/watchers/chrisjmckeown/Project_2?style=social)![GitHub followers](https://img.shields.io/github/followers/chrisjmckeown?style=social)
     
