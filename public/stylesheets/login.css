@@ -1,83 +1,96 @@
-html, body {
-    min-height: 100vh;
-    padding: 0;
+html,
+body {
+  min-height: 100vh;
+  padding: 0;
 }
 /* Login page */
 .login-img {
-    background-image: url("/images/hands-food.jpg");
-    background-size: cover;
-    background-position: center;
+  background-image: url("/images/hands-food.jpg");
+  background-size: cover;
+  background-position: center;
 }
 
-.sign-in-form{
-    height: 525px;
+.sign-in-form {
+  height: 525px;
 }
 
-.wrapper{
-    padding: 30px;
-    margin-left: 40px;
+.wrapper {
+  padding: 30px;
+  margin-left: 40px;
 }
 
-.uk-button:hover{
-    background-color: azure;
+.uk-button:hover {
+  background-color: azure;
 }
- .fadeout {
-    opacity: 0;
-    z-index: -5;
-    margin-top: -630px;
-    transition-timing-function: linear, step-end, step-end; 
+.fadeout {
+  opacity: 0;
+  z-index: -5;
+  margin-top: -630px;
+  transition-timing-function: linear, step-end, step-end;
 }
 .fadein {
-    transition: opacity .5s linear, margin-top 5s step-start, z-index 5s step-start;
+  transition: opacity 0.5s linear, margin-top 5s step-start,
+    z-index 5s step-start;
 }
 
-.sign-in, .sign-in-switch{
+.sign-in,
+.sign-in-switch {
+  border-top-left-radius: 75px;
+  border-bottom-left-radius: 75px;
+}
+
+.sign-up-switch,
+.sign-up {
+  border-top-right-radius: 75px;
+  border-bottom-right-radius: 75px;
+}
+
+.sign-up-switch,
+.sign-in-switch {
+  background-color: cadetblue;
+  color: whitesmoke;
+  font-size: 1.5rem;
+}
+h1 {
+  font-family: "Source Code Pro", monospace;
+}
+.sign-up-switch > h1,
+.sign-in-switch > h1 {
+  color: whitesmoke;
+  font-size: 3.5rem;
+  font-family: "Source Code Pro", monospace;
+}
+
+.message > h3 {
+  font-size: 2rem;
+  font-family: "Source Code Pro", monospace;
+}
+
+.message > p {
+  font-size: 1.3rem;
+  padding-bottom: 20px;
+}
+.message {
+  background-color: rgb(255, 243, 154);
+}
+
+.msg,
+.msglogin {
+  color: red;
+}
+
+@media (max-width: 960px) {
+  .sign-in,
+  .sign-in-switch {
     border-top-left-radius: 75px;
-    border-bottom-left-radius: 75px;
-}
-
-.sign-up-switch, .sign-up{
     border-top-right-radius: 75px;
+    border-bottom-left-radius: 0px;
+  }
+
+  .sign-up-switch,
+  .sign-up {
+    border-bottom-left-radius: 75px;
     border-bottom-right-radius: 75px;
-}
-
-.sign-up-switch, .sign-in-switch{
-    background-color: cadetblue;
-    color: whitesmoke;
-    font-size: 1.5rem;
-}
-h1{
-    font-family: 'Source Code Pro', monospace;
-}
-.sign-up-switch>h1, .sign-in-switch>h1{
-    color: whitesmoke;
-    font-size: 3.5rem;
-    font-family: 'Source Code Pro', monospace;
-}
-
-.message>h3{
-    font-size: 2rem;
-    font-family: 'Source Code Pro', monospace;
-}
-
-.message>p{
-    font-size: 1.3rem;
-    padding-bottom: 20px;
-}
-.message{
-    background-color: rgb(255, 243, 154);
-}
-
-@media (max-width: 960px) { 
-    .sign-in, .sign-in-switch{
-        border-top-left-radius: 75px;
-        border-top-right-radius: 75px;
-        border-bottom-left-radius: 0px;
-    }
-    
-    .sign-up-switch, .sign-up{
-        border-bottom-left-radius: 75px;
-        border-bottom-right-radius: 75px;
-        border-top-right-radius: 0px;
-    }
+    border-top-right-radius: 0px;
+  }
 }

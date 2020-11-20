@@ -1,17 +1,22 @@
-<form class="uk-container-small">
+<div class="wrapper">
+    {{> header}}
+    <main class="main">
+        <div class="uk-container">
+            {{> navigation/primary-nav}}
+            <div class="uk-grid">
+                <div class="uk-width-4-5">
+                    <form class="uk-container-small">
     <fieldset class="uk-fieldset">
 
         <legend class="uk-legend">New Recipe</legend>
 
         <div class="uk-margin">
             <h3>What is the name of your recipe?</h3>
-            
-            <input class="uk-input" class="recipe-name" type="text" placeholder="Recipe Title">
+            <input class="uk-input" id="recipeName" type="text" placeholder="Recipe Title">
         </div>
         <div class="uk-margin">
             <h3>How many serves?</h3>
-            <input class="uk-input" type="text" class="recipe-portion" placeholder="eg. 4">
-
+            <input class="uk-input" type="text" id="recipeServing" placeholder="eg. 4">
         </div>
 
         <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
@@ -36,8 +41,7 @@
                         {{/each}}
                     </div>
                     <div class="uk-modal-footer uk-text-right">
-                        <button class="uk-button uk-button-default uk-modal-close" id="cancelCategory"
-                            type="button">Cancel</button>
+                        <button class="uk-button uk-button-default uk-modal-close" id="cancelCategory" type="button">Cancel</button>
                         <button class="uk-button uk-button-primary" id="saveCategory" type="button">Save</button>
                     </div>
                 </div>
@@ -58,21 +62,26 @@
 
         <div class="uk-margin">
             <h3>Recipe Instructions:</h3>
-
-            <textarea class="uk-textarea" rows="5" class="recipe-instruction" placeholder="Textarea"></textarea>
+            <textarea class="uk-textarea" rows="5" id="recipeInstruction" placeholder="Textarea"></textarea>
         </div>
         <div>
-
-            <button class="uk-button uk-button-danger food-btn" id="saveInstruction">Save</button>
+            <button class="uk-button uk-button-primary" id="saveInstruction">Save</button>
             <button class="uk-button uk-button-danger" id="clearInstruction">Clear All</button>
 
         </div>
-
     </fieldset>
 </form>
 
+                </div>
+                <div class="uk-width-1-5">
+                    {{> chat}}
+                </div>
+            </div>
+        </div>
+    </main>
+    {{> footer}}
+</div>
 
 <!-- App scripts and css-->
 <link rel="stylesheet" type="text/css" href="/stylesheets/browse.css">
 <script type="text/javascript" src="/js/create_recipe.js"></script>
-

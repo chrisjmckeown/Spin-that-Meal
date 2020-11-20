@@ -1,0 +1,64 @@
+/* browse */
+.search-results {
+  box-sizing: content-box;
+  justify-content: space-around;
+}
+
+.uk-navbar-container {
+  margin-bottom: 20px;
+}
+.uk-button-default {
+  border: 1px Solid #f8f8f8;
+}
+.uk-button-danger {
+  background-color: #f2894b;
+  padding: 30px 5px 30px 5px;
+  line-height: 0px;
+  font-weight: 500;
+  min-width: 160px;
+  max-width: 160px;
+  margin-bottom: 5px;
+}
+.food-btn {
+  background-color: #32d269;
+}
+/* for search icon */
+svg {
+  width: 30px;
+  height: 30px;
+}
+.uk-search-navbar {
+  width: 316px;
+}
+
+.uk-icon {
+  color: #666;
+}
+/* search results card */
+.uk-table {
+  margin-bottom: 0px;
+}
+.uk-card-body {
+  min-height: 470px !important;
+  max-height: 470px !important;
+}
+@media (min-width: 1200px) {
+  .uk-card-body {
+    padding: 40px 40px;
+    min-height: 470px !important;
+    max-height: 470px !important;
+  }
+}
+@media (min-width: 960px) {
+  .uk-card-body {
+    padding: 40px 40px;
+    min-height: 470px !important;
+    max-height: 470px !important;
+  }
+}
+@media (min-width: 640px) {
+  .uk-child-width-1-2\@s > * {
+    width: 100%;
+    margin-left: 20px;
+  }
+}
