@@ -11,13 +11,13 @@ $(function() {
   createForm.on('submit', function(event) {
     // Make sure to preventDefault on a submit event.
     event.preventDefault();
-    const newCategory = {
+    const newItem = {
       name: categoryName.val().trim(),
     };
     // Send the POST request.
     $.ajax('/api/categories', {
       type: 'POST',
-      data: newCategory,
+      data: newItem,
     }).then(
         () => {
           // Reload the page to get the updated list
@@ -36,14 +36,14 @@ $(function() {
     // Make sure to preventDefault on a submit event.
     event.preventDefault();
     const id = $(this).data('id');
-    const updatedCategory = {
+    const updatedItem = {
       id: id,
       name: categoryName.val().trim(),
     };
     // Send the POST request.
     $.ajax(`/api/categories`, {
       type: 'PUT',
-      data: updatedCategory,
+      data: updatedItem,
     }).then(
         () => {
           // Reload the page to get the updated list

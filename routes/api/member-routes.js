@@ -17,6 +17,27 @@ module.exports = function(app) {
     });
   });
 
+  // Get route for the logged in member
+  app.get('/api/member', (req, res) => {
+    db.User.findOne({
+      where: {
+        id: req.user.id,
+      },
+    }).then((result) => {
+      const userDetails = {
+        id: result.id,
+        firstName: result.firstName,
+        lastName: result.lastName,
+        userName: result.userName,
+        email: result.email,
+        phone: result.phone,
+        address: result.address,
+        admin: result.admin,
+      };
+      res.json(userDetails);
+    });
+  });
+
   // PUT route for updating
   app.put('/api/member', isAuthenticated, (req, res) => {
     const {

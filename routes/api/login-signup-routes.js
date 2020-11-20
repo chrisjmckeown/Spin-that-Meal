@@ -2,6 +2,7 @@ const db = require('../../models');
 const passport = require('../../config/passport');
 const nodemailer = require('nodemailer');
 const bcrypt = require('bcryptjs');
+const open = require('open');
 
 module.exports = function(app) {
   // Using the passport.authenticate middleware with our local strategy.
@@ -53,8 +54,6 @@ module.exports = function(app) {
 
   app.post('/api/forgotpassword', (req, res) => {
     const {email} = req.body;
-
-    console.log(email);
 
     db.User.findOne({
       where: {
@@ -114,6 +113,8 @@ module.exports = function(app) {
       html: `<b>Hello, your new password is ${password}</b>`, // html body
     });
     // Preview only available when sending through an Ethereal account
-    console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
+    open(nodemailer.getTestMessageUrl(info), function(err) {
+      if ( err ) throw err;
+    });
   }
 };

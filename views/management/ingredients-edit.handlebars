@@ -1,13 +1,30 @@
-<h2>Edit Ingredient {{this.dataValues.id}}</h2>
-<form data-id="{{this.dataValues.id}}" class="update-form">
-
-  <div class="form-group">
-    <label for="ingredient-name">Name:</label>
-    <input type="text" class="ingredient-name" id="ingredient-name" name="name" value="{{this.dataValues.name}}">
-  </div>
-
-  <button type="submit">Update Ingredient</button>
+<div class="wrapper">
+  {{> header}}
+  <main class="main">
+    <div class="uk-container">
+      {{> navigation/primary-nav}}
+      <div class="uk-grid">
+        <div class="uk-width-4-5">
+          <div class="uk-box-shadow-xlarge uk-padding">
+            <h2>Edit {{this.dataValues.name}} Ingredient</h2>
+            <form data-id="{{this.dataValues.id}}" class="uk-grid-small update-form">
+              <div class="uk-margin-small uk-grid-small uk-grid" uk-grid="">
+                <label for="ingredient-name">Name:</label>
+                <input type="text" class="uk-input ingredient-name" id="ingredient-name" name="name"
+                  value="{{this.dataValues.name}}">
+              </div>
+              <button class="uk-button btn-flex-size uk-width-1-1" type="submit">Update Ingredient</button>
+            </form>
+          </div>
+        </div>
+        <div class="uk-width-1-5">
+          {{> chat}}
+        </div>
+      </div>
+    </div>
+  </main>
+  {{> footer}}
+</div>
 </form>
-
 <!-- App scripts and css-->
 <script src="/js/ingredient.js"></script>

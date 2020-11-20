@@ -13,7 +13,25 @@ $(function() {
   const changePassword = $('#change-password');
 
   const memberEditClick = $('.member-edit');
+  const management = $('.management');
 
+  checkAdmin();
+  /**
+* Checks if the logged in user is admin.
+*/
+  function checkAdmin() {
+    $.get('/api/member', {
+    }).then(
+        (result) => {
+          // Reload the page to get the updated list
+          if (result.admin) {
+            management.show();
+          } else {
+            management.hide();
+          }
+        },
+    );
+  }
 
   memberEditClick.click(function() {
     location.assign(`/api/member/edit`);

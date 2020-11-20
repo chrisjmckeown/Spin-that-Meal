@@ -1,27 +1,30 @@
-<h2>Edit Measurement {{this.dataValues.id}}</h2>
-{{!-- <form class="update-form">
-
-  <div class="form-group">
-    <label for="measurement-name">Name:</label>
-    <input type="text" class="measurement-name" id="measurement-name" name="name" value="{{this.dataValues.name}}">
-  </div>
-
-  <div class="uk-width-auto">
-    <button class="uk-button uk-button-default uk-width-1-1" type="submit">Update Measurement</button>
-  </div>
-</form> --}}
-
-<form data-id="{{this.dataValues.id}}" class="uk-grid-small create-form" id="create-form" uk-grid>
-  <div class="uk-margin-small uk-grid-small uk-grid" uk-grid="">
-    <div class="uk-width-expand uk-first-column">
-      <input class="uk-input measurement-name" id="measurement-name" type="text" value="{{this.dataValues.name}}"
-        autofocus="" required="">
+<div class="wrapper">
+  {{> header}}
+  <main class="main">
+    <div class="uk-container">
+      {{> navigation/primary-nav}}
+      <div class="uk-grid">
+        <div class="uk-width-4-5">
+          <div class="uk-box-shadow-xlarge uk-padding">
+            <h2>Edit {{this.dataValues.name}} Measurement</h2>
+            <form data-id="{{this.dataValues.id}}" class="uk-grid-small update-form">
+              <div class="uk-margin-small uk-grid-small uk-grid" uk-grid="">
+                <label for="measurement-name">Name:</label>
+                <input type="text" class="uk-input measurement-name" id="measurement-name" name="name"
+                  value="{{this.dataValues.name}}">
+              </div>
+              <button class="uk-button btn-flex-size uk-width-1-1" type="submit">Update Measurement</button>
+            </form>
+          </div>
+        </div>
+        <div class="uk-width-1-5">
+          {{> chat}}
+        </div>
+      </div>
     </div>
-    <div class=" uk-width-auto">
-      <button class="uk-button uk-button-default uk-width-1-1" type="submit">Add</button>
-    </div>
-  </div>
+  </main>
+  {{> footer}}
+</div>
 </form>
-
 <!-- App scripts and css-->
 <script src="/js/measurement.js"></script>

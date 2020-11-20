@@ -7,17 +7,17 @@ $(function() {
   const updateForm = $('.update-form');
   const deleteBtn = $('.delete');
 
-  // ADD new category
+  // ADD new ingredients
   createForm.on('submit', function(event) {
     // Make sure to preventDefault on a submit event.
     event.preventDefault();
-    const newIngredients = {
+    const newItem = {
       name: ingredientName.val().trim(),
     };
     // Send the POST request.
     $.ajax('/api/ingredients', {
       type: 'POST',
-      data: newIngredients,
+      data: newItem,
     }).then(
         () => {
           // Reload the page to get the updated list
@@ -26,7 +26,7 @@ $(function() {
     );
   });
 
-  // EDIT Category
+  // EDIT ingredients
   editBtn.on('click', function(event) {
     const id = $(this).data('id');
     location.assign(`/api/ingredients/${id}`);
@@ -36,14 +36,14 @@ $(function() {
     // Make sure to preventDefault on a submit event.
     event.preventDefault();
     const id = $(this).data('id');
-    const updatedtypes = {
+    const updatedItem = {
       id: id,
       name: ingredientName.val().trim(),
     };
     // Send the POST request.
     $.ajax(`/api/ingredients`, {
       type: 'PUT',
-      data: updatedtypes,
+      data: updatedItem,
     }).then(
         () => {
           // Reload the page to get the updated list
@@ -52,7 +52,7 @@ $(function() {
     );
   });
 
-  // DELETE Category
+  // DELETE ingredients
   deleteBtn.on('click', function(event) {
     const id = $(this).data('id');
     // Send the DELETE request.
