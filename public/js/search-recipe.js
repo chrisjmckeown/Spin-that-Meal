@@ -41,12 +41,12 @@ $(function () {
                 var bodyDiv = $("<div>").attr("class", "uk-card uk-card-default uk-card-hover uk-card-body");
                 var footerDiv = $("<div>").attr("class", "uk-card-footer")
 
-                var cardTitle = $("<div>").attr("class", "uk-card-title").text(data.hits[i].recipe.label);
+                var cardTitle = $("<div>").attr("class", "uk-card-title uk-float-left").text(data.hits[i].recipe.label);
                 bodyDiv.append(cardTitle);
 
                 var addPlaylist = $("<div>").attr("class", "uk-float-right uk-inline");
-                cardTitle.append(addPlaylist);
-                var plistBtn = $("<button>").attr("class", "uk-button uk-button-default");
+                cardTitle.prepend(addPlaylist);
+                var plistBtn = $("<button>").attr("class", "uk-button uk-button-default browseAdd");
                 addPlaylist.append(plistBtn);
                 var pIcon = $("<span>").attr("uk-icon", "plus");
                 plistBtn.append(pIcon);

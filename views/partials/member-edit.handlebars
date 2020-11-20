@@ -1,0 +1,51 @@
+<form class="uk-container-small update-member-form">
+  <fieldset class="uk-fieldset">
+
+    <legend class="uk-legend">Edit Your Details</legend>
+
+    {{!-- <form data-id="{{this.dataValues.id}}" class=""> --}}
+
+    <div class="form-group">
+      <div class="uk-margin">
+        <label for="first-name">First Name:</label>
+        <input type="text" class="uk-input update-first-name" id="update-first-name" name="first-name"
+          value="{{this.dataValues.firstName}}">
+      </div>
+      <div class="uk-margin">
+        <label for="last-name">Last Name:</label>
+        <input type="text" class="uk-input update-last-name" id="update-last-name" name="last-name"
+          value="{{this.dataValues.lastName}}">
+      </div>
+      <div class="uk-margin">
+        <label for="user-name">User Name:</label>
+        <input type="text" class="uk-input update-user-name" id="update-user-name" name="user-name"
+          value="{{this.dataValues.userName}}">
+      </div>
+      <div class="uk-margin">
+        <label for="email">Email:</label>
+        <input type="email" class="uk-input update-email" id="update-email" name="email"
+          value="{{this.dataValues.email}}">
+      </div>
+      <div class="uk-margin">
+        <label for="phone">Phone:</label>
+        <input type="text" class="uk-input update-phone" id="update-phone" name="phone"
+          value="{{this.dataValues.phone}}">
+      </div>
+      <div class="uk-margin">
+        <label for="address">Address:</label>
+        <input type="text" class="uk-input update-address" id="update-address" name="address"
+          value="{{this.dataValues.address}}">
+      </div>
+      <div class="uk-margin">
+        {{!-- <label for="password">Password:</label> --}}
+        <input type="checkbox" id="change-password" name="change-password">
+        <label for="change-password">Change Password</label><br>
+        <input type="password" class="uk-input update-password" id="update-password" name="password" value="">
+      </div>
+    </div>
+    <button class="uk-button uk-button-danger">Update</button>
+  </fieldset>
+</form>
+
+<!-- App scripts -->
+<script src="/js/member-edit.js"></script>
