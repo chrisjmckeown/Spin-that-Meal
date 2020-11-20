@@ -29,7 +29,7 @@ a:hover {
 
 /* Dropdown Account Menu Styles */
 .dropbtn {
-    background-color: #f2894b;
+    background-color: #32d269;
     color: white;
     width: max-content;
     border-radius: 15px;
@@ -51,7 +51,7 @@ a:hover {
   .dropdown-content {
     display: none;
     position: absolute;
-    background-color:  #f0506e;
+    background-color:  #32d269;
     min-width: 165px;
     z-index: 1;
     border-bottom-left-radius: 15px;
@@ -68,7 +68,7 @@ a:hover {
   
   /* Change color of dropdown links on hover */
   .dropdown-content:hover {
-      background-color:  #f0506e;
+      background-color:  #32d269;
       border-bottom-left-radius: 15px;
       border-bottom-right-radius: 15px;
     }
@@ -78,7 +78,7 @@ a:hover {
   
   /* Change the background color of the dropdown button when the dropdown content is shown */
   .dropdown:hover .dropbtn {
-      background-color: #f0506e;
+      background-color: #32d269;
       border-top-left-radius: 15px;
       border-top-right-radius: 15px;
       border-bottom-left-radius: 0px;

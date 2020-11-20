@@ -117,26 +117,29 @@ svg {
     margin-bottom: 0px;
 }
 .uk-card-body {
-    min-height: 470px !important;
-    max-height: 470px !important;
+    min-height: 470px;
+    max-height: 470px;
 }
 @media (min-width: 1200px) {
     .uk-card-body {
         padding: 40px 40px;
-        min-height: 470px !important;
-        max-height: 470px !important;
+        min-height: 470px;
+        max-height: 470px;
     }
 }
 @media (min-width: 960px) {
     .uk-card-body {
         padding: 40px 40px;
-        min-height: 470px !important;
-        max-height: 470px !important;
+        min-height: 470px ;
+        max-height: 470px;
     }
 }
 @media (min-width: 640px){
-    .uk-child-width-1-2\@s>* {
+    .uk-child-width-1-1\@s>* {
         width: 100%;
         margin-left: 20px;
     }
+}
+.browseAdd {
+    padding: 0px 5px 0px 5px;
 }
