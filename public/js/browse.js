@@ -27,7 +27,6 @@ $(function() {
       method: 'GET',
       dataType: 'json',
       success: function(data) {
-        console.log(data);
       },
     }).then(function(data) {
       $('#searchResults').empty();
@@ -86,7 +85,6 @@ $(function() {
     // Preventing the button from trying to submit the form
     event.preventDefault();
     recipe = $('#searchInput').val().trim();
-    console.log('You searched for ' + recipe);
     if (recipe != '') {
       if (storedRecipes.indexOf(recipe) === -1) {
         storedRecipes.push(recipe);

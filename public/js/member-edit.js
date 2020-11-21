@@ -35,12 +35,11 @@ $(function() {
     );
   }
 
-  newColorBtn.click(function() {
+  newColorBtn.click(function(event) {
     event.preventDefault();
     $.get('/api/member/randomcolor', {
     }).then(
         (result) => {
-          console.log(result);
           newColorBtn.css('background-color', result.messagecolour);
         },
     );

@@ -40,7 +40,6 @@ module.exports = function(app) {
       res.redirect(307, '/api/login');
     })
         .catch((err) => {
-          console.log(err);
           res.status(401).json(err);
         });
   });
@@ -106,7 +105,7 @@ module.exports = function(app) {
 
     // send mail with defined transport object
     const info = await transporter.sendMail({
-      from: '"Admim" <spin.that.meal@hotmail.com>', // sender address
+      from: '"Admin" <spin.that.meal@hotmail.com>', // sender address
       to: email, // list of receivers
       subject: 'Spin-that-Meal Password reset', // Subject line
       text: `Hello, your new password is ${password}`, // plain text body
