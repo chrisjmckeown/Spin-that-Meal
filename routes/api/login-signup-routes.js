@@ -2,7 +2,6 @@ const db = require('../../models');
 const passport = require('../../config/passport');
 const nodemailer = require('nodemailer');
 const bcrypt = require('bcryptjs');
-const open = require('open');
 
 module.exports = function(app) {
   // Using the passport.authenticate middleware with our local strategy.
@@ -73,9 +72,10 @@ module.exports = function(app) {
           where: {
             email,
           },
-        }).then(() => {
-          main(email, password);
-          res.status(200).end();
+        }).then(async () => {
+          const emailUrl = await main(email, password);
+
+          res.status(200).json({emailUrl});
         });
       } else {
         res.status(401).json({message: 'user not found'});
@@ -113,8 +113,9 @@ module.exports = function(app) {
       html: `<b>Hello, your new password is ${password}</b>`, // html body
     });
     // Preview only available when sending through an Ethereal account
-    open(nodemailer.getTestMessageUrl(info), function(err) {
-      if ( err ) throw err;
-    });
+    // open(nodemailer.getTestMessageUrl(info), function(err) {
+    //   if ( err ) throw err;
+    // });
+    return nodemailer.getTestMessageUrl(info);
   }
 };

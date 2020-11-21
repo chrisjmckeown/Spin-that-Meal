@@ -7,8 +7,8 @@
         <div class="uk-width-4-5">
           <div>
             <div class="uk-box-shadow-xlarge uk-padding">
-              <form class="uk-form-horizontal uk-margin-large update-form" data-id="{{this.dataValues.id}}">
-                <legend class="uk-legend">Edit {{this.dataValues.name}} Memeber</legend>
+              <form class="uk-form-horizontal uk-margin-large update-member-form" data-id="{{this.dataValues.id}}">
+                <legend class="uk-legend">Edit {{this.dataValues.name}} Member</legend>
                 <div class="uk-grid">
                   <div class="uk-width-1-2@m">
                     <div class="uk-margin">
@@ -24,8 +24,7 @@
                       <input class="uk-input  update-user-name" type="text" value="{{this.dataValues.userName}}">
                     </div>
                     <div class="uk-margin">
-                      
-                      <label class="uk-form-label">Password Reset?:<input class="uk-checkbox" type="checkbox" id="password-reset" name="password-reset"></label>
+                      <label class="uk-form-label">Password Reset? : <input class="uk-checkbox user-change-password" type="checkbox" id="user-change-password" name="user-change-password"></label>
                       <input class="uk-input update-password" type="password" value="">
                     </div>
                   </div>
@@ -46,7 +45,7 @@
                     </div>
                     <div class="uk-margin">
                       <label>Make admin?</label>
-                      <input class="uk-checkbox" type="checkbox" id="change-admin" name="change-admin"
+                      <input class="uk-checkbox user-update-admin" type="checkbox" id="user-update-admin" name="user-update-admin"
                         checked="{{this.dataValues.admin}}">
                     </div>
                   </div>

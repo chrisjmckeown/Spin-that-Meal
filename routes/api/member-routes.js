@@ -44,6 +44,7 @@ module.exports = function(app) {
       id, firstName, lastName, userName, email, password, phone, address,
       changepassword,
     } = req.body;
+
     if (!changepassword) {
       db.User.update({
         firstName, lastName, userName, email, phone, address,

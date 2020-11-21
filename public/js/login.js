@@ -27,19 +27,25 @@ $(document).ready(() => {
   });
 
   forgotEmail.on('click', function(event) {
-    console.log('here');
     event.preventDefault();
     const email = emailInput.val().trim();
 
     $.post(`/api/forgotpassword`, {
       email,
     }).then(
-        () => {
-          // Reload the page to get the updated list
-          location.assign('/index');
+        (result) => {
+          openInNewTab(result.emailUrl);
         },
     );
   });
+
+  /**
+ * Opens a new tab with passed in url
+ * @param {string} url the url.
+ */
+  function openInNewTab(url) {
+    window.location.href = url;
+  }
 
   // loginUser does a post to our "api/login" route
   // and if successful, redirects us the the members page
