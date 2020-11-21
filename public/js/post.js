@@ -27,7 +27,6 @@ $(function() {
     $.get('/api/member', {
     }).then(
         (result) => {
-          console.log(result);
           userName = result.userName;
           id = result.id;
           userColor = result.messagecolour;
@@ -134,7 +133,6 @@ $(function() {
 * Emit a username.
 */
   function setUserName() {
-    console.log(userName);
     socket.emit('change_username', {username: userName});
   }
 });
