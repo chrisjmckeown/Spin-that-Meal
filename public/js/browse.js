@@ -35,7 +35,7 @@ $(function() {
       for (let i = 0; i <= 3; i++) {
         const newCard = $('<div>').attr('class', 'uk-child-width-1-1@s uk-grid-match');
 
-        const bodyDiv = $('<div>').attr('class', 'uk-card uk-card-default uk-card-hover uk-card-body');
+        const bodyDiv = $('<div>').attr('class', 'uk-card uk-card-default uk-card-hover uk-card-body browse');
         const footerDiv = $('<div>').attr('class', 'uk-card-footer');
 
         const cardTitle = $('<div>').attr('class', 'uk-card-title uk-float-left').text(data.hits[i].recipe.label);

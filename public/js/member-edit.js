@@ -14,6 +14,7 @@ $(function() {
 
   const memberEditClick = $('.member-edit');
   const management = $('.management');
+  const newColorBtn = $('.btn-new-color');
 
   checkAdmin();
   /**
@@ -29,9 +30,21 @@ $(function() {
           } else {
             management.hide();
           }
+          newColorBtn.css('background-color', result.messagecolour);
         },
     );
   }
+
+  newColorBtn.click(function() {
+    event.preventDefault();
+    $.get('/api/member/randomcolor', {
+    }).then(
+        (result) => {
+          console.log(result);
+          newColorBtn.css('background-color', result.messagecolour);
+        },
+    );
+  });
 
   memberEditClick.click(function() {
     location.assign(`/api/member/edit`);
@@ -64,8 +77,8 @@ $(function() {
       phone: phone.val().trim(),
       address: address.val().trim(),
       changepassword: changePassword.is(':checked'),
+      messagecolour: newColorBtn.css('background-color'),
     };
-
     if (changePassword.is(':checked')) {
       if (! checkPassword(updatedItem.password)) {
         return;

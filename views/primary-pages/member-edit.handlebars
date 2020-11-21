@@ -4,7 +4,7 @@
     <div class="uk-container">
       {{> navigation/primary-nav}}
       <div class="uk-grid">
-        <div class="uk-width-4-5">
+        <div class="uk-width-4-5@m">
           <div class="uk-box-shadow-xlarge uk-padding">
             <form class="uk-form-horizontal uk-margin-large update-personal-form" data-id="{{this.dataValues.id}}">
               <legend class="uk-legend">Edit Your Details</legend>
@@ -40,7 +40,6 @@
                   </div>
                 </div>
               </div>
-
               <div class="uk-margin">
                 <label>Want to change your password?</label>
                 <input class="uk-checkbox" type="checkbox" id="change-password" name="change-password">
@@ -49,12 +48,13 @@
               <div style="display: none" id="alert" role="alert">
                 <span class="msg"></span>
               </div>
-              <button class="uk-button btn-fixed-size">Update</button>
+              <button class="uk-button btn-fixed-size btn-new-color">New Color</button>
+              <button class="uk-button btn-fixed-size" type="submit">Update</button>
             </form>
           </div>
           <br>
         </div>
-        <div class="uk-width-1-5">
+        <div class="uk-width-1-5@m">
           {{> chat}}
         </div>
       </div>
