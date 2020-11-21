@@ -58,3 +58,14 @@ module.exports = function(app) {
     });
   });
 };
+
+  // Get route for retrieving or creating if not find a single item
+  app.get('/api/categories/:name', isAuthenticated, (req, res) => {
+    db.Category.findOrCreate({
+      where: {
+        name: req.params.name,
+      },
+    }).then((result) => {
+      res.json(result);
+    });
+  });
