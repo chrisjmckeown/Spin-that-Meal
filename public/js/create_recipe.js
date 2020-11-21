@@ -1,4 +1,3 @@
-const { JSON } = require("sequelize/types");
 
 $(function () {
     const create = $("#create")
@@ -33,3 +32,5 @@ $(function () {
 
     });
 })
+
+console.log(parseInt("int"))
