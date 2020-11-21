@@ -1,7 +1,7 @@
 // Make sure we wait to attach our handlers until the DOM is fully loaded.
 $(function() {
   // Getting references to our form and inputs
-  const updateMemberForm = $('.update-member-form');
+  const updateMemberForm = $('.update-personal-form');
 
   const firstName = $('.update-first-name');
   const lastName = $('.update-last-name');
@@ -54,7 +54,7 @@ $(function() {
 
     const id = $(this).data('id');
 
-    const updatedUser = {
+    const updatedItem = {
       id,
       firstName: firstName.val().trim(),
       lastName: lastName.val().trim(),
@@ -63,12 +63,11 @@ $(function() {
       password: password.val().trim(),
       phone: phone.val().trim(),
       address: address.val().trim(),
-      changepassword: false,
+      changepassword: changePassword.is(':checked'),
     };
 
-    if (changePassword.length !== 0) {
-      updatedUser.changepassword = true;
-      if (! checkPassword(updatedUser.password)) {
+    if (changePassword.is(':checked')) {
+      if (! checkPassword(updatedItem.password)) {
         return;
       }
     }
@@ -82,7 +81,7 @@ $(function() {
     // Send the POST request.
     $.ajax(`/api/member`, {
       type: 'PUT',
-      data: updatedUser,
+      data: updatedItem,
     }).then(
         () => {
           // Reload the page to get the updated list

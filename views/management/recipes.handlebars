@@ -1,20 +1,46 @@
-<h2>Add a Recipe</h2>
-<form class="create-form" id="create-form">
-
-  <div class="form-group">
-    <label for="recipe-name">Recipe Name:</label>
-    <input type="text" class="recipe-name" id="recipe-name" name="name">
-    <label for="recipe-instruction">Instruction:</label>
-    <input type="text" class="recipe-instruction" id="recipe-instruction" name="instruction">
-    <label for="recipe-portion">Portion:</label>
-    <input type="text" class="recipe-portion" id="recipe-portion" name="portion">
-  </div>
-  <button type="submit">Add Recipe</button>
-</form>
-<ul>
-  {{#each Recipe}}
-  {{> row-item text=this.dataValues.name}}
-  {{/each}}
-</ul>
+<div class="wrapper">
+  {{> header}}
+  <main class="main">
+    <div class="uk-container">
+      {{> navigation/primary-nav}}
+      <div class="uk-grid">
+        <div class="uk-width-4-5">
+          <div class="uk-box-shadow-xlarge uk-padding">
+            <legend class="uk-legend">Manage Recipes</legend>
+            <p>Add, edit and delete Recipes.</p>
+            <form class="uk-grid-small create-form" id="create-form">
+              <div class="uk-margin-small uk-grid-small uk-grid" uk-grid="">
+                <div class="uk-width-expand uk-first-column">
+                  <input type="text" class="uk-input recipe-name" id="recipe-name" name="name"
+                    placeholder="new recipe name...">
+                </div>
+                <div class="uk-width-expand uk-first-column">
+                  <input type="text" class="uk-input recipe-portion" id="recipe-portion" name="name"
+                    placeholder="recipe portion...">
+                </div>
+                <div class="uk-width-expand">
+                  <textarea type="textarea" class="uk-input recipe-instruction" id="recipe-instruction"
+                    placeholder="recipe instructions..."></textarea>
+                </div>
+                <div class="uk-width-auto">
+                  <button class="uk-button btn-flex-size uk-width-1-1" type="submit">Add Recipe</button>
+                </div>
+              </div>
+            </form>
+            <ul class="uk-list uk-list-divider uk-list-striped">
+              {{#each Recipe}}
+              {{> row-item text=this.dataValues.name}}
+              {{/each}}
+            </ul>
+          </div>
+        </div>
+        <div class="uk-width-1-5">
+          {{> chat}}
+        </div>
+      </div>
+    </div>
+  </main>
+  {{> footer}}
+</div>
 <!-- App scripts and css-->
 <script src="/js/recipe.js"></script>
