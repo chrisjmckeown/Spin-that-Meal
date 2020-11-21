@@ -29,12 +29,10 @@ $(function () {
             }).then(
                 () => {
                     // Reload the page to get the updated list
-                    window.location.replace("/create-recipe");
+                    window.location.replace("/recipe");
                 }
             );
         }
-
-
     })
 
 

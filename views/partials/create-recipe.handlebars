@@ -1,8 +1,70 @@
 <form class="uk-container-small">
     <fieldset class="uk-fieldset">
+
+        <legend class="uk-legend">New Recipe</legend>
+
+        <div class="uk-margin">
+            <h3>What is the name of your recipe?</h3>
+
+            <input class="uk-input" class="recipe-name" type="text" placeholder="Recipe Title">
+        </div>
+        <div class="uk-margin">
+            <h3>How many serves?</h3>
+            <input class="uk-input" type="text" class="recipe-portion" placeholder="eg. 4">
+        </div>
+
+        <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
+            {{> recipe-category}}
+
+            {{!-- <h3>Food Categories:</h3>
+
+            <a class="uk-button uk-button-default" href="#modal-sections" uk-toggle>Click to choose your
+                recipe's genre</a>
+
+            <div id="modal-sections" uk-modal>
+                <div class="uk-modal-dialog">
+                    <button class="uk-modal-close-default" type="button" uk-close></button>
+                    <div class="uk-modal-header">
+                        <h2 class="uk-modal-title">Please pick up to 5!</h2>
+                    </div>
+                    <div class="uk-modal-body">
+                        {{#each Category}}
+                        <lable>
+                            <input class="uk-ckeckbox" type="checkbox" id="{{this.id}}">
+                            {{this.name}}
+                        </lable>
+                        {{/each}}
+                    </div>
+                    <div class="uk-modal-footer uk-text-right">
+                        <button class="uk-button uk-button-default uk-modal-close" id="cancelCategory"
+                            type="button">Cancel</button>
+                        <button class="uk-button uk-button-primary" id="saveCategory" type="button">Save</button>
+                    </div>
+                </div>
+            </div> --}}
+
+        </div>
+
+        <div class="uk-margin">
+            <ul uk-accordion>
+                <li>
+                    <a class="uk-accordion-title" href="#">Add Ingredients:</a>
+                    <div class="uk-accordion-content">
+                        {{> recipe-ingredients}}
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="uk-margin">
+            <h3>Recipe Instructions:</h3>
+
+            <textarea class="uk-textarea" rows="5" class="recipe-instruction" placeholder="Textarea"></textarea>
+        </div>
         <div>
 
-            <button class="uk-button uk-button-danger" id="create">Create a New Recipe</button>
+            <button class="uk-button uk-button-danger food-btn" id="saveRecipe">Save</button>
+            <button class="uk-button uk-button-danger" id="clearInstruction">Clear All</button>
 
         </div>
 
@@ -12,5 +74,4 @@
 
 <!-- App scripts and css-->
 <link rel="stylesheet" type="text/css" href="/stylesheets/browse.css">
-<script type="text/javascript" src="/js/create_recipe.js"></script>
-
+<script type="text/javascript" src="/js/recipe_info.js"></script>
