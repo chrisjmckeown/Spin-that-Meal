@@ -1,83 +1,41 @@
-/* body {
-  font-family: Arial, Helvetica, sans-serif;
-} */
-
-/* Button used to open the chat form - fixed at the bottom of the page */
-/* .open-button {
-  background-color: #555;
-  color: white;
-  padding: 16px 20px;
-  border: none;
-  cursor: pointer;
-  opacity: 0.8;
-  position: fixed;
-  bottom: 23px;
-  right: 28px;
-  width: 280px;
-} */
-
-/* The popup chat - hidden by default */
-/* .chat-popup {
-  display: none;
-  position: fixed;
-  bottom: 0;
-  right: 15px;
-  border: 3px solid #f1f1f1;
-  z-index: 9;
-} */
-
-/* Add styles to the form container */
-/* .form-container {
-  max-width: 300px;
-  padding: 10px;
-  background-color: white;
-} */
-
-/* Full-width textarea */
-/* .form-container textarea {
-  width: 100%;
-  padding: 15px;
-  margin: 5px 0 22px 0;
-  border: none;
-  background: #f1f1f1;
-  resize: none;
-  min-height: 200px;
-} */
-
-/* When the textarea gets focus, do something */
-/* .form-container textarea:focus {
-  background-color: #ddd;
-  outline: none;
-} */
-
-/* Set a style for the submit/send button */
-/* .form-container .btn {
-  background-color: #4caf50;
-  color: white;
-  padding: 16px 20px;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  margin-bottom: 10px;
-  opacity: 0.8;
-} */
-
-/* Add a red background color to the cancel button */
-/* .form-container .cancel {
-  background-color: red;
-} */
-
-/* Add some hover effects to buttons */
-/* .form-container .btn:hover,
-.open-button:hover {
-  opacity: 1;
-} */
-
-#chatroom {
+.chat-room {
   overflow-y: scroll;
-  max-height: 360px;
-  height: 360px;
+  height: 55vh;
 }
-.chat-window {
-  padding: 2px;
+
+.chat-header {
+  background-color: #3f3c33;
+  color: whitesmoke;
+  padding: 5px;
+}
+
+.send_message {
+  width: 100%;
+}
+
+.uk-card-body.message-text {
+  padding: 5px;
+  margin: 5px;
+}
+
+.uk-card-body div .message-user-name {
+  font-size: 0.9rem;
+  padding: 1px;
+  margin: 1px;
+  color: black;
+  font-weight: bold;
+}
+
+.uk-card-body div .message-date {
+  font-size: 0.6rem;
+  padding: 1px;
+  margin: 1px;
+  color: rgb(56, 56, 56);
+}
+
+.uk-card-body div .message-body {
+  font-size: 1rem;
+  padding: 1px;
+  margin: 1px;
+  color: black;
 }

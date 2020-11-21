@@ -2,6 +2,7 @@
 // version as the regular bcrypt module sometimes causes
 // errors on Windows machines
 const bcrypt = require('bcryptjs');
+const randomColor = require('randomcolor');
 
 module.exports = function(sequelize, DataTypes) {
   const User = sequelize.define('User', {
@@ -54,6 +55,11 @@ module.exports = function(sequelize, DataTypes) {
       validate: {
         len: [1],
       },
+    },
+    messagecolour: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      defaultValue: randomColor(),
     },
     admin: {
       type: DataTypes.BOOLEAN,

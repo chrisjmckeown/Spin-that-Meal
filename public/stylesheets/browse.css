@@ -26,19 +26,19 @@ svg {
 .uk-table {
   margin-bottom: 0px;
 }
-.uk-card-body {
+.uk-card-body>.browse {
   min-height: 470px !important;
   max-height: 470px !important;
 }
 @media (min-width: 1200px) {
-  .uk-card-body {
+  .uk-card-body>.browse {
     padding: 40px 40px;
     min-height: 470px !important;
     max-height: 470px !important;
   }
 }
 @media (min-width: 960px) {
-  .uk-card-body {
+  .uk-card-body>.browse {
     padding: 40px 40px;
     min-height: 470px !important;
     max-height: 470px !important;
