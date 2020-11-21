@@ -1,19 +1,14 @@
 $(function () {
     const saveRecipe = $("#saveRecipe");
-    const recipeName = $(".recipe-name");
-    const recipePortion = $(".recipe-portion");
-    const recipeInstruction = $(".recipe-instruction");
+    const recipeName = $("#recipe-name");
+    const recipePortion = $("#recipe-portion");
+    const recipeInstruction = $("#recipe-instruction");
     const { id, UserId } = JSON.parse(localStorage.getItem("create-recipe"));
-    const numbers = /^[0-9]+$/
 
-    saveRecipe.on("submit", function (event) {
+    saveRecipe.on("click", function (event) {
+        event.preventDefault();
         if (recipeName.val() === "" || recipePortion.val() === "" || recipeInstruction.val() === "") {
-            event.preventDefault();
             alert("Please input all filed before submit");
-            return false;
-        } else if (!recipePortion.val().match(numbers)) {
-            event.preventDefault();
-            alert("Please input numeric characters only in portion");
             return false;
         } else {
             const updateRecipe = {
@@ -27,9 +22,10 @@ $(function () {
                 type: "PUT",
                 data: updateRecipe
             }).then(
-                () => {
+                (result) => {
+                    console.log(result)
                     // Reload the page to get the updated list
-                    window.location.replace("/recipe");
+                    // window.location.replace("/recipe");
                 }
             );
         }

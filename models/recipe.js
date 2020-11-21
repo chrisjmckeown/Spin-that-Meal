@@ -13,7 +13,9 @@ module.exports = function (sequelize, DataTypes) {
             len: [1]
         },
         portion: {
-            type: DataTypes.INTEGER
+            type: DataTypes.TEXT,
+            allowNull: false,
+            len: [1]
         }
     },
         {

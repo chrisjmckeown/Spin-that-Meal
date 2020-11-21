@@ -2,30 +2,30 @@ const db = require('../../models');
 // Requiring our custom middleware for checking if a user is logged in
 const isAuthenticated = require('../../config/middleware/isAuthenticated');
 
-module.exports = function(app) {
+module.exports = function (app) {
   // GET route for getting all items
   app.get('/api/categories', isAuthenticated, (req, res) => {
     db.Category.findAll({
 
     }).then((result) => {
-      res.render('management/categories', {Category: result});
+      res.render('management/categories', { Category: result });
     });
   });
 
   // Get route for retrieving a single item
-  app.get('/api/categories/:id', isAuthenticated, (req, res) => {
-    db.Category.findOne({
-      where: {
-        id: req.params.id,
-      },
-    }).then((result) => {
-      res.render('management/categories-edit', result);
-    });
-  });
+  // app.get('/api/categories/:id', isAuthenticated, (req, res) => {
+  //   db.Category.findOne({
+  //     where: {
+  //       id: req.params.id,
+  //     },
+  //   }).then((result) => {
+  //     res.render('management/categories-edit', result);
+  //   });
+  // });
 
   // POST route for saving new
   app.post('/api/categories', isAuthenticated, (req, res) => {
-    const {name} = req.body;
+    const { name } = req.body;
     db.Category.create({
       name,
     }).then((result) => {
@@ -35,7 +35,7 @@ module.exports = function(app) {
 
   // PUT route for updating
   app.put('/api/categories', isAuthenticated, (req, res) => {
-    const {id, name} = req.body;
+    const { id, name } = req.body;
     db.Category.update({
       name,
     }, {
@@ -57,7 +57,6 @@ module.exports = function(app) {
       res.json(result);
     });
   });
-};
 
   // Get route for retrieving or creating if not find a single item
   app.get('/api/categories/:name', isAuthenticated, (req, res) => {
@@ -69,3 +68,6 @@ module.exports = function(app) {
       res.json(result);
     });
   });
+
+};
+

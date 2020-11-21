@@ -8,16 +8,17 @@ $(function () {
     const { id } = JSON.parse(localStorage.getItem("user-details"));
 
     // ADD new category  
-    create.on("submit", function (event) {
-        localStorage.deleteItem("create-recipe");
+    create.on("click", function (event) {
         // Make sure to preventDefault on a submit event.
         event.preventDefault();
+        localStorage.removeItem("create-recipe");        
         const newRecipe = {
             name: "blank",
             instruction: "blank",
             portion: "blank",
             UserId: id
         };
+        console.log(newRecipe)
         // Send the POST request.
         $.ajax("/api/recipes", {
             type: "POST",
@@ -25,6 +26,7 @@ $(function () {
         }).then((res) => {
             // Reload the page to get the updated list
             localStorage.setItem("create-recipe", JSON.stringify(res));
+            console.log(res)
             window.location.replace("/create-recipe");
         }).catch((err) => {
             if (err) throw err;
@@ -32,5 +34,3 @@ $(function () {
 
     });
 })
-
-console.log(parseInt("int"))
