@@ -11,8 +11,8 @@ module.exports = function(app) {
   app.get('/playlist', isAuthenticated, (req, res) => {
     res.render('primary-pages/playlist', '');
   });
-  app.get('/create-recipe', isAuthenticated, (req, res) => {
-    res.render('primary-pages/create-recipe', '');
+  app.get('/recipe', isAuthenticated, (req, res) => {
+    res.render('primary-pages/recipe', '');
   });
   app.get('/member-edit', isAuthenticated, (req, res) => {
     res.render('primary-pages/member-edit', '');
@@ -23,4 +23,8 @@ module.exports = function(app) {
   app.get('/about', isAuthenticated, (req, res) => {
     res.render('primary-pages/about', '');
   });
+  app.get('/create-recipe', isAuthenticated, (req, res) => {
+    res.render('partials/create-recipe', '');
+  });
+  
 };

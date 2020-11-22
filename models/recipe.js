@@ -1,3 +1,4 @@
+
 module.exports = function(sequelize, DataTypes) {
   const Recipe = sequelize.define('Recipe', {
     name: {
@@ -13,8 +14,11 @@ module.exports = function(sequelize, DataTypes) {
       len: [1],
     },
     portion: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.TEXT,
+      allowNull: false,
+      len: [1],
     },
+
   },
   {
     freezeTableName: true,
@@ -31,6 +35,9 @@ module.exports = function(sequelize, DataTypes) {
     });
     Recipe.belongsToMany(models.Category, {
       through: 'Recipe_Category',
+    });
+    Recipe.belongsToMany(models.PlayList, {
+      through: 'RecipePlaylist',
     });
     Recipe.hasMany(models.PlayList, {
       onDelete: 'SET NULL',

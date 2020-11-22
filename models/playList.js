@@ -23,6 +23,9 @@ module.exports = function(sequelize, DataTypes) {
         allowNull: true,
       },
     });
+    PlayList.belongsToMany(models.Recipe, {
+      through: 'RecipePlaylist',
+    });
   };
   return PlayList;
 };
