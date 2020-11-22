@@ -5,9 +5,7 @@ const isAuthenticated = require('../../config/middleware/isAuthenticated');
 module.exports = function(app) {
   // GET route for getting all items
   app.get('/api/play-lists', isAuthenticated, (req, res) => {
-    db.PlayList.findAll({
-
-    }).then((result) => {
+    db.PlayList.findAll().then((result) => {
       res.render('management/play-lists', {PlayList: result});
     });
   });

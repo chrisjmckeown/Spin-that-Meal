@@ -1,4 +1,5 @@
 const db = require('../../models');
+
 // Requiring our custom middleware for checking if a user is logged in
 const isAuthenticated = require('../../config/middleware/isAuthenticated');
 const nodemailer = require('nodemailer');
@@ -7,8 +8,6 @@ module.exports = function(app) {
   // GET route for getting all items
   app.get('/api/contact', isAuthenticated, (req, res) => {
     db.User.findAll({
-
-    }, {
       where: {
         admin: true,
       },
@@ -57,9 +56,6 @@ module.exports = function(app) {
       html: `<b>${message}</b>`, // html body
     });
     // Preview only available when sending through an Ethereal account
-    // open(nodemailer.getTestMessageUrl(info), function(err) {
-    //   if ( err ) throw err;
-    // });
     return nodemailer.getTestMessageUrl(info);
-  }
+  };
 };
