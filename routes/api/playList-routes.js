@@ -37,9 +37,9 @@ module.exports = function(app) {
 
   // PUT route for updating
   app.put('/api/play-lists', isAuthenticated, (req, res) => {
-    const {id, name} = req.body;
+    const {id, name,UserId} = req.body;
     db.PlayList.update({
-      name,
+      name, UserId,
     }, {
       where: {
         id: id,
