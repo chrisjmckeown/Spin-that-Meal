@@ -16,6 +16,7 @@
 .uk-card-body.message-text {
   padding: 5px;
   margin: 5px;
+  min-height: 50px;
 }
 
 .uk-card-body div .message-user-name {
