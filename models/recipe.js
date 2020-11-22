@@ -1,20 +1,24 @@
-module.exports = function(sequelize, DataTypes) {
-  const Recipe = sequelize.define('Recipe', {
-    name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        len: [1],
-      },
-    },
-    instruction: {
-      type: DataTypes.TEXT,
-      allowNull: false,
-      len: [1],
-    },
-    portion: {
-      type: DataTypes.INTEGER,
-    },
+
+module.exports = function (sequelize, DataTypes) {
+    const Recipe = sequelize.define("Recipe", {
+        name: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [1]
+            }
+        },
+        instruction: {
+            type: DataTypes.TEXT,
+            allowNull: false,
+            len: [1]
+        },
+        portion: {
+            type: DataTypes.TEXT,
+            allowNull: false,
+            len: [1]
+        }
+
   },
   {
     freezeTableName: true,
