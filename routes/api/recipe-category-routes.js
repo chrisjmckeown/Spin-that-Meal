@@ -35,7 +35,7 @@ module.exports = function (app) {
     });
 
     // PUT route for updating
-    app.put("/api/recipe-categories", isAuthenticated, (req, res) => {
+    app.put("/api/recipe-categories/:id", isAuthenticated, (req, res) => {
         const { id, CategoryId, RecipeId } = req.body;
         db.Recipe_Category.update({
             CategoryId, RecipeId

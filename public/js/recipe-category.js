@@ -17,7 +17,8 @@ $(function () {
             }).then((res) => {
                 console.log(res)
                 const categoryId = res[0].id
-                console.log(categoryId);
+                console.log("categoryId"+ categoryId);
+                console.log("recipeId" + recipeId);
                 const newRecipeCategory = {
                     CategoryId: categoryId,
                     RecipeId: recipeId,
@@ -30,7 +31,6 @@ $(function () {
                     categoryList.append(
                         `<li>${name} <button class="delete" id="${recipeCategoryId}">Delete</button></li>`                        
                     )
-                    categoryName.val("");
                 })
             })
         }
@@ -39,6 +39,7 @@ $(function () {
     deleteBtn.on("click", function(event) {
         event.preventDefault();
         const id = $(this).id;
+        console.log("delete" + id)
         $.ajax(`/api/recipe-categories/${id}`, {
             type: "DELETE",
         }).then(() => {

@@ -18,14 +18,14 @@ $(function () {
                 portion: recipePortion.val().trim(),
                 UserId: UserId
             };
-            $.ajax(`/api/recipes`, {
+            $.ajax(`/api/recipes/${id}`, {
                 type: "PUT",
                 data: updateRecipe
             }).then(
                 (result) => {
                     console.log(result)
                     // Reload the page to get the updated list
-                    // window.location.replace("/recipe");
+                    window.location.replace("/recipe");
                 }
             );
         }
