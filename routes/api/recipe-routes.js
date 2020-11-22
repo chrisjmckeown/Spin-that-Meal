@@ -33,22 +33,8 @@ module.exports = function(app) {
     });
   });
 
-<<<<<<< HEAD
-    // PUT route for updating
-    app.put("/api/recipes/:id", isAuthenticated, (req, res) => {
-        const { id, name, instruction, portion, UserId } = req.body;
-        db.Recipe.update({
-            name, instruction, portion, UserId
-        }, {
-            where: {
-                id: id
-            }
-        }).then((result) => {
-            res.json(result);
-        });
-=======
   // PUT route for updating
-  app.put('/api/recipes', isAuthenticated, (req, res) => {
+  app.put('/api/recipes/:id', isAuthenticated, (req, res) => {
     const {id, name, instruction, portion, UserId} = req.body;
     db.Recipe.update({
       name, instruction, portion, UserId,
@@ -58,9 +44,9 @@ module.exports = function(app) {
       },
     }).then((result) => {
       res.json(result);
->>>>>>> main
     });
   });
+
 
   // DELETE route for deleting
   app.delete('/api/recipes/:id', isAuthenticated, (req, res) => {
@@ -73,3 +59,5 @@ module.exports = function(app) {
     });
   });
 };
+
+

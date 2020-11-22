@@ -9,6 +9,7 @@ module.exports = function(app) {
 
     }).then((result) => {
       res.render('management/measurements', {Measurement: result});
+      res.render('partials/recipe-ingredients', {Measurement: result});
     });
   });
 
