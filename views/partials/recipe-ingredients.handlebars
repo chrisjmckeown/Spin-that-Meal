@@ -2,15 +2,24 @@
   <fieldset class="uk-fieldset">
 
     <div class="uk-margin ingredients-add">
-      <input type="text" class="recipe-ingredient-name ingred-input" id="recipe-ingredient-name" placeholder = "Ingredient Name" name="name">
-    </div>
-    <div class = "uk-margin ingredients-add">
-      <input type="text" class="recipe-ingredient-amount ingred-input" id="recipe-ingredient-amount" placeholder = "amount" name="amount">
+      <input type="text" class="recipe-ingredient-name ingred-input" id="recipe-ingredient-name"
+        placeholder="Ingredient Name" name="name">
     </div>
     <div class="uk-margin ingredients-add">
-      <select class="uk-select">
+      <select class="uk-select" id="type">
+        {{#each Type}}
+        <option value="{{id}}">{{name}}</option>
+        {{/each}}
+      </select>
+    </div>
+    <div class="uk-margin ingredients-add">
+      <input type="text" class="recipe-ingredient-amount ingred-input" id="recipe-ingredient-amount"
+        placeholder="amount" name="amount">
+    </div>
+    <div class="uk-margin ingredients-add">
+      <select class="uk-select" id="measurement">
         {{#each Measurement}}
-        <option id="{{id}}">{{name}}</option>
+        <option value="{{id}}">{{name}}</option>
         {{/each}}
         {{!-- <option>teaspoon</option>
         <option>tablespoon</option>
@@ -21,7 +30,7 @@
         <option>L</option> --}}
       </select>
     </div>
-    <button class="uk-button uk-button-default"><a href="#" uk-icon="icon: plus"></a></button>
+    <button class="uk-button uk-button-default" id="save"><a href="#" uk-icon="icon: plus"></a>Save Ingredient</button>
 </form>
 <ul id="ingredientList">
   {{!-- {{#each RecipeIngredient}}
@@ -32,6 +41,6 @@
 
 <form>
 
-<!-- App scripts and css-->
-<link rel="stylesheet" type="text/css" href="/stylesheets/browse.css">
-<script type="text/javascript" src="/js/recipe-ingredient.js"></script>
+  <!-- App scripts and css-->
+  <link rel="stylesheet" type="text/css" href="/stylesheets/browse.css">
+  <script type="text/javascript" src="/js/recipe-ingredient.js"></script>
