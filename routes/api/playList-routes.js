@@ -5,7 +5,10 @@ const isAuthenticated = require('../../config/middleware/isAuthenticated');
 module.exports = function(app) {
   // GET route for getting all items
   app.get('/api/play-lists', isAuthenticated, (req, res) => {
-    db.PlayList.findAll().then((result) => {
+    db.PlayList.findAll({
+      include: [db.User, db.Recipe],
+    }).then((result) => {
+      console.log(result);
       res.render('management/play-lists', {PlayList: result});
     });
   });
@@ -16,7 +19,9 @@ module.exports = function(app) {
       where: {
         id: req.params.id,
       },
+      include: [db.User, db.Recipe],
     }).then((result) => {
+      console.log(result);
       res.render('management/play-lists-edit', result);
     });
   });

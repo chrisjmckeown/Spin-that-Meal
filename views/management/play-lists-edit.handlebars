@@ -9,12 +9,30 @@
             <legend class="uk-legend">Edit {{this.dataValues.name}} Playlist</legend>
             <form data-id="{{this.dataValues.id}}" class="uk-grid-small update-form">
               <div class="uk-margin-small uk-grid-small uk-grid" uk-grid="">
+                <label for="user-name-playlist">Select the member to own the playlist:</label>
+                <select class="uk-select user-name-playlis">
+                  <option data-id="{{this.dataValues.id}}">{{this.dataValues.User.dataValues.userName}}</option>
+                </select>
+              </div>
+
+              <div class="uk-margin-small uk-grid-small uk-grid" uk-grid="">
                 <label for="play-list-name">Name:</label>
                 <input type="text" class="uk-input play-list-name" id="play-list-name" name="name"
                   value="{{this.dataValues.name}}">
               </div>
+              <div class="uk-margin-small uk-grid-small uk-grid" uk-grid="">
+                <label for="recipe-list-playlist">List of recipes:</label>
+                <select class="uk-select recipe-list-playlis">
+                  <option data-id="{{this.dataValues.id}}">{{this.dataValues.User.dataValues.userName}}</option>
+                </select>
+                <button class="uk-button btn-flex-size uk-width-1-1">Add recipe</button>
+              </div>
+
               <button class="uk-button btn-flex-size uk-width-1-1" type="submit">Update Playlist</button>
             </form>
+            <div>
+
+            </div>
           </div>
         </div>
         <div class="uk-width-1-5">
