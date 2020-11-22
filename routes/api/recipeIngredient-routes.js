@@ -25,9 +25,9 @@ module.exports = function(app) {
 
   // POST route for saving new
   app.post('/api/recipe-ingredients', isAuthenticated, (req, res) => {
-    const {amount} = req.body;
+    const {amount, IngredientId, MeasurementId, RecipeId} = req.body;
     db.RecipeIngredient.create({
-      amount,
+      amount, IngredientId, MeasurementId, RecipeId
     }).then((result) => {
       res.json(result);
     });
