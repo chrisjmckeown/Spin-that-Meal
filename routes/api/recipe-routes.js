@@ -10,6 +10,13 @@ module.exports = function(app) {
     });
   });
 
+  // GET route for getting all items
+  app.get('/api/recipes-in-list', isAuthenticated, (req, res) => {
+    db.Recipe.findAll().then((result) => {
+      res.json({Recipe: result});
+    });
+  });
+
   // Get route for retrieving a single item
   app.get('/api/recipes/:id', isAuthenticated, (req, res) => {
     db.Recipe.findOne({

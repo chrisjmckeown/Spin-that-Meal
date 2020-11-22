@@ -36,9 +36,6 @@ module.exports = function(sequelize, DataTypes) {
     Recipe.belongsToMany(models.Category, {
       through: 'Recipe_Category',
     });
-    Recipe.belongsToMany(models.PlayList, {
-      through: 'RecipePlaylist',
-    });
     Recipe.hasMany(models.PlayList, {
       onDelete: 'SET NULL',
     });
@@ -48,6 +45,10 @@ module.exports = function(sequelize, DataTypes) {
     Recipe.hasMany(models.Favourite, {
       onDelete: 'cascade',
     });
+
+
+    Recipe.belongsToMany(models.PlayList, {through: models.RecipePlaylist});
+    Recipe.hasMany(models.RecipePlaylist);
   };
   return Recipe;
 };

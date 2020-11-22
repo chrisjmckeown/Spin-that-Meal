@@ -20,18 +20,20 @@
                 <input type="text" class="uk-input play-list-name" id="play-list-name" name="name"
                   value="{{this.dataValues.name}}">
               </div>
+              <button class="uk-button btn-flex-size uk-width-1-1" type="submit">Update Owener and Name</button>
+
+
               <div class="uk-margin-small uk-grid-small uk-grid" uk-grid="">
                 <label for="recipe-list-playlist">List of recipes:</label>
-                <select class="uk-select recipe-list-playlis">
-                  <option data-id="{{this.dataValues.id}}">{{this.dataValues.User.dataValues.userName}}</option>
+                <select class="uk-select recipe-list-playlist">
                 </select>
-                <button class="uk-button btn-flex-size uk-width-1-1">Add recipe</button>
+                <button class="uk-button btn-flex-size uk-width-1-1 add-recipe-playlist">Add recipe</button>
               </div>
-
-              <button class="uk-button btn-flex-size uk-width-1-1" type="submit">Update Playlist</button>
             </form>
             <div>
+              <ul class="all-linked-recipes">
 
+              </ul>
             </div>
           </div>
         </div>

@@ -8,7 +8,6 @@ module.exports = function(app) {
     db.PlayList.findAll({
       include: [db.User, db.Recipe],
     }).then((result) => {
-      console.log(result);
       res.render('management/play-lists', {PlayList: result});
     });
   });
