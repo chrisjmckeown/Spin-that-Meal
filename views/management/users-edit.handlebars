@@ -1,27 +1,72 @@
-<h2>Edit User {{this.dataValues.id}}</h2>
-<form data-id="{{this.dataValues.id}}" class="update-form">
-
-  <div class="form-group">
-    <label for="firstName">First Name:</label>
-    <input type="text" class="update-firstName" id="update-firstName" name="firstName"
-      value="{{this.dataValues.firstName}}">
-    <label for="lastName">Last Name:</label>
-    <input type="text" class="update-lastName" id="update-lastName" name="lastName"
-      value="{{this.dataValues.lastName}}">
-    <label for="userName">User Name:</label>
-    <input type="text" class="update-userName" id="update-userName" name="userName"
-      value="{{this.dataValues.userName}}">
-    <label for="email">Email:</label>
-    <input type="email" class="update-email" id="update-email" name="email" value="{{this.dataValues.email}}">
-    <label for="phone">Phone:</label>
-    <input type="text" class="update-phone" id="update-phone" name="phone" value="{{this.dataValues.phone}}">
-    <label for="address">Address:</label>
-    <input type="text" class="update-address" id="update-address" name="address" value="{{this.dataValues.address}}">
-   
-  </div>
-
-  <button type="submit">Update User</button>
-</form>
+<div class="wrapper">
+  {{> header}}
+  <main class="main">
+    <div class="uk-container">
+      {{> navigation/primary-nav}}
+      <div class="uk-grid">
+        <div class="uk-width-4-5">
+          <div>
+            <div class="uk-box-shadow-xlarge uk-padding">
+              <form class="uk-form-horizontal uk-margin-large update-member-form" data-id="{{this.dataValues.id}}">
+                <legend class="uk-legend">Edit {{this.dataValues.name}} Member</legend>
+                <div class="uk-grid">
+                  <div class="uk-width-1-2@m">
+                    <div class="uk-margin">
+                      <label class="uk-form-label">First Name:</label>
+                      <input class="uk-input  update-first-name" type="text" value="{{this.dataValues.firstName}}">
+                    </div>
+                    <div class="uk-margin">
+                      <label class="uk-form-label" for="form-horizontal-text">Last Name:</label>
+                      <input class="uk-input update-last-name" type="text" value="{{this.dataValues.lastName}}">
+                    </div>
+                    <div class="uk-margin">
+                      <label class="uk-form-label">User Name:</label>
+                      <input class="uk-input  update-user-name" type="text" value="{{this.dataValues.userName}}">
+                    </div>
+                    <div class="uk-margin">
+                      <label class="uk-form-label">Password Reset? : <input class="uk-checkbox user-change-password" type="checkbox" id="user-change-password" name="user-change-password"></label>
+                      <input class="uk-input update-password" type="password" value="">
+                    </div>
+                  </div>
+                  <div class="uk-width-1-2@m">
+                    <div class="uk-margin">
+                      <label class="uk-form-label">Email:</label>
+                      <input class="uk-input uk-form-width-large update-email" type="email"
+                        value="{{this.dataValues.email}}">
+                    </div>
+                    <div class="uk-margin">
+                      <label class="uk-form-label">Phone:</label>
+                      <input class="uk-input update-phone" type="Phone" value="{{this.dataValues.phone}}">
+                    </div>
+                    <div class="uk-margin">
+                      <label class="uk-form-label">Address:</label>
+                      <textarea class="uk-textarea uk-form-width-large update-address" rows="3"
+                        type="text">{{this.dataValues.address}}</textarea>
+                    </div>
+                    <div class="uk-margin">
+                      <label>Make admin?</label>
+                      <input class="uk-checkbox user-update-admin" type="checkbox" id="user-update-admin" name="user-update-admin"
+                        checked="{{this.dataValues.admin}}">
+                    </div>
+                  </div>
+                </div>
+                <div style="display: none" id="alert" role="alert">
+                  <span class="msg"></span>
+                </div>
+                <br>
+                <button class="uk-button btn-fixed-size">Update</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="uk-width-1-5">
+          {{> chat}}
+        </div>
+      </div>
+    </div>
+  </main>
+  {{> footer}}
+</div>
 
 <!-- App scripts and css-->
 <script src="/js/users.js"></script>

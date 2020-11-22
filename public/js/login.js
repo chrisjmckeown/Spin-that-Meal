@@ -3,6 +3,7 @@ $(document).ready(() => {
   const loginForm = $('form.login');
   const emailInput = $('input#login-email-input');
   const passwordInput = $('input#login-password-input');
+  const forgotEmail = $('.forgot-password');
 
   // When the form is submitted,
   // we validate there's an email and password entered
@@ -24,6 +25,27 @@ $(document).ready(() => {
       passwordInput.val('');
     }
   });
+
+  forgotEmail.on('click', function(event) {
+    event.preventDefault();
+    const email = emailInput.val().trim();
+
+    $.post(`/api/forgotpassword`, {
+      email,
+    }).then(
+        (result) => {
+          openInNewTab(result.emailUrl);
+        },
+    );
+  });
+
+  /**
+ * Opens a new tab with passed in url
+ * @param {string} url the url.
+ */
+  function openInNewTab(url) {
+    window.location.href = url;
+  }
 
   // loginUser does a post to our "api/login" route
   // and if successful, redirects us the the members page

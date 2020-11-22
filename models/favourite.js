@@ -1,20 +1,20 @@
-module.exports = function (sequelize, DataTypes) {
-  const Favourite = sequelize.define("Favourite", {
-  },{
-      freezeTableName: true
-    });
+module.exports = function(sequelize, DataTypes) {
+  const Favourite = sequelize.define('Favourite', {
+  }, {
+    freezeTableName: true,
+  });
 
-  Favourite.associate = function (models) {
+  Favourite.associate = function(models) {
     Favourite.belongsTo(models.User, {
       foreignKey: {
-        allowNull: false
-      }
+        allowNull: false,
+      },
     });
     Favourite.belongsTo(models.Recipe, {
       foreignKey: {
-        allowNull: false
-      }
+        allowNull: false,
+      },
     });
-  }
+  };
   return Favourite;
 };

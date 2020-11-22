@@ -1,16 +1,38 @@
-<h2>Add a Type</h2>
-<form class="create-form" id="create-form">
-
-  <div class="form-group">
-    <label for="type-name">Type Name:</label>
-    <input type="text" class="uk-input"  id="type-name" name="name">
-  </div>
-  <button class="uk-button uk-button-default" type="submit">Add Type</button>
-</form>
-<ul>
-  {{#each Type}}
-  {{> row-item text=this.dataValues.name}}
-  {{/each}}
-</ul>
+<div class="wrapper">
+  {{> header}}
+  <main class="main">
+    <div class="uk-container">
+      {{> navigation/primary-nav}}
+      <div class="uk-grid">
+        <div class="uk-width-4-5">
+          <div class="uk-box-shadow-xlarge uk-padding">
+            <legend class="uk-legend">Manage Types</legend>
+            <p>Add, edit and delete the type associated to ingredients, Fruit, Vegetables etc.</p>
+            <form class="uk-grid-small create-form" id="create-form">
+              <div class="uk-margin-small uk-grid-small uk-grid" uk-grid="">
+                <div class="uk-width-expand uk-first-column">
+                  <input type="text" class="uk-input type-name" id="type-name" name="name"
+                    placeholder="new type name...">
+                </div>
+                <div class="uk-width-auto">
+                  <button class="uk-button btn-flex-size uk-width-1-1" type="submit">Add Type</button>
+                </div>
+              </div>
+            </form>
+            <ul class="uk-list uk-list-divider uk-list-striped">
+              {{#each Type}}
+              {{> row-item text=this.dataValues.name}}
+              {{/each}}
+            </ul>
+          </div>
+        </div>
+        <div class="uk-width-1-5">
+          {{> chat}}
+        </div>
+      </div>
+    </div>
+  </main>
+  {{> footer}}
+</div>
 <!-- App scripts and css-->
 <script src="/js/type.js"></script>

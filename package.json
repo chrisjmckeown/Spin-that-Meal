@@ -30,9 +30,12 @@
     "express-handlebars": "^5.2.0",
     "express-session": "^1.17.1",
     "mysql2": "^2.2.5",
+    "nodemailer": "^6.4.16",
     "nodemon": "^2.0.6",
+    "open": "^7.3.0",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
+    "randomcolor": "^0.6.2",
     "sequelize": "^6.3.5",
     "socket.io": "^3.0.1"
   },

@@ -1,27 +1,27 @@
-module.exports = function (sequelize, DataTypes) {
-  const RecipeIngredient = sequelize.define("RecipeIngredient", {
+module.exports = function(sequelize, DataTypes) {
+  const RecipeIngredient = sequelize.define('RecipeIngredient', {
     amount: {
-      type: DataTypes.INTEGER
-    }
+      type: DataTypes.INTEGER,
+    },
   },
-    {
-      freezeTableName: true
-    });
-  RecipeIngredient.associate = function (models) {
+  {
+    freezeTableName: true,
+  });
+  RecipeIngredient.associate = function(models) {
     RecipeIngredient.belongsTo(models.Measurement, {
       foreignKey: {
-        allowNull: true
-      }
+        allowNull: true,
+      },
     });
     RecipeIngredient.belongsTo(models.Ingredient, {
       foreignKey: {
-        allowNull: true
-      }
+        allowNull: true,
+      },
     });
     RecipeIngredient.belongsTo(models.Recipe, {
       foreignKey: {
-        allowNull: true
-      }
+        allowNull: true,
+      },
     });
   };
   return RecipeIngredient;

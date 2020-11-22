@@ -35,44 +35,43 @@ $(function () {
         }
 
     });
+  // EDIT Category
+  editBtn.on('click', function(event) {
+    const id = $(this).data('id');
+    location.assign(`/api/recipe-ingredients/${id}`);
+  });
 
-    // EDIT Category
-    editBtn.on("click", function (event) {
-        const id = $(this).data("id");
-        location.assign(`/api/recipe-ingredients/${id}`);
-    });
+  updateForm.on('submit', function(event) {
+    // Make sure to preventDefault on a submit event.
+    event.preventDefault();
+    const id = $(this).data('id');
+    const updatedRecipe = {
+      id: id,
+      amount: recipeIngredientAmount.val().trim(),
+    };
+    // Send the POST request.
+    $.ajax(`/api/recipe-ingredients`, {
+      type: 'PUT',
+      data: updatedRecipe,
+    }).then(
+        () => {
+          // Reload the page to get the updated list
+          location.assign('/api/recipe-ingredients');
+        },
+    );
+  });
 
-    updateForm.on("submit", function (event) {
-        // Make sure to preventDefault on a submit event.
-        event.preventDefault();
-        const id = $(this).data("id");
-        const updatedRecipe = {
-            id: id,
-            amount: recipeIngredientAmount.val().trim()
-        };
-        // Send the POST request.
-        $.ajax(`/api/recipe-ingredients`, {
-            type: "PUT",
-            data: updatedRecipe
-        }).then(
-            () => {
-                // Reload the page to get the updated list
-                location.assign("/api/recipe-ingredients");
-            }
-        );
-    });
-
-    // DELETE Category
-    deleteBtn.on("click", function (event) {
-        const id = $(this).data("id");
-        // Send the DELETE request.
-        $.ajax(`/api/recipe-ingredients/${id}`, {
-            type: "DELETE"
-        }).then(
-            () => {
-                // Reload the page to get the updated list
-                location.reload();
-            }
-        );
-    });
+  // DELETE Category
+  deleteBtn.on('click', function(event) {
+    const id = $(this).data('id');
+    // Send the DELETE request.
+    $.ajax(`/api/recipe-ingredients/${id}`, {
+      type: 'DELETE',
+    }).then(
+        () => {
+          // Reload the page to get the updated list
+          location.reload();
+        },
+    );
+  });
 });

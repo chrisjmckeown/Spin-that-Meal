@@ -1,17 +1,39 @@
-<h2>Edit Recipe {{this.dataValues.id}}</h2>
-<form data-id="{{this.dataValues.id}}" class="update-form">
-
-  <div class="form-group">
-    <label for="recipe-name">Name:</label>
-    <input type="text" class="recipe-name" id="recipe-name" name="name" value="{{this.dataValues.name}}">
-    <label for="recipe-instruction">Instruction:</label>
-    <input type="text" class="recipe-instruction" id="recipe-instruction" name="instruction" value="{{this.dataValues.instruction}}">
-    <label for="recipe-portion">Portion:</label>
-    <input type="text" class="recipe-portion" id="recipe-portion" name="portion" value="{{this.dataValues.portion}}">
-  </div>
-
-  <button type="submit">Update Recipe</button>
-</form>
-
+<div class="wrapper">
+  {{> header}}
+  <main class="main">
+    <div class="uk-container">
+      {{> navigation/primary-nav}}
+      <div class="uk-grid">
+        <div class="uk-width-4-5">
+          <div class="uk-box-shadow-xlarge uk-padding">
+            <legend class="uk-legend">Edit {{this.dataValues.name}} Recipe</legend>
+            <form data-id="{{this.dataValues.id}}" class="uk-grid-small update-form">
+              <div class="uk-margin-small uk-grid-small uk-grid" uk-grid="">
+                <label for="recipe-name">Recipe Name:</label>
+                <input type="text" class="uk-input recipe-name" id="recipe-name" name="name"
+                  value="{{this.dataValues.name}}">
+              </div>
+              <div class="uk-margin-small uk-grid-small uk-grid" uk-grid="">
+                <label for="recipe-instruction">Recipe Instruction:</label>
+                <textarea type="textarea" class="uk-input recipe-instruction" id="recipe-instruction" name="name"
+                  rows="3">{{this.dataValues.instruction}}</textarea>
+              </div>
+              <div class="uk-margin-small uk-grid-small uk-grid" uk-grid="">
+                <label for="recipe-portion">Recipe Portion:</label>
+                <input type="text" class="uk-input recipe-portion" id="recipe-portion" name="name"
+                  value="{{this.dataValues.portion}}">
+              </div>
+              <button class="uk-button btn-flex-size uk-width-1-1" type="submit">Update Recipe</button>
+            </form>
+          </div>
+        </div>
+        <div class="uk-width-1-5">
+          {{> chat}}
+        </div>
+      </div>
+    </div>
+  </main>
+  {{> footer}}
+</div>
 <!-- App scripts and css-->
 <script src="/js/recipe.js"></script>

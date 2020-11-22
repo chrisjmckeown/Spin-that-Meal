@@ -1,8 +1,7 @@
 // Make sure we wait to attach our handlers until the DOM is fully loaded.
 $(function() {
   // Getting references to our form and inputs
-  const {id} = JSON.parse(localStorage.getItem('user-details'));
-  const updateMemberForm = $('.update-member-form');
+  const updateMemberForm = $('.update-personal-form');
 
   const firstName = $('.update-first-name');
   const lastName = $('.update-last-name');
@@ -11,12 +10,52 @@ $(function() {
   const phone = $('.update-phone');
   const address = $('.update-address');
   const password = $('.update-password');
-  const changePassword = $('.change-password');
+  const changePassword = $('#change-password');
 
   const memberEditClick = $('.member-edit');
+  const management = $('.management');
+  const newColorBtn = $('.btn-new-color');
+
+  checkAdmin();
+  /**
+* Checks if the logged in user is admin.
+*/
+  function checkAdmin() {
+    $.get('/api/member', {
+    }).then(
+        (result) => {
+          // Reload the page to get the updated list
+          if (result.admin) {
+            management.show();
+          } else {
+            management.hide();
+          }
+          newColorBtn.css('background-color', result.messagecolour);
+        },
+    );
+  }
+
+  newColorBtn.click(function(event) {
+    event.preventDefault();
+    $.get('/api/member/randomcolor', {
+    }).then(
+        (result) => {
+          newColorBtn.css('background-color', result.messagecolour);
+        },
+    );
+  });
 
   memberEditClick.click(function() {
-    location.assign(`/api/member/${id}`);
+    location.assign(`/api/member/edit`);
+  });
+
+  password.addClass('uk-disabled');
+  changePassword.on('change', function() {
+    if ($(this).is(':checked')) {
+      password.removeClass('uk-disabled');
+    } else {
+      password.addClass('uk-disabled');
+    }
   });
 
   updateMemberForm.on('submit', function(event) {
@@ -26,27 +65,24 @@ $(function() {
     $('#alert').fadeOut(0);
 
     const id = $(this).data('id');
-    const newPassword = '';
 
-    const updatedUser = {
+    const updatedItem = {
       id,
       firstName: firstName.val().trim(),
       lastName: lastName.val().trim(),
       userName: userName.val().trim(),
       email: email.val().trim(),
-      password: newPassword,
+      password: password.val().trim(),
       phone: phone.val().trim(),
       address: address.val().trim(),
-      changepassword: false,
+      changepassword: changePassword.is(':checked'),
+      messagecolour: newColorBtn.css('background-color'),
     };
-
-    if (changePassword.length !== 0) {
-      updatedUser.changepassword = true;
-      if (! checkPassword(password)) {
+    if (changePassword.is(':checked')) {
+      if (! checkPassword(updatedItem.password)) {
         return;
       }
     }
-
     if (!firstName || !lastName || !userName ||
         !email ||
         !phone || !address) {
@@ -57,15 +93,21 @@ $(function() {
     // Send the POST request.
     $.ajax(`/api/member`, {
       type: 'PUT',
-      data: updatedUser,
+      data: updatedItem,
     }).then(
         () => {
           // Reload the page to get the updated list
           location.reload();
+          password.val('');
         },
     );
   });
 
+  /**
+* Checks the pasword passes the criteria.
+* @param {string} password Input.
+* @return {boolean} Returns true if conditions are meet.
+*/
   function checkPassword(password) {
     if (password.length < 8) {
       $('#alert .msg').text('Password must be greater than 8 characters');
@@ -83,6 +125,7 @@ $(function() {
       $('#alert').fadeIn(500);
       return false;
     }
+    return true;
   }
 
   /**

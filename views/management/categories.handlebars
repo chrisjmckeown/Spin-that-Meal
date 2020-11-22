@@ -5,7 +5,9 @@
       {{> navigation/primary-nav}}
       <div class="uk-grid">
         <div class="uk-width-4-5">
-            <h2>Manage Categories</h2>
+          <div class="uk-box-shadow-xlarge uk-padding">
+            <legend class="uk-legend">Manage Categories</legend>
+            <p>Add, edit and delete the genres associated to recipes.</p>
             <form class="uk-grid-small create-form" id="create-form">
               <div class="uk-margin-small uk-grid-small uk-grid" uk-grid="">
                 <div class="uk-width-expand uk-first-column">
@@ -13,7 +15,7 @@
                     placeholder="new category name...">
                 </div>
                 <div class="uk-width-auto">
-                  <button class="uk-button uk-button-default uk-width-1-1" type="submit">Add Category</button>
+                  <button class="uk-button btn-flex-size uk-width-1-1" type="submit">Add Category</button>
                 </div>
               </div>
             </form>
@@ -22,6 +24,7 @@
               {{> row-item text=this.dataValues.name}}
               {{/each}}
             </ul>
+          </div>
         </div>
         <div class="uk-width-1-5">
           {{> chat}}

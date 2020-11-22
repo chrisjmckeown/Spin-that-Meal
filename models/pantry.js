@@ -1,18 +1,18 @@
-module.exports = function (sequelize, DataTypes) {
-  const Pantry = sequelize.define("Pantry", {
+module.exports = function(sequelize, DataTypes) {
+  const Pantry = sequelize.define('Pantry', {
     amount: {
-      type: DataTypes.INTEGER
-    }
+      type: DataTypes.INTEGER,
+    },
   }, {
-    freezeTableName: true
+    freezeTableName: true,
   });
 
-  Pantry.associate = function (models) {
-    //associate Pantry with user
+  Pantry.associate = function(models) {
+    // associate Pantry with user
     Pantry.belongsTo(models.User, {
       foreignKey: {
-        allowNull: false
-      }
+        allowNull: false,
+      },
     });
   };
   return Pantry;

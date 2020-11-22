@@ -1,3 +1,46 @@
+/* before search results */
+.playlist-div {
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.playlist-card {
+  background-color: #f2894b;
+  margin-left: 5%;
+  margin-right: 5%;
+  border: rgba(102, 97, 97, 0.7) solid 1px;
+  border-radius: 5.5%;
+}
+
+.playlist-card {
+  background: linear-gradient(#f2894b, #f2894b 50%, #32d269 50%, #32d269);
+  background-size: 100% 200%;
+  transition: all 0.2s ease;
+}
+.playlist-card:hover {
+  background-position: 100% 100%;
+}
+.discover {
+  color: white !important;
+  text-align: center;
+}
+.playlist-card {
+  min-height: 250px !important;
+  max-height: 250px !important;
+}
+@media (min-width: 1200px) {
+  .playlist-card {
+    min-height: 250px;
+    max-height: 250px;
+  }
+}
+@media (min-width: 960px) {
+  .playlist-card {
+    min-height: 250px;
+    max-height: 250px;
+  }
+}
+
 /* browse */
 .search-results {
   box-sizing: content-box;
@@ -9,18 +52,6 @@
 }
 .uk-button-default {
   border: 1px Solid #f8f8f8;
-}
-.uk-button-danger {
-  background-color: #f2894b;
-  padding: 30px 5px 30px 5px;
-  line-height: 0px;
-  font-weight: 500;
-  min-width: 160px;
-  max-width: 160px;
-  margin-bottom: 5px;
-}
-.food-btn {
-  background-color: #32d269;
 }
 /* for search icon */
 svg {
@@ -39,26 +70,34 @@ svg {
   margin-bottom: 0px;
 }
 .uk-card-body {
-  min-height: 470px !important;
-  max-height: 470px !important;
+  min-height: 470px;
+  max-height: 470px;
 }
 @media (min-width: 1200px) {
   .uk-card-body {
     padding: 40px 40px;
-    min-height: 470px !important;
-    max-height: 470px !important;
+    min-height: 470px;
+    max-height: 470px;
+  }
+  .uk-child-width-1-2\@s > * {
+    width: 50%;
   }
 }
-@media (min-width: 960px) {
+@media (max-width: 960px) {
   .uk-card-body {
     padding: 40px 40px;
-    min-height: 470px !important;
-    max-height: 470px !important;
+    margin-left: 20px;
   }
-}
-@media (min-width: 640px) {
   .uk-child-width-1-2\@s > * {
     width: 100%;
     margin-left: 20px;
+  }
+}
+@media (max-width: 640px) {
+  .uk-child-width-1-2\@s > * {
+    width: 100%;
+  }
+  .uk-card-body {
+    margin-left: 30px;
   }
 }

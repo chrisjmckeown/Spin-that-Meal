@@ -1,13 +1,70 @@
 <div class="wrapper">
+
     {{> header}}
+
     <main class="main">
+
         <div class="uk-container">
             {{> navigation/primary-nav}}
+
             <div class="uk-grid">
-                <div class="uk-width-4-5">
-                    {{> browse}}
+                <div class="uk-width-4-5@m">
+                    <nav class="uk-navbar-container" uk-navbar>
+                        <div class="uk-navbar-center">
+                            <div class="uk-navbar-item">
+                                <form class="uk-search uk-search-navbar">
+                                    <input class="uk-search-input" id="searchInput" type="search"
+                                        placeholder="Looking for something new...">
+                                </form>
+                                <button class="uk-button uk-button-default" id="searchBtn"><span
+                                        uk-icon="search"></span></button>
+                            </div>
+                        </div>
+                    </nav>
+
+                    <section class="before-search" id="beforeSearch">
+                        <div class="uk-grid">
+                            <div class="uk-width-1-3 playlist-div">
+                                <a href="#" class="box-link">
+                                    <div class="uk-card uk-card-default uk-card-body uk-width-expand playlist-card">
+                                        <h3 class="uk-card-title discover">5-minute madness</h3>
+                                        <p class="discover">Discover Coming Soon</p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="uk-width-1-3 playlist-div">
+                                <a href="#" class="box-link">
+                                    <div class="uk-card uk-card-default uk-card-body uk-width-expand playlist-card">
+                                        <h3 class="uk-card-title discover">Simple pasta for days</h3>
+                                        <p class="discover">Discover Coming Soon</p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="uk-width-1-3 playlist-div">
+                                <a href="#" class="box-link">
+                                    <div class="uk-card uk-card-default uk-card-body uk-width-expand playlist-card">
+                                        <h3 class="uk-card-title discover">Vegan and Vegetarian</h3>
+                                        <p class="discover">Discover Coming Soon</p>
+                                    </div>
+                                </a>
+                            </div>
+                    </section>
+
+                    <section>
+                        <div class="uk-grid">
+                            <div class="uk-width-1-5">
+                                <div id="recentlySearched" class="recent-search"></div>
+                                <button id="clearHistory" class="uk-button btn-clear">Clear History</button>
+                            </div>
+                            <div class="uk-width-4-5">
+                                <div id="searchResults" class="uk-grid-row-large uk-child-width-1-2@s uk-text-center"
+                                    uk-grid>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
                 </div>
-                <div class="uk-width-1-5">
+                <div class="uk-width-1-5@m">
                     {{> chat}}
                 </div>
             </div>
@@ -17,3 +74,6 @@
     <div class="push"></div>
     {{> footer}}
 </div>
+<!-- App scripts and css-->
+<link rel="stylesheet" type="text/css" href="/stylesheets/browse.css">
+<script type="text/javascript" src="/js/browse.js"></script>
