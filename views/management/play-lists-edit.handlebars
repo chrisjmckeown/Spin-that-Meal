@@ -7,14 +7,34 @@
         <div class="uk-width-4-5">
           <div class="uk-box-shadow-xlarge uk-padding">
             <legend class="uk-legend">Edit {{this.dataValues.name}} Playlist</legend>
-            <form data-id="{{this.dataValues.id}}" class="uk-grid-small update-form">
+            <form data-id="{{this.dataValues.id}}" class="uk-grid-small update-form" id="update-form">
+              <div class="uk-margin-small uk-grid-small uk-grid" uk-grid="">
+                <label for="user-name-playlist">Select the member to own the playlist:</label>
+                <select class="uk-select user-name-playlist">
+                  {{!-- <option data-id="{{this.dataValues.id}}">{{this.dataValues.User.dataValues.firstName}} {{this.dataValues.User.dataValues.lastName}}</option> --}}
+                </select>
+              </div>
+
               <div class="uk-margin-small uk-grid-small uk-grid" uk-grid="">
                 <label for="play-list-name">Name:</label>
                 <input type="text" class="uk-input play-list-name" id="play-list-name" name="name"
                   value="{{this.dataValues.name}}">
               </div>
-              <button class="uk-button btn-flex-size uk-width-1-1" type="submit">Update Playlist</button>
+              <button class="uk-button btn-flex-size uk-width-1-1" type="submit">Update Name</button>
             </form>
+
+
+            <div class="uk-margin-small uk-grid-small uk-grid" uk-grid="">
+              <label for="recipe-list-playlist">List of recipes:</label>
+              <select class="uk-select recipe-list-playlist">
+              </select>
+              <button class="uk-button btn-flex-size uk-width-1-1 add-recipe-playlist">Add recipe</button>
+            </div>
+            <div>
+              <ul class="uk-list uk-list-divider uk-list-striped all-linked-recipes">
+
+              </ul>
+            </div>
           </div>
         </div>
         <div class="uk-width-1-5">

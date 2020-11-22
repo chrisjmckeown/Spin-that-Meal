@@ -5,10 +5,15 @@ const isAuthenticated = require('../../config/middleware/isAuthenticated');
 module.exports = function(app) {
   // GET route for getting all items
   app.get('/api/recipes', isAuthenticated, (req, res) => {
-    db.Recipe.findAll({
-
-    }).then((result) => {
+    db.Recipe.findAll().then((result) => {
       res.render('management/recipes', {Recipe: result});
+    });
+  });
+
+  // GET route for getting all items
+  app.get('/api/recipes-in-list', isAuthenticated, (req, res) => {
+    db.Recipe.findAll().then((result) => {
+      res.json({Recipe: result});
     });
   });
 
@@ -33,20 +38,6 @@ module.exports = function(app) {
     });
   });
 
-<<<<<<< HEAD
-    // PUT route for updating
-    app.put("/api/recipes/:id", isAuthenticated, (req, res) => {
-        const { id, name, instruction, portion, UserId } = req.body;
-        db.Recipe.update({
-            name, instruction, portion, UserId
-        }, {
-            where: {
-                id: id
-            }
-        }).then((result) => {
-            res.json(result);
-        });
-=======
   // PUT route for updating
   app.put('/api/recipes', isAuthenticated, (req, res) => {
     const {id, name, instruction, portion, UserId} = req.body;
@@ -58,7 +49,6 @@ module.exports = function(app) {
       },
     }).then((result) => {
       res.json(result);
->>>>>>> main
     });
   });
 

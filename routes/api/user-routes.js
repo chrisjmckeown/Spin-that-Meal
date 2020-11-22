@@ -6,10 +6,15 @@ const bcrypt = require('bcryptjs');
 module.exports = function(app) {
   // GET route for getting all items
   app.get('/api/users', isAuthenticated, (req, res) => {
-    db.User.findAll({
-
-    }).then((result) => {
+    db.User.findAll().then((result) => {
       res.render('management/users', {User: result});
+    });
+  });
+
+  // GET route for getting all items
+  app.get('/api/users-in-list', isAuthenticated, (req, res) => {
+    db.User.findAll().then((result) => {
+      res.json({User: result});
     });
   });
 

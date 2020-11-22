@@ -6,7 +6,7 @@ module.exports = function(app) {
   // GET route for getting all items
   app.get('/api/play-lists', isAuthenticated, (req, res) => {
     db.PlayList.findAll({
-
+      include: [db.User, db.Recipe],
     }).then((result) => {
       res.render('management/play-lists', {PlayList: result});
     });
@@ -18,7 +18,9 @@ module.exports = function(app) {
       where: {
         id: req.params.id,
       },
+      include: [db.User, db.Recipe],
     }).then((result) => {
+      console.log(result);
       res.render('management/play-lists-edit', result);
     });
   });
@@ -35,9 +37,9 @@ module.exports = function(app) {
 
   // PUT route for updating
   app.put('/api/play-lists', isAuthenticated, (req, res) => {
-    const {id, name} = req.body;
+    const {id, name,UserId} = req.body;
     db.PlayList.update({
-      name,
+      name, UserId,
     }, {
       where: {
         id: id,

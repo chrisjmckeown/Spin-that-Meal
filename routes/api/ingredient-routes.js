@@ -5,9 +5,7 @@ const isAuthenticated = require('../../config/middleware/isAuthenticated');
 module.exports = function(app) {
   // GET route for getting all items
   app.get('/api/ingredients', isAuthenticated, (req, res) => {
-    db.Ingredient.findAll({
-
-    }).then((result) => {
+    db.Ingredient.findAll().then((result) => {
       res.render('management/ingredients', {Ingredient: result});
     });
   });
