@@ -16,7 +16,9 @@ $(function() {
   save.on('submit', function(event) {
     // Make sure to preventDefault on a submit event.
     event.preventDefault();
-    if (!recipeIngiredientName.val() || !recipeIngredientAmount.val() || !measurement.val() || !type.val()) {
+    if (!recipeIngiredientName.val() ||
+    !recipeIngredientAmount.val() ||
+    !measurement.val() || !type.val()) {
       alert('please input or select all field');
     } else {
       const newIngredient = {
@@ -42,7 +44,10 @@ $(function() {
             }).then((res) => {
               const recipeIngredientId = res.id;
               ingredientList.append(
-                  `<li>${newIngredient.name} ${type.text()} ${newRecipeIngredient.amount}${measurement.text()} <button class="delete" id="${recipeIngredientId}">Delete</button></li>`,
+                  `<li>${newIngredient.name} ${type.text()} ` +
+                  `${newRecipeIngredient.amount}${measurement.text()} ` +
+                  `<button class="delete" id="${recipeIngredientId}">` +
+                  `Delete</button></li>`,
               );
             });
           },
