@@ -20,6 +20,12 @@
                             <h5>Vegetarian faves... Quick Fam Dinners... Friendly Gatherings... Fave Salads</h5>
                         </div>
                     </div>
+
+                    <ul class="uk-list uk-list-divider uk-list-striped">
+                        {{#each PlayList}}
+                        {{> playlist-row-item}}
+                        {{/each}}
+                    </ul>
                 </div>
                 <div class="uk-width-1-5@m">
                     {{> chat}}
