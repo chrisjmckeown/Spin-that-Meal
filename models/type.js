@@ -10,6 +10,7 @@ module.exports = function(sequelize, DataTypes) {
   },
   {
     freezeTableName: true,
+    timestamps: false,
   });
   Type.associate = function(models) {
     Type.hasMany(models.Ingredient, {

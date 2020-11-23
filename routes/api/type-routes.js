@@ -8,7 +8,7 @@ module.exports = function(app) {
     db.Type.findAll({
 
     }).then((result) => {
-      res.render('management/types', {Type: result});
+      // res.render('management/types', {Type: result});
       res.render('partials/recipe-ingredients', {Type: result});
     });
   });
