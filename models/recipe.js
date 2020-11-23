@@ -1,23 +1,23 @@
 
-module.exports = function (sequelize, DataTypes) {
-    const Recipe = sequelize.define("Recipe", {
-        name: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                len: [1]
-            }
-        },
-        instruction: {
-            type: DataTypes.TEXT,
-            allowNull: false,
-            len: [1]
-        },
-        portion: {
-            type: DataTypes.TEXT,
-            allowNull: false,
-            len: [1]
-        }
+module.exports = function(sequelize, DataTypes) {
+  const Recipe = sequelize.define('Recipe', {
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1],
+      },
+    },
+    instruction: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+      len: [1],
+    },
+    portion: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+      len: [1],
+    },
 
   },
   {
@@ -45,6 +45,10 @@ module.exports = function (sequelize, DataTypes) {
     Recipe.hasMany(models.Favourite, {
       onDelete: 'cascade',
     });
+
+
+    Recipe.belongsToMany(models.PlayList, {through: models.RecipePlaylist});
+    Recipe.hasMany(models.RecipePlaylist);
   };
   return Recipe;
 };

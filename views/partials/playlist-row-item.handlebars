@@ -1,0 +1,14 @@
+<li>
+	<div class="uk-grid" uk-grid>
+		<div class="uk-width-expand">
+			{{this.dataValues.User.dataValues.userName}}'s playlist: {{this.dataValues.name}} 
+		</div>
+		<div>
+			<button class="uk-button btn-flex-size edit" id="edit" data-id="{{this.dataValues.id}}">EDIT</button>
+		</div>
+		<div>
+			<button class="uk-button btn-flex-size delete" id="delete"
+				data-id="{{this.dataValues.id}}">DELETE</button>
+		</div>
+	</div>
+</li>

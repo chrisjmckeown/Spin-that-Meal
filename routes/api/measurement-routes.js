@@ -5,10 +5,8 @@ const isAuthenticated = require('../../config/middleware/isAuthenticated');
 module.exports = function(app) {
   // GET route for getting all items
   app.get('/api/measurements', isAuthenticated, (req, res) => {
-    db.Measurement.findAll({
-
-    }).then((result) => {
-      // res.render('management/measurements', {Measurement: result});
+    db.Measurement.findAll().then((result) => {
+      res.render('management/measurements', {Measurement: result});
       res.render('partials/recipe-ingredients', {Measurement: result});
     });
   });
