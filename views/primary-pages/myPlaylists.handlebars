@@ -32,7 +32,7 @@
 
                     <ul class="uk-list uk-list-divider uk-list-striped">
                         {{#each PlayList}}
-                        {{> user-playlist-item text=this.dataValues.name}}
+                        {{> playlist-row-item}}
                         {{/each}}
                     </ul>
                 </div>
@@ -46,5 +46,5 @@
     {{> footer}}
 </div>
 <!-- App scripts and css-->
-<script src="/js/playlist.js"></script>
+<script src="/js/admin-play-list.js"></script>
 <link rel="stylesheet" type="text/css" href="/stylesheets/playlists.css">

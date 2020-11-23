@@ -10,18 +10,18 @@ module.exports = function(app) {
     });
   });
 
-    // Get route for retrieving a single item
-    // app.get("/api/ingredients/:id", isAuthenticated, (req, res) => {
-    //     db.Ingredient.findOne({
-    //         where: {
-    //             id: req.params.id
-    //         }
-    //     }).then((result) => {
-    //         res.render("management/ingredients-edit", result);
-    //     });
-    // });
+  // Get route for retrieving a single item
+  app.get('/api/ingredients/:id', isAuthenticated, (req, res) => {
+    db.Ingredient.findOne({
+      where: {
+        id: req.params.id,
+      },
+    }).then((result) => {
+      res.render('management/ingredients-edit', result);
+    });
+  });
 
-      // Get route for retrieving or creating if not find a single item
+  // Get route for retrieving or creating if not find a single item
   app.get('/api/ingredients/:name', isAuthenticated, (req, res) => {
     db.Category.findOrCreate({
       where: {
