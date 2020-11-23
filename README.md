@@ -105,40 +105,44 @@ Login page:
 
 Index page:
 <img src="./public/images/index-page.png" alt="Index page">
+
 ### Heroku Deployment
 
-View the deployed app here: 
+View the deployed app here: [deployed app](https://murmuring-reaches-65423.herokuapp.com/)
 
 ## License
 
 [![license](https://img.shields.io/github/license/chrisjmckeown/Spin-that-Meal.svg?style=flat-square)](https://github.com/chrisjmckeown/Spin-that-Meal/blob/master/LICENSE)
 
 ## Contributing
+
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](code_of_conduct.md)
 
 ## Tests
- Run the application, select the various options avaible, including:
-* Can you create a meal.
-* Can you send a chat message?
-* Can you recover a lost password?
+
+Run the application, select the various options avaible, including:
+
+- Can you create a meal.
+- Can you send a chat message?
+- Can you recover a lost password?
 
 ## Link to Slides
+
 [Slide Show](https://docs.google.com/presentation/d/1sd7S6BQJ7a-GL_spidPzscqM_EETpZbXRZOI8EJA7t0/edit#slide=id.ga26cd73fd9_0_6)
 
 ## Questions
-    
-* Please contact or follow us at: 
-    * Amelia:
-        * <a href="https://github.com/arob0017" target="_blank">git hub repo</a>
-    * Avii:
-        * <a href="https://github.com/avvisingh" target="_blank">git hub repo</a>
-    * Gavin:
-        * <a href="https://github.com/lionhatt" target="_blank">git hub repo</a>
-    * Chris Mckeown: 
-        * chris.j.mckeown@hotmail.com 
-        * <a href="https://github.com/chrisjmckeown" target="_blank">git hub repo</a>
-    
-© 2020 Spin-that-meal
 
+- Please contact or follow us at:
+  - Amelia:
+    - <a href="https://github.com/arob0017" target="_blank">git hub repo</a>
+  - Avii:
+    - <a href="https://github.com/avvisingh" target="_blank">git hub repo</a>
+  - Gavin:
+    - <a href="https://github.com/lionhatt" target="_blank">git hub repo</a>
+  - Chris Mckeown:
+    - chris.j.mckeown@hotmail.com
+    - <a href="https://github.com/chrisjmckeown" target="_blank">git hub repo</a>
+
+© 2020 Spin-that-meal
