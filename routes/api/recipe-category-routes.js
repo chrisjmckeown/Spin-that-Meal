@@ -6,7 +6,7 @@ const isAuthenticated = require('../../config/middleware/isAuthenticated');
 module.exports = function(app) {
   // GET route for getting all items
   app.get('/api/recipe-categories', isAuthenticated, (req, res) => {
-    db.Recipe_Category.findAll({
+    db.RecipeCategory.findAll({
 
     }).then((result) => {
       res.json(result);
@@ -15,7 +15,7 @@ module.exports = function(app) {
 
   // Get route for retrieving a single item
   app.get('/api/recipe-categories/:id', isAuthenticated, (req, res) => {
-    db.Recipe_Category.findOne({
+    db.RecipeCategory.findOne({
       where: {
         id: req.params.id,
       },
@@ -26,9 +26,9 @@ module.exports = function(app) {
 
   // POST route for saving new
   app.post('/api/recipe-categories', isAuthenticated, (req, res) => {
-    const {CategoryId, RecipeId} = req.body;
-    db.Recipe_Category.create({
-      CategoryId, RecipeId,
+    const {RecipeId, CategoryId} = req.body;
+    db.RecipeCategory.create({
+      RecipeId, CategoryId,
     }).then((result) => {
       res.json(result);
     });
@@ -37,7 +37,7 @@ module.exports = function(app) {
   // PUT route for updating
   app.put('/api/recipe-categories/:id', isAuthenticated, (req, res) => {
     const {id, CategoryId, RecipeId} = req.body;
-    db.Recipe_Category.update({
+    db.RecipeCategory.update({
       CategoryId, RecipeId,
     }, {
       where: {
@@ -50,7 +50,7 @@ module.exports = function(app) {
 
   // DELETE route for deleting
   app.delete('/api/recipe-categories/:id', isAuthenticated, (req, res) => {
-    db.Recipe_Category.destroy({
+    db.RecipeCategory.destroy({
       where: {
         id: req.params.id,
       },

@@ -17,20 +17,22 @@ $(function() {
       }).then((res) => {
         console.log(res);
         const categoryId = res[0].id;
-        console.log('categoryId'+ categoryId);
+        console.log('categoryId' + categoryId);
         console.log('recipeId' + recipeId);
         const newRecipeCategory = {
-          CategoryId: categoryId,
           RecipeId: recipeId,
+          CategoryId: categoryId,
         };
         $.ajax('/api/recipe-categories', {
           type: 'POST',
           data: newRecipeCategory,
         }).then((res) => {
+          console.log('res', res);
           const recipeCategoryId = res.id;
+          const recipeCategoryName = res.name;
+          console.log(recipeCategoryId, recipeCategoryName);
           categoryList.append(
-              `<li>${name} <button class="delete" ` +
-              `id="${recipeCategoryId}">Delete</button></li>`,
+            `<li>${name} <button class="delete" id="${recipeCategoryId}">Delete</button></li>`,
           );
         });
       });
