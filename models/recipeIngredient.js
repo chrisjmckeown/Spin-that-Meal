@@ -3,6 +3,22 @@ module.exports = function(sequelize, DataTypes) {
     amount: {
       type: DataTypes.INTEGER,
     },
+    RecipeId: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+      references: {
+        model: 'Recipe',
+        key: 'id',
+      },
+    },
+    IngredientId: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+      references: {
+        model: 'Ingredient',
+        key: 'id',
+      },
+    },
   },
   {
     freezeTableName: true,

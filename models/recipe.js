@@ -34,13 +34,13 @@ module.exports = function(sequelize, DataTypes) {
       },
     });
     Recipe.belongsToMany(models.Category, {
-      through: 'Recipe_Category',
+      through: 'RecipeCategory',
     });
     Recipe.hasMany(models.PlayList, {
       onDelete: 'SET NULL',
     });
-    Recipe.belongsToMany(models.RecipeIngredient, {
-      through: 'Recipe_Ingredient',
+    Recipe.belongsToMany(models.Ingredient, {
+      through: 'RecipeIngredient',
     });
     Recipe.hasMany(models.Favourite, {
       onDelete: 'cascade',

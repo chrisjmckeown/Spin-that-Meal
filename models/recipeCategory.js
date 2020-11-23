@@ -1,6 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
   const RecipeCategory = sequelize.define('RecipeCategory', {
-    recipe_id: {
+    RecipeId: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
@@ -8,7 +8,7 @@ module.exports = function(sequelize, DataTypes) {
         key: 'id',
       },
     },
-    category_id: {
+    CategoryId: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
