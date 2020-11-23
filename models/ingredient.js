@@ -17,8 +17,8 @@ module.exports = function(sequelize, DataTypes) {
         allowNull: true,
       },
     });
-    Ingredient.hasMany(models.RecipeIngredient, {
-      onDelete: 'SET NULL',
+    Ingredient.belongsToMany(models.Recipe, {
+      through: 'RecipeIngredient',
     });
   };
   return Ingredient;

@@ -1,4 +1,4 @@
-$(function() {
+$(function () {
   const categoryName = $('#category-name');
   const categoryList = $('#categoryList');
   const addBtn = $('#add');
@@ -6,7 +6,7 @@ $(function() {
   const recipeId = JSON.parse(localStorage.getItem('create-recipe')).id;
   console.log(recipeId);
 
-  addBtn.on('click', function(event) {
+  addBtn.on('click', function (event) {
     event.preventDefault();
     if (categoryName.val() === '') {
       alert('Input cannot be blank!');
@@ -17,27 +17,29 @@ $(function() {
       }).then((res) => {
         console.log(res);
         const categoryId = res[0].id;
-        console.log('categoryId'+ categoryId);
+        console.log('categoryId' + categoryId);
         console.log('recipeId' + recipeId);
         const newRecipeCategory = {
-          CategoryId: categoryId,
           RecipeId: recipeId,
+          CategoryId: categoryId,
         };
         $.ajax('/api/recipe-categories', {
           type: 'POST',
           data: newRecipeCategory,
         }).then((res) => {
-          const recipeCategoryId = res[0].id;
-          const recipeCategoryName = res[0].name;
+          console.log("res" + res);
+          const recipeCategoryId = res.id;
+          const recipeCategoryName = res.name;
+          console.log(recipeCategoryId, recipeCategoryName);
           categoryList.append(
-              `<li>${recipeCategoryName} <button class="delete" id="${recipeCategoryId}">Delete</button></li>`
+            `<li>${recipeCategoryName} <button class="delete" id="${recipeCategoryId}">Delete</button></li>`,
           );
         });
       });
     }
   });
 
-  deleteBtn.on('click', function(event) {
+  deleteBtn.on('click', function (event) {
     event.preventDefault();
     const id = $(this).id;
     console.log('delete' + id);

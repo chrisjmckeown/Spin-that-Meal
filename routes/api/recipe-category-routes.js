@@ -26,9 +26,9 @@ module.exports = function(app) {
 
   // POST route for saving new
   app.post('/api/recipe-categories', isAuthenticated, (req, res) => {
-    const {CategoryId, RecipeId} = req.body;
+    const {RecipeId, CategoryId} = req.body;
     db.RecipeCategory.create({
-      CategoryId, RecipeId,
+      RecipeId, CategoryId,
     }).then((result) => {
       res.json(result);
     });
