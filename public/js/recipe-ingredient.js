@@ -18,16 +18,18 @@ $(function() {
 
   // eslint-disable-next-line require-jsdoc
   function init() {
-    $.ajax('api/types', {
+    $.ajax('/api/types', {
       type: 'GET',
     }).then((res) => {
+      console.log("type", res)
       res.forEach((item, index) => {
         type.append(
             `<option value="${item.id}>${item.name}</option>`,
         );
-        $.ajax('api/measurements', {
+        $.ajax('/api/measurements', {
           type: 'GET',
         }).then((res) => {
+          console.log("measurement", res)
           res.forEach((item, index) => {
             measurement.append(
                 `<option value="${item.id}>${item.name}</option>`,

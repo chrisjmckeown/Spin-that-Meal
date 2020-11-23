@@ -1,4 +1,4 @@
-$(function () {
+$(function() {
   const categoryName = $('#category-name');
   const categoryList = $('#categoryList');
   const addBtn = $('#add');
@@ -6,7 +6,7 @@ $(function () {
   const recipeId = JSON.parse(localStorage.getItem('create-recipe')).id;
   console.log(recipeId);
 
-  addBtn.on('click', function (event) {
+  addBtn.on('click', function(event) {
     event.preventDefault();
     if (categoryName.val() === '') {
       alert('Input cannot be blank!');
@@ -27,19 +27,19 @@ $(function () {
           type: 'POST',
           data: newRecipeCategory,
         }).then((res) => {
-          console.log("res" + res);
+          console.log('res', res);
           const recipeCategoryId = res.id;
           const recipeCategoryName = res.name;
           console.log(recipeCategoryId, recipeCategoryName);
           categoryList.append(
-            `<li>${recipeCategoryName} <button class="delete" id="${recipeCategoryId}">Delete</button></li>`,
+            `<li>${name} <button class="delete" id="${recipeCategoryId}">Delete</button></li>`,
           );
         });
       });
     }
   });
 
-  deleteBtn.on('click', function (event) {
+  deleteBtn.on('click', function(event) {
     event.preventDefault();
     const id = $(this).id;
     console.log('delete' + id);
