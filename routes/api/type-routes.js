@@ -6,8 +6,9 @@ module.exports = function(app) {
   // GET route for getting all items
   app.get('/api/types', isAuthenticated, (req, res) => {
     db.Type.findAll().then((result) => {
-      res.render('management/types', {Type: result});
-      res.render('partials/recipe-ingredients', {Type: result});
+      res.json(result);
+      // res.render('management/types', {Type: result});
+      // res.render('partials/type', {Type: result});
     });
   });
 

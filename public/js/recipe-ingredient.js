@@ -1,5 +1,7 @@
 // Make sure we wait to attach our handlers until the DOM is fully loaded.
 $(function() {
+  const PORT = 8080; // process.env.PORT ||
+  const socket = io.connect(`http://localhost:${PORT}`);
   // Getting references to our form and inputs
   const save = $('#save');
   const recipeIngredientAmount = $('#recipe-ingredient-amount');
@@ -12,11 +14,36 @@ $(function() {
   const type = $('#type');
   const ingredientList = $('#ingredientList');
 
+  init();
+
+  // eslint-disable-next-line require-jsdoc
+  function init() {
+    $.ajax('api/types', {
+      type: 'GET',
+    }).then((res) => {
+      res.forEach((item, index) => {
+        type.append(
+            `<option value="${item.id}>${item.name}</option>`,
+        );
+        $.ajax('api/measurements', {
+          type: 'GET',
+        }).then((res) => {
+          res.forEach((item, index) => {
+            measurement.append(
+                `<option value="${item.id}>${item.name}</option>`,
+            );
+          });
+        });
+      });
+    });
+  }
+
   // ADD new category
   save.on('submit', function(event) {
     // Make sure to preventDefault on a submit event.
     event.preventDefault();
-    if (!recipeIngiredientName.val() || !recipeIngredientAmount.val() || !measurement.val() || !type.val()) {
+    if (!recipeIngiredientName.val() || !recipeIngredientAmount.val() ||
+      !measurement.val() || !type.val()) {
       alert('please input or select all field');
     } else {
       const newIngredient = {
@@ -42,38 +69,16 @@ $(function() {
             }).then((res) => {
               const recipeIngredientId = res.id;
               ingredientList.append(
-                  `<li>${newIngredient.name} ${type.text()} ${newRecipeIngredient.amount}${measurement.text()} <button class="delete" id="${recipeIngredientId}">Delete</button></li>`,
+                  `<li>${newIngredient.name} ${type.text()} 
+                  ${newRecipeIngredient.amount}${measurement.text()} 
+                  <button class="delete" id="${recipeIngredientId}">
+                  Delete</button></li>`,
               );
             });
           },
       );
     }
   });
-  //   // EDIT Category
-  //   editBtn.on('click', function(event) {
-  //     const id = $(this).data('id');
-  //     location.assign(`/api/recipe-ingredients/${id}`);
-  //   });
-
-  //   updateForm.on('submit', function(event) {
-  //     // Make sure to preventDefault on a submit event.
-  //     event.preventDefault();
-  //     const id = $(this).data('id');
-  //     const updatedRecipe = {
-  //       id: id,
-  //       amount: recipeIngredientAmount.val().trim(),
-  //     };
-  //     // Send the POST request.
-  //     $.ajax(`/api/recipe-ingredients`, {
-  //       type: 'PUT',
-  //       data: updatedRecipe,
-  //     }).then(
-  //         () => {
-  //           // Reload the page to get the updated list
-  //           location.assign('/api/recipe-ingredients');
-  //         },
-  //     );
-  //   });
 
   // DELETE Category
   deleteBtn.on('click', function(event) {
@@ -83,7 +88,7 @@ $(function() {
       type: 'DELETE',
     }).then(
         () => {
-          // Reload the page to get the updated list
+        // Reload the page to get the updated list
           $(`#${id}`).parent().remove();
         },
     );
