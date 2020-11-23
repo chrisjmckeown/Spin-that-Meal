@@ -28,8 +28,9 @@ $(function() {
           data: newRecipeCategory,
         }).then((res) => {
           const recipeCategoryId = res[0].id;
+          const recipeCategoryName = res[0].name;
           categoryList.append(
-              `<li>${name} <button class="delete" id="${recipeCategoryId}">Delete</button></li>`,
+              `<li>${recipeCategoryName} <button class="delete" id="${recipeCategoryId}">Delete</button></li>`
           );
         });
       });

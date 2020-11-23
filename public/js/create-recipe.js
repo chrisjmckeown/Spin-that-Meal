@@ -7,7 +7,9 @@ $(function() {
 
   saveRecipe.on('click', function(event) {
     event.preventDefault();
-    if (recipeName.val() === '' || recipePortion.val() === '' || recipeInstruction.val() === '') {
+    if (recipeName.val() === '' ||
+    recipePortion.val() === '' ||
+    recipeInstruction.val() === '') {
       alert('Please input all filed before submit');
       return false;
     } else {
