@@ -26,5 +26,4 @@ module.exports = function(app) {
   app.get('/create-recipe', isAuthenticated, (req, res) => {
     res.render('partials/create-recipe', '');
   });
-  
 };

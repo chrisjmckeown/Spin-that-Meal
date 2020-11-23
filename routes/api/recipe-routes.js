@@ -17,6 +17,17 @@ module.exports = function(app) {
     });
   });
 
+  // GET route for getting all recipes associated to the logged in user
+  app.get('/api/recipes-in-my-list', isAuthenticated, (req, res) => {
+    db.Recipe.findAll({
+      where: {
+        UserId: req.user.id,
+      },
+    }).then((result) => {
+      res.render('primary-pages/myRecipes', {Recipe: result});
+    });
+  });
+
   // Get route for retrieving a single item
   app.get('/api/recipes/:id', isAuthenticated, (req, res) => {
     db.Recipe.findOne({
@@ -25,6 +36,18 @@ module.exports = function(app) {
       },
     }).then((result) => {
       res.render('management/recipes-edit', result);
+    });
+  });
+
+  // Get route for retrieving a single item
+  app.get('/api/recipe/:id', isAuthenticated, (req, res) => {
+    db.Recipe.findOne({
+      where: {
+        id: req.params.id,
+      },
+      include: [db.Category, db.RecipeIngredient],
+    }).then((result) => {
+      res.json(result);
     });
   });
 
