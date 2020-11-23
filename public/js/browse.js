@@ -1,7 +1,8 @@
 $(function() {
   const recentSearch = [];
   let recipe;
-  let storedRecipes = JSON.parse(window.localStorage.getItem('storedRecipes')) || [];
+  let storedRecipes = JSON.parse(window.localStorage.
+      getItem('storedRecipes')) || [];
   // var historyClearBtn = document.querySelector("#clearHistory");
 
   $('#clearHistory').hide();

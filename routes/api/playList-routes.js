@@ -12,6 +12,19 @@ module.exports = function(app) {
     });
   });
 
+  // GET route for getting all items
+  app.get('/api/play-lists-in-my-list', isAuthenticated, (req, res) => {
+    db.PlayList.findAll({
+      where: {
+        UserId: req.user.id,
+      },
+      include: [db.User, db.Recipe],
+    }).then((result) => {
+      console.log(result);
+      res.render('primary-pages/myPlaylists', {PlayList: result});
+    });
+  });
+
   // Get route for retrieving a single item
   app.get('/api/play-lists/:id', isAuthenticated, (req, res) => {
     db.PlayList.findOne({
@@ -37,7 +50,7 @@ module.exports = function(app) {
 
   // PUT route for updating
   app.put('/api/play-lists', isAuthenticated, (req, res) => {
-    const {id, name,UserId} = req.body;
+    const {id, name, UserId} = req.body;
     db.PlayList.update({
       name, UserId,
     }, {

@@ -10,6 +10,7 @@
                         <div class="uk-width-1-5 uk-float-left">
                             <div class="playlist-aside">
                                 <h4 class="cookBook">Contents</h4>
+                                <h4 class="cookBook">Contents</h4>
                                 <button class="uk-button uk-button-default btn-fixed-size">Create a List</button>
                                 <form action="/api/play-lists-in-my-list">
                                     <input class="uk-button uk-button-default btn-fixed-size" type="submit"
@@ -27,6 +28,12 @@
                             <h5>Vegetarian faves... Quick Fam Dinners... Friendly Gatherings... Fave Salads</h5>
                         </div>
                     </div>
+
+                    <ul class="uk-list uk-list-divider uk-list-striped">
+                        {{#each PlayList}}
+                        {{> user-playlist-item text=this.dataValues.name}}
+                        {{/each}}
+                    </ul>
                 </div>
                 <div class="uk-width-1-5@m">
                     {{> chat}}
@@ -38,5 +45,5 @@
     {{> footer}}
 </div>
 <!-- App scripts and css-->
-{{!-- <script src="/js/playlists.js"></script> --}}
+<script src="/js/playlist.js"></script>
 <link rel="stylesheet" type="text/css" href="/stylesheets/playlists.css">
