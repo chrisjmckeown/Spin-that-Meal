@@ -7,4 +7,4 @@ UPDATE
 SET
   admin = true
 WHERE
-  id = ?
+  id = 1

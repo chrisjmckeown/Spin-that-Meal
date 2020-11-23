@@ -10,6 +10,7 @@ module.exports = function(sequelize, DataTypes) {
   },
   {
     freezeTableName: true,
+    timestamps: false,
   });
   Measurement.associate = function(models) {
     Measurement.hasMany(models.RecipeIngredient, {

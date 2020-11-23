@@ -39,7 +39,7 @@ module.exports = function(app) {
   });
 
   // PUT route for updating
-  app.put('/api/recipes', isAuthenticated, (req, res) => {
+  app.put('/api/recipes/:id', isAuthenticated, (req, res) => {
     const {id, name, instruction, portion, UserId} = req.body;
     db.Recipe.update({
       name, instruction, portion, UserId,
@@ -52,6 +52,7 @@ module.exports = function(app) {
     });
   });
 
+
   // DELETE route for deleting
   app.delete('/api/recipes/:id', isAuthenticated, (req, res) => {
     db.Recipe.destroy({
@@ -63,3 +64,5 @@ module.exports = function(app) {
     });
   });
 };
+
+

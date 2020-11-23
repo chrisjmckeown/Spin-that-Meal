@@ -7,6 +7,7 @@ module.exports = function(app) {
   app.get('/api/measurements', isAuthenticated, (req, res) => {
     db.Measurement.findAll().then((result) => {
       res.render('management/measurements', {Measurement: result});
+      res.render('partials/recipe-ingredients', {Measurement: result});
     });
   });
 
