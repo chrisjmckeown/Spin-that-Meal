@@ -100,6 +100,11 @@ Once installed:
     </li>
 </ul>
 
+Login page:
+<img src="./public/images/sign-page.png" alt="Login page">
+
+Index page:
+<img src="./public/images/index-page.png" alt="Index page">
 ### Heroku Deployment
 
 View the deployed app here: 
