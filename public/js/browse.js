@@ -1,8 +1,7 @@
-$(function() {
+$(function () {
   const recentSearch = [];
   let recipe;
-  let storedRecipes = JSON.parse(window.localStorage.
-      getItem('storedRecipes')) || [];
+  let storedRecipes = JSON.parse(window.localStorage.getItem('storedRecipes')) || [];
   // var historyClearBtn = document.querySelector("#clearHistory");
 
   $('#clearHistory').hide();
@@ -30,9 +29,9 @@ $(function() {
       url: 'https://api.edamam.com/search?q=' + recipe + '&app_id=b208d965&app_key=168bd55cfd40d63ac22f125ce7280e08&from=0&to=4',
       method: 'GET',
       dataType: 'json',
-      success: function(data) {
+      success: function (data) {
       },
-    }).then(function(data) {
+    }).then(function (data) {
       $('#searchResults').empty();
       // loop through array response to find the forecasts
       for (let i = 0; i <= 3; i++) {
@@ -85,7 +84,7 @@ $(function() {
     });
   }
   // Event handler for user clicking the search forecast button
-  $('#searchBtn').on('click', function(event) {
+  $('#searchBtn').on('click', function (event) {
     // Preventing the button from trying to submit the form
     $('#clearHistory').show();
     $('#beforeSearch').hide();
@@ -102,10 +101,9 @@ $(function() {
     }
   });
 
-  $('#recentlySearched').on('click', 'button', function(event) {
+  $('#recentlySearched').on('click', 'button', function (event) {
     event.preventDefault();
     const prevRecipe = $(this).text();
-    $('#clearHistory').style('display', 'block');
 
     searchRecipes(prevRecipe, recipe);
   });
