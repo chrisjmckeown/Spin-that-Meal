@@ -7,8 +7,13 @@ module.exports = function(app) {
   app.get('/api/measurements', isAuthenticated, (req, res) => {
     db.Measurement.findAll().then((result) => {
       res.json(result);
-      // res.render('management/measurements', {Measurement: result});
-      // res.render('partials/measurement', {Measurement: result});
+    });
+  });
+
+  // GET route for getting all items
+  app.get('/api/measurements-management', isAuthenticated, (req, res) => {
+    db.Measurement.findAll().then((result) => {
+      res.render('management/measurements', {Measurement: result});
     });
   });
 
