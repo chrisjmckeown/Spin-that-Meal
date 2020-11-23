@@ -23,6 +23,10 @@ module.exports = function(sequelize, DataTypes) {
         allowNull: true,
       },
     });
+
+
+    PlayList.belongsToMany(models.Recipe, {through: models.RecipePlaylist});
+    PlayList.hasMany(models.RecipePlaylist);
   };
   return PlayList;
 };

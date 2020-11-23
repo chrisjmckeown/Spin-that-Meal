@@ -5,7 +5,7 @@ const isAuthenticated = require('../../config/middleware/isAuthenticated');
 module.exports = function(app) {
   // GET route for getting all items
   app.get('/api/favourite', isAuthenticated, (req, res) => {
-    db.Favourite.findAll({}).then((result) => {
+    db.Favourite.findAll().then((result) => {
       res.json(result);
     });
   });

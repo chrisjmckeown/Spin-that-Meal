@@ -23,7 +23,15 @@
                                 class="uk-button uk-button-default uk-width-1-1 uk-margin-small-bottom btn-flex-size btn-message-message">Send
                                 Message</button>
                         </form>
+
+                        <h4>Site Admins</h4>
+                        <ul class="uk-list uk-list-divider uk-list-striped">
+                            {{#each User}}
+                            {{> admin}}
+                            {{/each}}
+                        </ul>
                     </div>
+
                 </div>
                 <div class="uk-width-1-5@m">
                     {{> chat}}

@@ -5,10 +5,15 @@ const isAuthenticated = require('../../config/middleware/isAuthenticated');
 module.exports = function(app) {
   // GET route for getting all items
   app.get('/api/recipes', isAuthenticated, (req, res) => {
-    db.Recipe.findAll({
-
-    }).then((result) => {
+    db.Recipe.findAll().then((result) => {
       res.render('management/recipes', {Recipe: result});
+    });
+  });
+
+  // GET route for getting all items
+  app.get('/api/recipes-in-list', isAuthenticated, (req, res) => {
+    db.Recipe.findAll().then((result) => {
+      res.json({Recipe: result});
     });
   });
 
