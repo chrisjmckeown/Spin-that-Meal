@@ -16,13 +16,14 @@ module.exports = function(app) {
       res.json({Recipe: result});
     });
   });
-  
+
   // GET route for getting all recipes associated to the logged in user
   app.get('/api/all-recipes-a-list', isAuthenticated, (req, res) => {
     db.Recipe.findAll().then((result) => {
       res.render('primary-pages/myRecipes', {Recipe: result});
     });
   });
+
   // GET route for getting all recipes associated to the logged in user
   app.get('/api/recipes-in-my-list', isAuthenticated, (req, res) => {
     db.Recipe.findAll({
