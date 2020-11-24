@@ -18,7 +18,6 @@ $(function() {
       portion: 'blank',
       UserId: id,
     };
-    console.log(newRecipe);
     // Send the POST request.
     $.ajax('/api/recipes', {
       type: 'POST',
@@ -26,7 +25,6 @@ $(function() {
     }).then((res) => {
       // Reload the page to get the updated list
       localStorage.setItem('create-recipe', JSON.stringify(res));
-      console.log(res);
       window.location.replace('/create-recipe');
     }).catch((err) => {
       if (err) throw err;

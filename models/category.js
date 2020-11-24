@@ -10,11 +10,11 @@ module.exports = function(sequelize, DataTypes) {
   },
   {
     freezeTableName: true,
+    timestamps: false,
   });
   Category.associate = function(models) {
-    Category.belongsToMany(models.Recipe, {
-      through: 'Recipe_Category',
-    });
+    Category.belongsToMany(models.Recipe, {through: models.RecipeCategory});
+    Category.hasMany(models.RecipeCategory);
   };
   return Category;
 };

@@ -25,7 +25,6 @@ $(function() {
         data: updateRecipe,
       }).then(
           (result) => {
-            console.log(result);
             // Reload the page to get the updated list
             window.location.replace('/recipe');
           },

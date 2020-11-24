@@ -1,7 +1,7 @@
 USE dinning_playlist_DB;
 
 INSERT INTO Measurement (name) VALUES 
-("cup"), ("tablespoon"), ("teaspoon"),
+("cup"), ("Tbsp"), ("tsp"),
 ("l"), ("ml"),
 ("kg"), ("g"),
 ("unit");

@@ -14,19 +14,62 @@
                   <input type="text" class="uk-input recipe-name" id="recipe-name" name="name"
                     placeholder="new recipe name...">
                 </div>
-                <div class="uk-width-expand uk-first-column">
+                <div class="uk-width-auto">
                   <input type="text" class="uk-input recipe-portion" id="recipe-portion" name="name"
                     placeholder="recipe portion...">
                 </div>
-                <div class="uk-width-expand">
-                  <textarea type="textarea" class="uk-input recipe-instruction" id="recipe-instruction"
-                    placeholder="recipe instructions..."></textarea>
+              </div>
+              <div class="uk-width-auto">
+                <textarea class="uk-textarea recipe-instruction" rows="3" id="recipe-instruction" type="text"
+                  placeholder="recipe instructions...">{{this.dataValues.address}}</textarea>
+              </div>
+
+              <div class="uk-margin-small uk-grid-small uk-grid" uk-grid="">
+                <div class="uk-width-auto uk-first-column">
+                  <label for="category-list">Select at least one category:</label>
+                </div>
+                <div class="uk-width-expand uk-first-column">
+                  <select class="uk-select category-dropdown-list">
+                  </select>
                 </div>
                 <div class="uk-width-auto">
-                  <button class="uk-button btn-flex-size uk-width-1-1" type="submit">Add Recipe</button>
+                  <button class="uk-button btn-flex-size uk-width-1-1 btn-add-category">Add Category</button>
                 </div>
               </div>
+              <div>
+                <ul class="uk-list uk-list-divider uk-list-striped recipe-Categories">
+
+                </ul>
+              </div>
+
+              <div class="uk-margin-small uk-grid-small uk-grid" uk-grid="">
+                <div class="uk-width-auto uk-first-column">
+                  <label for="category-list">Select at least one ingredient:</label>
+                </div>
+                <div class="uk-width-expand uk-first-column">
+                  <select class="uk-select ingredient-dropdown-list">
+                  </select>
+                </div>
+                <div class="uk-width-auto">
+                  <button class="uk-button btn-flex-size uk-width-1-1 btn-add-ingredient">Add Ingredient</button>
+                </div>
+              </div>
+              <div>
+                <ul class="uk-list uk-list-divider uk-list-striped recipe-Ingredients">
+
+                </ul>
+              </div>
+
+              <br>
+              <div class="uk-width">
+                <button class="uk-button btn-flex-size uk-width-1-1 btn-add-recipe">Add Recipe</button>
+              </div>
+              <div style="display: none" id="alert" role="alert">
+                <span class="msg"></span>
+              </div>
             </form>
+          </div>
+          <div class="uk-box-shadow-xlarge uk-padding">
             <ul class="uk-list uk-list-divider uk-list-striped">
               {{#each Recipe}}
               {{> row-item text=this.dataValues.name}}

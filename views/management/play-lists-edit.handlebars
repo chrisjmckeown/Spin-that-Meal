@@ -11,7 +11,6 @@
               <div class="uk-margin-small uk-grid-small uk-grid" uk-grid="">
                 <label for="user-name-playlist">Select the member to own the playlist:</label>
                 <select class="uk-select user-name-playlist">
-                  {{!-- <option data-id="{{this.dataValues.id}}">{{this.dataValues.User.dataValues.firstName}} {{this.dataValues.User.dataValues.lastName}}</option> --}}
                 </select>
               </div>
 
@@ -36,6 +35,9 @@
               </ul>
             </div>
           </div>
+          <div style="display: none" id="alert" role="alert">
+            <span class="msg"></span>
+          </div>
         </div>
         <div class="uk-width-1-5">
           {{> chat}}
@@ -46,4 +48,4 @@
   {{> footer}}
 </div>
 <!-- App scripts and css-->
-<script src="/js/play-list.js"></script>
+<script src="/js/admin-play-list.js"></script>

@@ -6,14 +6,49 @@ $(function() {
   const editBtn = $('.edit');
   const updateForm = $('.update-form');
   const deleteBtn = $('.delete');
+  const typeList = $('.type-list');
+
+  load();
+
+  /**
+* Loads list of types.
+*/
+  function load() {
+    $.get('/api/types', {
+    }).then(
+        (result) => {
+          $.each(result, function(index, item) {
+            let found = false;
+            Array.from(typeList[0].options).forEach((c) => {
+              if (c.value == `${item.id}`) {
+                found = true;
+              }
+            });
+            if (!found) {
+              typeList.append(
+                  `<option value="${item.id}">${item.name}</option>`,
+              );
+            }
+          });
+        },
+    );
+  }
 
   // ADD new ingredients
   createForm.on('submit', function(event) {
     // Make sure to preventDefault on a submit event.
     event.preventDefault();
+    $('#alert .msg').text('');
+    $('#alert').fadeOut(0);
     const newItem = {
       name: ingredientName.val().trim(),
+      TypeId: typeList.val(),
     };
+    if (!newItem.name || !newItem.TypeId) {
+      $('#alert .msg').text('Please enter a valid Name and Type.');
+      $('#alert').fadeIn(500);
+      return;
+    }
     // Send the POST request.
     $.ajax('/api/ingredients', {
       type: 'POST',
@@ -35,11 +70,19 @@ $(function() {
   updateForm.on('submit', function(event) {
     // Make sure to preventDefault on a submit event.
     event.preventDefault();
+    $('#alert .msg').text('');
+    $('#alert').fadeOut(0);
     const id = $(this).data('id');
     const updatedItem = {
       id: id,
       name: ingredientName.val().trim(),
+      TypeId: typeList.val(),
     };
+    if (!updatedItem.name || !updatedItem.TypeId) {
+      $('#alert .msg').text('Please enter a valid Name and Type.');
+      $('#alert').fadeIn(500);
+      return;
+    }
     // Send the POST request.
     $.ajax(`/api/ingredients`, {
       type: 'PUT',

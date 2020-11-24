@@ -7,14 +7,29 @@
         <div class="uk-width-4-5">
           <div class="uk-box-shadow-xlarge uk-padding">
             <legend class="uk-legend">Edit {{this.dataValues.name}} Ingredient</legend>
-            <form data-id="{{this.dataValues.id}}" class="uk-grid-small update-form">
-              <div class="uk-margin-small uk-grid-small uk-grid" uk-grid="">
+            <form data-id="{{this.dataValues.id}}" class="uk-margin-small uk-grid-small uk-grid  update-form"
+              uk-grid="">
+              <div class="uk-width-auto uk-first-column">
                 <label for="ingredient-name">Name:</label>
+              </div>
+              <div class="uk-width-expand uk-first-column">
                 <input type="text" class="uk-input ingredient-name" id="ingredient-name" name="name"
                   value="{{this.dataValues.name}}">
               </div>
+              <div class="uk-width-auto uk-first-column">
+                <label for="type-list">Type:</label>
+              </div>
+              <div class="uk-width-expand uk-first-column">
+                <select class="uk-select type-list" value="{{this.dataValues.Type.dataValues.id}}">
+                  <option value="{{this.dataValues.Type.dataValues.id}}">{{this.dataValues.Type.dataValues.name}}
+                  </option>
+                </select>
+              </div>
               <button class="uk-button btn-flex-size uk-width-1-1" type="submit">Update Ingredient</button>
             </form>
+            <div style="display: none" id="alert" role="alert">
+              <span class="msg"></span>
+            </div>
           </div>
         </div>
         <div class="uk-width-1-5">
@@ -26,4 +41,4 @@
   {{> footer}}
 </div>
 <!-- App scripts and css-->
-<script src="/js/ingredient.js"></script>
+<script src="/js/admin-ingredient.js"></script>

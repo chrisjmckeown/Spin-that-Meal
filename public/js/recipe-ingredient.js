@@ -21,7 +21,6 @@ $(function() {
     $.ajax('/api/types', {
       type: 'GET',
     }).then((res) => {
-      console.log("type", res)
       res.forEach((item, index) => {
         type.append(
             `<option value="${item.id}>${item.name}</option>`,
@@ -29,7 +28,6 @@ $(function() {
         $.ajax('/api/measurements', {
           type: 'GET',
         }).then((res) => {
-          console.log("measurement", res)
           res.forEach((item, index) => {
             measurement.append(
                 `<option value="${item.id}>${item.name}</option>`,
