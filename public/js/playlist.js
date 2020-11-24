@@ -31,6 +31,13 @@ $(function() {
           displayRecipe.html('');
           const categories = result.Categories.map(
               (item) => `${item.name}`).join(' ');
+
+
+          const ingredients = result.RecipeIngredients.map(
+              (item) =>
+                `<li>${item.Ingredient.name}: 
+              ${item.amount} 
+              ${item.Measurement.name}</li>`).join(' ');
           displayRecipe.append(
               `<div class="uk-card uk-card-default
             uk-card-hover uk-card-body
@@ -41,6 +48,10 @@ $(function() {
             <p>${result.portion}</p>
             <h4>Instruction</h4>
             <p>${result.instruction}</p>
+            <h5>Ingredients</h5>
+            <ul>
+            ${ingredients}
+            </ul>
             <h5>Categories</h5>
             ${categories}
             </div></div>`);
