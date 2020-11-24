@@ -6,6 +6,9 @@ module.exports = function(app) {
   // GET route for getting all items
   app.get('/api/ingredients-list', isAuthenticated, (req, res) => {
     db.Ingredient.findAll({
+      order: [
+        ['name', 'ASC'],
+      ],
       include: [db.Type],
     }).then((result) => {
       res.json(result);
@@ -15,6 +18,9 @@ module.exports = function(app) {
   // GET route for getting all items
   app.get('/api/ingredients', isAuthenticated, (req, res) => {
     db.Ingredient.findAll({
+      order: [
+        ['name', 'ASC'],
+      ],
       include: [db.Type],
     }).then((result) => {
       res.render('management/ingredients', {Ingredient: result});
