@@ -11,13 +11,20 @@ $(function() {
   createForm.on('submit', function(event) {
     // Make sure to preventDefault on a submit event.
     event.preventDefault();
-    const newType = {
+    $('#alert .msg').text('');
+    $('#alert').fadeOut(0);
+    const newItem = {
       name: typeName.val().trim(),
     };
+    if (!newItem.name || !newItem.TypeId) {
+      $('#alert .msg').text('Please enter a valid Name.');
+      $('#alert').fadeIn(500);
+      return;
+    }
     // Send the POST request.
     $.ajax('/api/types', {
       type: 'POST',
-      data: newType,
+      data: newItem,
     }).then(
         () => {
           // Reload the page to get the updated list
@@ -35,15 +42,22 @@ $(function() {
   updateForm.on('submit', function(event) {
     // Make sure to preventDefault on a submit event.
     event.preventDefault();
+    $('#alert .msg').text('');
+    $('#alert').fadeOut(0);
     const id = $(this).data('id');
-    const updatedtypes = {
+    const updatedItem = {
       id: id,
       name: typeName.val().trim(),
     };
+    if (!updatedItem.name) {
+      $('#alert .msg').text('Please enter a valid Name.');
+      $('#alert').fadeIn(500);
+      return;
+    }
     // Send the POST request.
     $.ajax(`/api/types`, {
       type: 'PUT',
-      data: updatedtypes,
+      data: updatedItem,
     }).then(
         () => {
           // Reload the page to get the updated list

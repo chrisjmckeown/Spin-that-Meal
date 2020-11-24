@@ -76,19 +76,25 @@ $(function() {
     );
   }
 
-
   // ADD new Playlist
   createForm.on('submit', function(event) {
     // Make sure to preventDefault on a submit event.
     event.preventDefault();
-    const newPlayList = {
+    $('#alert .msg').text('');
+    $('#alert').fadeOut(0);
+    const newItem = {
       name: playListName.val().trim(),
       UserId: userId,
     };
+    if (!newItem.name) {
+      $('#alert .msg').text('Please enter a valid Name.');
+      $('#alert').fadeIn(500);
+      return;
+    }
     // Send the POST request.
     $.ajax('/api/play-lists', {
       type: 'POST',
-      data: newPlayList,
+      data: newItem,
     }).then(
         () => {
           // Reload the page to get the updated list
@@ -106,12 +112,19 @@ $(function() {
   updateForm.on('submit', function(event) {
     // Make sure to preventDefault on a submit event.
     event.preventDefault();
+    $('#alert .msg').text('');
+    $('#alert').fadeOut(0);
     const id = $(this).data('id');
     const updatedItem = {
       id: id,
       name: playListName.val().trim(),
       UserId: userListPlaylist.val(),
     };
+    if (!updatedItem.name) {
+      $('#alert .msg').text('Please enter a valid Name.');
+      $('#alert').fadeIn(500);
+      return;
+    }
     // Send the PUT request.
     $.ajax(`/api/play-lists`, {
       type: 'PUT',

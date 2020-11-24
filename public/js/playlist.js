@@ -27,19 +27,23 @@ $(function() {
       type: 'GET',
     }).then(
         (result) => {
+          console.log(result);
           displayRecipe.html('');
+          const categories = result.Categories.map(
+              (item) => `${item.name}`).join(' ');
           displayRecipe.append(
-              '<div class="uk-card uk-card-default ' +
-            'uk-card-hover uk-card-body ' +
-            '<div class="uk-card-title">' +
-            '<h3>Name</h3>' +
-            `<p>${result.name}</p>` +
-            '<h4>Portion</h4>' +
-            `<p>${result.portion}</p>` +
-            '<h4>Instruction</h4>' +
-            `<p>${result.instruction}</p>` +
-            '</div>' +
-            '</div>');
+              `<div class="uk-card uk-card-default
+            uk-card-hover uk-card-body
+            <div class="uk-card-title">
+            <h3>Name</h3>
+            <p>${result.name}</p>
+            <h4>Portion</h4>
+            <p>${result.portion}</p>
+            <h4>Instruction</h4>
+            <p>${result.instruction}</p>
+            <h5>Categories</h5>
+            ${categories}
+            </div></div>`);
         },
     );
   });

@@ -74,11 +74,6 @@ h1 {
   background-color: #cea04a;
 }
 
-.msg,
-.msglogin {
-  color: red;
-}
-
 @media (max-width: 960px) {
   .sign-in,
   .sign-in-switch {

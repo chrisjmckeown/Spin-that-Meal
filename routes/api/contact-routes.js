@@ -18,7 +18,6 @@ module.exports = function(app) {
 
   // POST route for sending email
   app.post('/api/contact/sendmessage', isAuthenticated, async (req, res) => {
-    console.log(req.body.data);
     const {name, email, message} = req.body.data;
     const emailUrl = await main(name, email, message);
 

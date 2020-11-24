@@ -14,14 +14,24 @@
                   <input type="text" class="uk-input ingredient-name" id="ingredient-name" name="name"
                     placeholder="new ingredient name...">
                 </div>
+                <div class="uk-width-auto uk-first-column">
+                  <label for="type-list">Type:</label>
+                </div>
+                <div class="uk-width-expand uk-first-column">
+                  <select class="uk-select type-list">
+                  </select>
+                </div>
                 <div class="uk-width-auto">
                   <button class="uk-button btn-flex-size uk-width-1-1" type="submit">Add Ingredient</button>
                 </div>
               </div>
+              <div style="display: none" id="alert" role="alert">
+                <span class="msg"></span>
+              </div>
             </form>
             <ul class="uk-list uk-list-divider uk-list-striped">
               {{#each Ingredient}}
-              {{> row-item text=this.dataValues.name}}
+              {{> ingredients-row-item}}
               {{/each}}
             </ul>
           </div>
