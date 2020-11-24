@@ -62,7 +62,7 @@ module.exports = function(app) {
   });
 
   // PUT route for updating
-  app.put('/api/recipes', isAuthenticated, (req, res) => {
+  app.put('/api/recipes/:id', isAuthenticated, (req, res) => {
     const {id, name, instruction, portion, UserId} = req.body;
     db.Recipe.update({
       name, instruction, portion, UserId,
