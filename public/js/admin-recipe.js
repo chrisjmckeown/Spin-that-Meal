@@ -11,7 +11,11 @@ $(function() {
   const categoryList = $('.category-dropdown-list');
   const addCategoryBtn = $('.btn-add-category');
   const recipeCategories = $('.recipe-Categories');
-  // const removeRecipeCategory = $('.remove-recipe-category');
+
+
+  const ingredientList = $('.ingredient-dropdown-list');
+  const addIngredientBtn = $('.btn-add-ingredient');
+  const recipeIngredients = $('.recipe-Ingredients');
 
   let userId;
 
@@ -38,6 +42,16 @@ $(function() {
           });
         },
     );
+    $.get('/api/ingredients-list', {
+    }).then(
+        (result) => {
+          $.each(result, function(index, item) {
+            ingredientList.append(
+                `<option value="${item.id}">${item.name}</option>`,
+            );
+          });
+        },
+    );
   }
 
   // ADD new category
@@ -49,6 +63,13 @@ $(function() {
     if (!$('.recipe-Categories li').length) {
       $('#alert .msg').text(
           'Please select at least 1 Category.',
+      );
+      $('#alert').fadeIn(500);
+      return;
+    }
+    if (!$('.recipe-Ingredients li').length) {
+      $('#alert .msg').text(
+          'Please select at least 1 Ingredient.',
       );
       $('#alert').fadeIn(500);
       return;
@@ -85,6 +106,27 @@ $(function() {
               data: newItemCategories,
             }).then(
                 () => {
+                  $('.recipe-Ingredients li').each(function() {
+                    const id = $(this).data('id');
+                    const quantity = $(this)[0].childNodes[0].
+                        childNodes[3].childNodes[1].value.trim();
+
+                    const newItemIngredients = {
+                      amount: quantity,
+                      RecipeId: result.id,
+                      MeasurementId: 1,
+                      IngredientId: id,
+                    };
+                    // Send the POST request.
+                    $.ajax('/api/recipe-ingredients', {
+                      type: 'POST',
+                      data: newItemIngredients,
+                    }).then(
+                        () => {
+                          location.reload();
+                        });
+                  },
+                  );
                 });
           },
           );
@@ -164,6 +206,34 @@ $(function() {
   });
 
   $(document).on('click', '.remove-recipe-category', function(event) {
+    event.preventDefault();
+    event.target.parentElement.parentElement.parentElement.remove();
+  });
+
+  addIngredientBtn.on('click', function(event) {
+    event.preventDefault();
+    const ingredientId = ingredientList.val();
+    const ingredientName = ingredientList.find('option:selected').text();
+    recipeIngredients.append(
+        `<li data-id="${ingredientId}"><div class="uk-grid" uk-grid>
+        <div class="uk-width-expand">
+        ${ingredientName}
+        </div>
+        <div class="uk-width-expand">
+        <input class="uk-input amount" type="text" placeholder="quantity">
+        </div>
+        <div>
+        <button class="uk-button btn-flex-size remove-recipe-ingredient"
+        data-id="${ingredientId}">
+        Remove</button>
+        </div>
+        </div>
+        </li>`
+        ,
+    );
+  });
+
+  $(document).on('click', '.remove-recipe-ingredient', function(event) {
     event.preventDefault();
     event.target.parentElement.parentElement.parentElement.remove();
   });

@@ -25,9 +25,6 @@ module.exports = function(sequelize, DataTypes) {
   });
 
   Recipe.associate = function(models) {
-    Recipe.belongsToMany(models.User, {
-      through: 'Favourite',
-    });
     Recipe.belongsTo(models.User, {
       foreignKey: {
         allowNull: true,
@@ -36,12 +33,8 @@ module.exports = function(sequelize, DataTypes) {
     Recipe.hasMany(models.PlayList, {
       onDelete: 'SET NULL',
     });
-    Recipe.belongsToMany(models.Ingredient, {
-      through: 'RecipeIngredient',
-    });
-    Recipe.hasMany(models.Favourite, {
-      onDelete: 'cascade',
-    });
+    Recipe.belongsToMany(models.Ingredient, {through: models.RecipeIngredient});
+    Recipe.hasMany(models.RecipeIngredient);
 
     Recipe.belongsToMany(models.Category, {through: models.RecipeCategory});
     Recipe.hasMany(models.RecipeCategory);
