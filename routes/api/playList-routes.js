@@ -20,7 +20,6 @@ module.exports = function(app) {
       },
       include: [db.User, db.Recipe],
     }).then((result) => {
-      console.log(result);
       res.render('primary-pages/myPlaylists', {PlayList: result});
     });
   });
@@ -33,7 +32,6 @@ module.exports = function(app) {
       },
       include: [db.User, db.Recipe],
     }).then((result) => {
-      console.log(result);
       res.render('management/play-lists-edit', result);
     });
   });

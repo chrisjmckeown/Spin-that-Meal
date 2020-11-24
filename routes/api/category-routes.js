@@ -4,6 +4,13 @@ const isAuthenticated = require('../../config/middleware/isAuthenticated');
 
 module.exports = function(app) {
   // GET route for getting all items
+  app.get('/api/categories-list', isAuthenticated, (req, res) => {
+    db.Category.findAll().then((result) => {
+      res.json(result);
+    });
+  });
+
+  // GET route for getting all items
   app.get('/api/categories', isAuthenticated, (req, res) => {
     db.Category.findAll().then((result) => {
       res.render('management/categories', {Category: result});

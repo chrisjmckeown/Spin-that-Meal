@@ -45,7 +45,7 @@ module.exports = function(app) {
       where: {
         id: req.params.id,
       },
-      include: [db.Category, db.RecipeIngredient],
+      include: [db.Category],
     }).then((result) => {
       res.json(result);
     });

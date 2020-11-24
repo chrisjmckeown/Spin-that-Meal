@@ -8,7 +8,6 @@ module.exports = function(app) {
     db.Ingredient.findAll({
       include: [db.Type],
     }).then((result) => {
-      console.log(result);
       res.render('management/ingredients', {Ingredient: result});
     });
   });
