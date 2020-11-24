@@ -19,6 +19,7 @@ $(function() {
 
   let userId;
 
+  let measurements = document.createElement('div');
   load();
 
   /**
@@ -50,6 +51,17 @@ $(function() {
                 `<option value="${item.id}">${item.name}</option>`,
             );
           });
+        },
+    );
+    $.get('/api/measurements', {
+    }).then(
+        (result) => {
+          measurements = `<div class="uk-width-expand">
+            <select class="uk-select ingredient-dropdown-list">`;
+          $.each(result, function(index, item) {
+            measurements += `<option value="${item.id}">${item.name}</option>`;
+          });
+          measurements += `</select></div>`;
         },
     );
   }
@@ -110,11 +122,12 @@ $(function() {
                     const id = $(this).data('id');
                     const quantity = $(this)[0].childNodes[0].
                         childNodes[3].childNodes[1].value.trim();
-
+                    const measurementId = $(this)[0].childNodes[0].
+                        childNodes[5].childNodes[1].selectedOptions[0].value;
                     const newItemIngredients = {
                       amount: quantity,
                       RecipeId: result.id,
-                      MeasurementId: 1,
+                      MeasurementId: measurementId,
                       IngredientId: id,
                     };
                     // Send the POST request.
@@ -220,8 +233,10 @@ $(function() {
         ${ingredientName}
         </div>
         <div class="uk-width-expand">
-        <input class="uk-input amount" type="text" placeholder="quantity">
+        <input class="uk-input amount" type="number" 
+        placeholder="quantity" min="1" value="1">
         </div>
+        ${measurements}
         <div>
         <button class="uk-button btn-flex-size remove-recipe-ingredient"
         data-id="${ingredientId}">
