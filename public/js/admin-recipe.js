@@ -30,16 +30,25 @@ $(function() {
   createForm.on('submit', function(event) {
     // Make sure to preventDefault on a submit event.
     event.preventDefault();
-    const newRecipe = {
+    $('#alert .msg').text('');
+    $('#alert').fadeOut(0);
+    const newItem = {
       name: recipeName.val().trim(),
       instruction: recipeInstruction.val().trim(),
       portion: recipePortion.val().trim(),
       UserId: userId,
     };
+    if (!newItem.name || !newItem.instruction || !newItem.portion) {
+      $('#alert .msg').text(
+          'Please enter a valid Name, Instruction and Portion.',
+      );
+      $('#alert').fadeIn(500);
+      return;
+    }
     // Send the POST request.
     $.ajax('/api/recipes', {
       type: 'POST',
-      data: newRecipe,
+      data: newItem,
     }).then(
         (result) => {
           // Reload the page to get the updated list
@@ -58,18 +67,27 @@ $(function() {
   updateForm.on('submit', function(event) {
     // Make sure to preventDefault on a submit event.
     event.preventDefault();
+    $('#alert .msg').text('');
+    $('#alert').fadeOut(0);
     const id = $(this).data('id');
-    const updatedRecipe = {
+    const updatedItem = {
       id: id,
       name: recipeName.val().trim(),
       instruction: recipeInstruction.val().trim(),
       portion: recipePortion.val().trim(),
       UserId: userId,
     };
+    if (!updatedItem.name || !updatedItem.instruction || !updatedItem.portion) {
+      $('#alert .msg').text(
+          'Please enter a valid Name, Instruction and Portion.',
+      );
+      $('#alert').fadeIn(500);
+      return;
+    }
     // Send the POST request.
     $.ajax(`/api/recipes`, {
       type: 'PUT',
-      data: updatedRecipe,
+      data: updatedItem,
     }).then(
         () => {
           // Reload the page to get the updated list

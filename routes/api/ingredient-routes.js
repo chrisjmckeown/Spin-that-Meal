@@ -5,7 +5,10 @@ const isAuthenticated = require('../../config/middleware/isAuthenticated');
 module.exports = function(app) {
   // GET route for getting all items
   app.get('/api/ingredients', isAuthenticated, (req, res) => {
-    db.Ingredient.findAll().then((result) => {
+    db.Ingredient.findAll({
+      include: [db.Type],
+    }).then((result) => {
+      console.log(result);
       res.render('management/ingredients', {Ingredient: result});
     });
   });
@@ -15,7 +18,7 @@ module.exports = function(app) {
     db.Ingredient.findOne({
       where: {
         id: req.params.id,
-      },
+      }, include: [db.Type],
     }).then((result) => {
       res.render('management/ingredients-edit', result);
     });
@@ -34,9 +37,9 @@ module.exports = function(app) {
 
   // POST route for saving new
   app.post('/api/ingredients', isAuthenticated, (req, res) => {
-    const {name} = req.body;
+    const {name, TypeId} = req.body;
     db.Ingredient.create({
-      name,
+      name, TypeId,
     }).then((result) => {
       res.json(result);
     });
@@ -44,9 +47,9 @@ module.exports = function(app) {
 
   // PUT route for updating
   app.put('/api/ingredients', isAuthenticated, (req, res) => {
-    const {id, name} = req.body;
+    const {id, name, TypeId} = req.body;
     db.Ingredient.update({
-      name,
+      name, TypeId,
     }, {
       where: {
         id: id,

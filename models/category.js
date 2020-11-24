@@ -10,6 +10,7 @@ module.exports = function(sequelize, DataTypes) {
   },
   {
     freezeTableName: true,
+    timestamps: false,
   });
   Category.associate = function(models) {
     Category.belongsToMany(models.Recipe, {

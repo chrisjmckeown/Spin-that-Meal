@@ -11,9 +11,16 @@ $(function() {
   createForm.on('click', function(event) {
     // Make sure to preventDefault on a submit event.
     event.preventDefault();
+    $('#alert .msg').text('');
+    $('#alert').fadeOut(0);
     const newItem = {
       name: measurementName.val().trim(),
     };
+    if (!newItem.name) {
+      $('#alert .msg').text('Please enter a valid Name.');
+      $('#alert').fadeIn(500);
+      return;
+    }
     // Send the POST request.
     $.ajax('/api/measurements', {
       type: 'POST',
@@ -35,11 +42,18 @@ $(function() {
   updateForm.on('submit', function(event) {
     // Make sure to preventDefault on a submit event.
     event.preventDefault();
+    $('#alert .msg').text('');
+    $('#alert').fadeOut(0);
     const id = $(this).data('id');
     const updatedItem = {
       id: id,
       name: measurementName.val().trim(),
     };
+    if (!updatedItem.name) {
+      $('#alert .msg').text('Please enter a valid Name.');
+      $('#alert').fadeIn(500);
+      return;
+    }
     // Send the POST request.
     $.ajax(`/api/measurements`, {
       type: 'PUT',
@@ -54,17 +68,15 @@ $(function() {
 
   // DELETE measurement
   deleteBtn.on('click', function(event) {
-    deleteBtn.on('click', function(event) {
-      const id = $(this).data('id');
-      // Send the DELETE request.
-      $.ajax(`/api/measurements/${id}`, {
-        type: 'DELETE',
-      }).then(
-          () => {
-            // Reload the page to get the updated list
-            location.reload();
-          },
-      );
-    });
+    const id = $(this).data('id');
+    // Send the DELETE request.
+    $.ajax(`/api/measurements/${id}`, {
+      type: 'DELETE',
+    }).then(
+        () => {
+          // Reload the page to get the updated list
+          location.reload();
+        },
+    );
   });
 });

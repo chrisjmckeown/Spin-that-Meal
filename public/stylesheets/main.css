@@ -57,3 +57,8 @@ footer {
 .uk-button.btn-flex-size:hover {
   background-color: #3f3c33;
 }
+
+.msg,
+.msglogin {
+  color: red;
+}
