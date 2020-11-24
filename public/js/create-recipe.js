@@ -10,8 +10,7 @@ $(function() {
     if (recipeName.val() === '' ||
     recipePortion.val() === '' ||
     recipeInstruction.val() === '') {
-      alert('Please input all filed before submit');
-      return false;
+      alert('Please enter a valid Name, Instruction and Portion.');
     } else {
       const updateRecipe = {
         id: id,
