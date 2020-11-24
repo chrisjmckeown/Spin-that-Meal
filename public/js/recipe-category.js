@@ -46,7 +46,7 @@ $(function() {
     $.ajax(`/api/recipe-categories/${id}`, {
       type: 'DELETE',
     }).then(() => {
-      $(`#${id}`).parent().remove();
+      $(this).parent().remove();
     });
   });
 });
