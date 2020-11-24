@@ -18,6 +18,13 @@ module.exports = function(app) {
   });
 
   // GET route for getting all recipes associated to the logged in user
+  app.get('/api/all-recipes-a-list', isAuthenticated, (req, res) => {
+    db.Recipe.findAll().then((result) => {
+      res.render('primary-pages/myRecipes', {Recipe: result});
+    });
+  });
+
+  // GET route for getting all recipes associated to the logged in user
   app.get('/api/recipes-in-my-list', isAuthenticated, (req, res) => {
     db.Recipe.findAll({
       where: {
@@ -45,7 +52,10 @@ module.exports = function(app) {
       where: {
         id: req.params.id,
       },
-      include: [db.Category],
+      include: [db.Category, {
+        model: db.RecipeIngredient,
+        include: [db.Measurement, db.Ingredient],
+      }],
     }).then((result) => {
       res.json(result);
     });

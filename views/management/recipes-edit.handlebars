@@ -23,6 +23,44 @@
                 <input type="text" class="uk-input recipe-portion" id="recipe-portion" name="name"
                   value="{{this.dataValues.portion}}">
               </div>
+              <p>Ability to update recipe category and ingredients comming Soon</p>
+              <div disabled>
+                <div class="uk-margin-small uk-grid-small uk-grid" uk-grid="">
+                  <div class="uk-width-auto uk-first-column">
+                    <label for="category-list">Select at least one category:</label>
+                  </div>
+                  <div class="uk-width-expand uk-first-column">
+                    <select class="uk-select category-dropdown-list">
+                    </select>
+                  </div>
+                  <div class="uk-width-auto">
+                    <button class="uk-button btn-flex-size uk-width-1-1 btn-add-category">Add Category</button>
+                  </div>
+                </div>
+                <div>
+                  <ul class="uk-list uk-list-divider uk-list-striped recipe-Categories">
+
+                  </ul>
+                </div>
+
+                <div class="uk-margin-small uk-grid-small uk-grid" uk-grid="">
+                  <div class="uk-width-auto uk-first-column">
+                    <label for="category-list">Select at least one ingredient:</label>
+                  </div>
+                  <div class="uk-width-expand uk-first-column">
+                    <select class="uk-select ingredient-dropdown-list">
+                    </select>
+                  </div>
+                  <div class="uk-width-auto">
+                    <button class="uk-button btn-flex-size uk-width-1-1 btn-add-ingredient">Add Ingredient</button>
+                  </div>
+                </div>
+                <div>
+                  <ul class="uk-list uk-list-divider uk-list-striped recipe-Ingredients">
+
+                  </ul>
+                </div>
+              </div>
               <button class="uk-button btn-flex-size uk-width-1-1" type="submit">Update Recipe</button>
             </form>
           </div>
